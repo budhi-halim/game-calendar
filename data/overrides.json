@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "release-calendar-ba564f4817680f89",
+  "games": {
+    "hsr": [
+      {
+        "sequence": 0,
+        "date": "2023-04-26",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 1,
+        "date": "2023-06-07",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 2,
+        "date": "2023-07-19",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 3,
+        "date": "2023-08-30",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 4,
+        "date": "2023-10-11",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 5,
+        "date": "2023-11-15",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-1-5"
+        ]
+      },
+      {
+        "sequence": 6,
+        "date": "2023-12-27",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-1-6"
+        ]
+      },
+      {
+        "sequence": 7,
+        "date": "2024-02-06",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-2-0"
+        ]
+      },
+      {
+        "sequence": 8,
+        "date": "2024-03-27",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-2-1"
+        ]
+      },
+      {
+        "sequence": 9,
+        "date": "2024-05-08",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-2-2"
+        ]
+      },
+      {
+        "sequence": 10,
+        "date": "2024-06-19",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-2-3"
+        ]
+      },
+      {
+        "sequence": 11,
+        "date": "2024-07-31",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 12,
+        "date": "2024-09-10",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-2-5"
+        ]
+      },
+      {
+        "sequence": 13,
+        "date": "2024-10-23",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 14,
+        "date": "2024-12-04",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-2-7"
+        ]
+      },
+      {
+        "sequence": 15,
+        "date": "2025-01-15",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-3-0"
+        ]
+      },
+      {
+        "sequence": 16,
+        "date": "2025-02-26",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-3-1"
+        ]
+      },
+      {
+        "sequence": 17,
+        "date": "2025-04-09",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 18,
+        "date": "2025-05-21",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-3-3"
+        ]
+      },
+      {
+        "sequence": 19,
+        "date": "2025-07-02",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-3-4"
+        ]
+      },
+      {
+        "sequence": 20,
+        "date": "2025-08-13",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 21,
+        "date": "2025-09-24",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 22,
+        "date": "2025-11-05",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-3-7"
+        ]
+      },
+      {
+        "sequence": 23,
+        "date": "2025-12-17",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 24,
+        "date": "2026-02-13",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-4-0"
+        ]
+      },
+      {
+        "sequence": 25,
+        "date": "2026-03-25",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 26,
+        "date": "2026-04-22",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "hsr-history"
+        ],
+        "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+      },
+      {
+        "sequence": 27,
+        "date": "2026-06-01",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-4-3"
+        ]
+      },
+      {
+        "sequence": 28,
+        "date": "2026-07-15",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-4-4"
+        ]
+      },
+      {
+        "sequence": 29,
+        "date": "2026-08-26",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-4-5",
+          "official-98f7b00e2849d688"
+        ],
+        "managedBy": "hunter"
+      },
+      {
+        "sequence": 30,
+        "date": "2026-09-28",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "hsr-4-5",
+          "hsr-4-6",
+          "official-bd58a048544cb29f"
+        ],
+        "notes": "Monday release. Confirmed dates are not rounded. The 4.5 update notice independently specifies the September 28 transition.",
+        "managedBy": "hunter"
+      }
+    ],
+    "zzz": [
+      {
+        "sequence": 0,
+        "date": "2024-07-04",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "zzz-1-0"
+        ]
+      },
+      {
+        "sequence": 1,
+        "date": "2024-08-14",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 2,
+        "date": "2024-09-25",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 3,
+        "date": "2024-11-06",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 4,
+        "date": "2024-12-18",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "zzz-1-4"
+        ]
+      },
+      {
+        "sequence": 5,
+        "date": "2025-01-22",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "zzz-1-5"
+        ]
+      },
+      {
+        "sequence": 6,
+        "date": "2025-03-12",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 7,
+        "date": "2025-04-23",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 8,
+        "date": "2025-06-06",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "zzz-2-0"
+        ]
+      },
+      {
+        "sequence": 9,
+        "date": "2025-07-16",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 10,
+        "date": "2025-09-04",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 11,
+        "date": "2025-10-15",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 12,
+        "date": "2025-11-26",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 13,
+        "date": "2025-12-30",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "zzz-2-5"
+        ]
+      },
+      {
+        "sequence": 14,
+        "date": "2026-02-06",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-history"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 15,
+        "date": "2026-03-24",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "zzz-2-7"
+        ]
+      },
+      {
+        "sequence": 16,
+        "date": "2026-05-06",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "zzz-2-8"
+        ],
+        "notes": "Date supported by the officially announced end of version 2.7; the version number is from the historical version index."
+      },
+      {
+        "sequence": 17,
+        "date": "2026-06-17",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-3-0"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 18,
+        "date": "2026-07-29",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "zzz-3-1"
+        ],
+        "notes": "Historical community archive; not an official date announcement."
+      },
+      {
+        "sequence": 19,
+        "date": "2026-09-09",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "official-8922c00df90ed02c",
+          "zzz-3-2"
+        ],
+        "managedBy": "hunter"
+      }
+    ],
+    "endfield": [
+      {
+        "sequence": 0,
+        "date": "2026-01-22",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "endfield-launch"
+        ],
+        "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+      },
+      {
+        "sequence": 1,
+        "date": "2026-03-12",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "endfield-tide"
+        ],
+        "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+      },
+      {
+        "sequence": 2,
+        "date": "2026-04-17",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "endfield-history"
+        ],
+        "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+      },
+      {
+        "sequence": 3,
+        "date": "2026-06-05",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "endfield-history"
+        ],
+        "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+      },
+      {
+        "sequence": 4,
+        "date": "2026-07-16",
+        "status": "confirmed",
+        "verification": "archive",
+        "sources": [
+          "endfield-history"
+        ],
+        "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+      },
+      {
+        "sequence": 5,
+        "date": "2026-09-02",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "endfield-dreamscape",
+          "official-a505d05a7943e658"
+        ],
+        "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented. Official maintenance falls on Wednesday; only subsequent predictions use Thursday.",
+        "managedBy": "hunter",
+        "announcedOn": "2026-08-31"
+      }
+    ]
+  }
+}

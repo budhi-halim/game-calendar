@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Game Calendar: game release dates and an optional, owner-operated Google Calendar integration.">
+  <title>Game Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <nav aria-label="Application information">
+      <a class="brand" href="./" aria-current="page">Game Calendar</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms of use</a>
+    </nav>
+  </header>
+  <main id="main">
+    <h1>Game Calendar</h1>
+    <p>Game Calendar is a personal project for tracking release dates for Honkai: Star Rail, Zenless Zone Zero, and Arknights: Endfield. Its web interface is called Patch calendar.</p>
+    <p>The calendar displays historical dates, announced updates, and projected future releases using Jakarta dates. Version names and release dates are confirmed independently. Projections are estimates, not publisher announcements.</p>
+    <p><a class="button" href="../">Open calendar</a></p>
+    <h2>Optional Google Calendar synchronization</h2>
+    <p>The owner can authorize a local Python script to maintain release events in their own Google Calendar. The integration keeps historical releases and three upcoming releases per game. It uses private, all-day events marked free, with reminders disabled.</p>
+    <p>Synchronization reads calendar metadata, sharing permissions, and application-managed event records. It updates its own release entries rather than unrelated appointments. Authorization takes place through Google in the owner's browser; the project does not request the Google account password.</p>
+    <div class="callout">
+      <p><strong>The public website does not connect visitors' Google accounts.</strong> Opening the calendar does not authorize Google access or create events. The optional integration is configured and run separately by the owner.</p>
+    </div>
+    <h2>Privacy and contact</h2>
+    <p>The <a href="privacy.html">privacy policy</a> explains Google data access, local storage, optional automated processing, and removal of access. The <a href="terms.html">terms of use</a> describe the project's personal-use scope and release-date limitations.</p>
+    <p>For questions about Google authorization or data handling, use the project's support email displayed on the Google authorization screen.</p>
+  </main>
+  <footer><p>Independent personal project. Not affiliated with the game publishers or Google.</p></footer>
+</body>
+</html>

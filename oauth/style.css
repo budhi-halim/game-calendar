@@ -1,0 +1,37 @@
+:root {
+  color-scheme: light dark;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --page: light-dark(oklch(97.4% .008 85), oklch(16.8% .012 266));
+  --surface: light-dark(oklch(100% 0 0), oklch(20.4% .014 267));
+  --ink: light-dark(oklch(27% .018 265), oklch(92.5% .008 265));
+  --muted: light-dark(oklch(47% .018 265), oklch(74% .018 265));
+  --line: light-dark(oklch(87% .008 260), oklch(36% .016 267));
+  --accent: light-dark(oklch(43% .15 278), oklch(80% .1 278));
+  background: var(--page);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.7; overflow-wrap: anywhere; }
+main, header, footer { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+header { padding-block: 1.2rem; border-bottom: 1px solid var(--line); }
+nav { display: flex; align-items: center; flex-wrap: wrap; gap: .2rem 1.2rem; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.brand { font-weight: 700; text-decoration: none; margin-inline-end: auto; color: var(--ink); }
+main { padding-block: clamp(1.75rem, 5vw, 3.25rem); }
+h1 { font-size: clamp(1.8rem, 6vw, 2.7rem); line-height: 1.2; letter-spacing: -.035em; margin: 0 0 1rem; }
+h2 { font-size: 1.16rem; line-height: 1.4; margin: 2rem 0 .65rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--accent); text-underline-offset: .2em; touch-action: manipulation; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+[aria-current="page"] { font-weight: 700; }
+.meta { color: var(--muted); font-size: .9rem; }
+.callout { padding: 1rem 1.25rem; margin-block: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.callout p:last-child { margin-bottom: 0; }
+.button { display: inline-flex; min-height: 44px; align-items: center; padding: .55rem 1rem; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); font-weight: 650; }
+footer { border-top: 1px solid var(--line); padding-block: 1.2rem 2rem; color: var(--muted); font-size: .9rem; }
+footer p { margin: 0; }
+code { font-size: .93em; }
+.skip { position: absolute; top: .25rem; left: .5rem; background: var(--surface); padding: .65rem; transform: translateY(-200%); }
+.skip:focus { transform: none; }
+@media print { :root { color-scheme: light; } nav, .skip, .button { display: none; } main { padding-block: 1rem; } }

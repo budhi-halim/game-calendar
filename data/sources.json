@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "release-calendar-ba564f4817680f89",
+  "checkedOn": "2026-10-04",
+  "sources": {
+    "hsr-history": {
+      "title": "PC Gamer — Star Rail historical banner archive",
+      "url": "https://www.pcgamer.com/games/rpg/honkai-star-rail-banner-next-current/",
+      "kind": "archive",
+      "notes": "Archive rows use mixed regional date conventions. Dates in this dataset are the Asia/Jakarta release day, not the previous evening in the Americas. The erroneous 2.0 row is not used; see the developer announcement instead."
+    },
+    "zzz-history": {
+      "title": "Zenless Zone Zero Wiki — Version history",
+      "url": "https://zenless-zone-zero.fandom.com/wiki/Version",
+      "kind": "archive",
+      "notes": "Historical date and version index, accessed through indexed search excerpts. Community-maintained, not an official announcement."
+    },
+    "endfield-history": {
+      "title": "Arknights: Endfield Wiki — Version history",
+      "url": "https://endfield.wiki.gg/wiki/Version",
+      "kind": "archive",
+      "notes": "Historical title and date index, accessed through indexed search excerpts. Future end-date estimates in the wiki are not imported."
+    },
+    "hsr-1-5": {
+      "title": "HoYoverse — Version 1.5 update details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/113648",
+      "kind": "official"
+    },
+    "hsr-1-6": {
+      "title": "HoYoverse — Version 1.6 update details (Russian)",
+      "url": "https://hsr.hoyoverse.com/ru-ru/news/114194",
+      "kind": "official"
+    },
+    "hsr-2-0": {
+      "title": "Developer PlayStation Blog — Version 2.0 releases February 6",
+      "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+      "kind": "official",
+      "notes": "The developer article index explicitly dates the 2.0 release to February 6, 2024."
+    },
+    "hsr-2-1": {
+      "title": "HoYoverse — Version 2.1 update (Chinese)",
+      "url": "https://hsr.hoyoverse.com/zh-cn/news/123034",
+      "kind": "official"
+    },
+    "hsr-2-2": {
+      "title": "HoYoverse — Version 2.2 update (Chinese)",
+      "url": "https://hsr.hoyoverse.com/zh-cn/news/123642",
+      "kind": "official"
+    },
+    "hsr-2-3": {
+      "title": "Developer PlayStation Blog — Version 2.3 releases June 19",
+      "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+      "kind": "official",
+      "notes": "Developer article index; June 19, 2024 release, not article publication day."
+    },
+    "hsr-2-5": {
+      "title": "Polygon — Version 2.5 release times by region",
+      "url": "https://www.polygon.com/honkai-star-rail-guides/448932/patch-2-5-release-time-maintenance-end",
+      "kind": "archive",
+      "notes": "September 9 in the Americas corresponds to September 10 in Jakarta."
+    },
+    "hsr-2-7": {
+      "title": "Developer PlayStation Blog — Version 2.7 releases December 4",
+      "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+      "kind": "official"
+    },
+    "hsr-3-0": {
+      "title": "HoYoverse — Version 3.0 update (Vietnamese)",
+      "url": "https://hsr.hoyoverse.com/vi-vn/news/127987",
+      "kind": "official"
+    },
+    "hsr-3-1": {
+      "title": "HoYoverse — Version 3.1 update details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/154500",
+      "kind": "official"
+    },
+    "hsr-3-3": {
+      "title": "Polygon — Version 3.3 release times by region",
+      "url": "https://www.polygon.com/honkai-star-rail-guides/599692/version-3-3-release-times-maintenance-end",
+      "kind": "archive"
+    },
+    "hsr-3-4": {
+      "title": "Developer PlayStation Blog — Version 3.4 releases July 2",
+      "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+      "kind": "official"
+    },
+    "hsr-3-7": {
+      "title": "HoYoverse — Version 3.7 update (Portuguese)",
+      "url": "https://hsr.hoyoverse.com/pt-pt/news/160735",
+      "kind": "official"
+    },
+    "hsr-4-0": {
+      "title": "Developer PlayStation Blog — Version 4.0 releases February 13",
+      "url": "https://blog.playstation.com/2026/02/06/honkai-star-rail-version-4-0-no-aha-at-full-moon-will-go-live-on-february-13/",
+      "kind": "official"
+    },
+    "hsr-4-3": {
+      "title": "HoYoverse — Version 4.3 releases June 1",
+      "url": "https://www.hoyoverse.com/en-us/news/164350",
+      "kind": "official"
+    },
+    "hsr-4-4": {
+      "title": "HoYoverse — Version 4.4 update details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/165195",
+      "kind": "official"
+    },
+    "hsr-4-5": {
+      "title": "HoYoverse — Version 4.5 update details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/165767",
+      "kind": "official",
+      "notes": "Begins August 26, 2026 at 06:00 UTC+8; ends September 28, 2026 at 06:00 UTC+8."
+    },
+    "hsr-4-6": {
+      "title": "HoYoverse — Version 4.6 announcement",
+      "url": "https://www.hoyoverse.com/en-us/news/166390",
+      "kind": "official"
+    },
+    "zzz-1-0": {
+      "title": "Developer PlayStation Blog — Launch on July 4",
+      "url": "https://blog.playstation.com/tag/zenless-zone-zero/",
+      "kind": "official"
+    },
+    "zzz-1-4": {
+      "title": "Developer PlayStation Blog — Version 1.4 releases December 18",
+      "url": "https://blog.playstation.com/tag/zenless-zone-zero/",
+      "kind": "official"
+    },
+    "zzz-1-5": {
+      "title": "HoYoverse — Version 1.5 update details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/129572",
+      "kind": "official",
+      "notes": "Version 1.5 lasts seven weeks, until March 12, 2025."
+    },
+    "zzz-2-0": {
+      "title": "Developer PlayStation Blog — Version 2.0 releases June 6",
+      "url": "https://blog.playstation.com/2025/05/23/zenless-zone-zero-version-2-0-launches-on-june-6/",
+      "kind": "official"
+    },
+    "zzz-2-5": {
+      "title": "Developer PlayStation Blog — Version 2.5 releases December 30",
+      "url": "https://blog.playstation.com/2025/12/19/zenless-zone-zero-version-2-5-introduces-dual-form-void-hunter-on-december-30/",
+      "kind": "official"
+    },
+    "zzz-2-7": {
+      "title": "HoYoverse — Version 2.7 update details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/163253",
+      "kind": "official",
+      "notes": "Released March 24, 2026; runs 43 days until May 6, 2026 at 06:00 UTC+8."
+    },
+    "zzz-2-8": {
+      "title": "HoYoverse — Version 2.7 schedule through the next update",
+      "url": "https://zenless.hoyoverse.com/en-us/news/163253",
+      "kind": "official",
+      "notes": "May 6 follows the explicitly announced 2.7 version end. This is scheduled-boundary evidence, not a separate 2.8 maintenance notice."
+    },
+    "zzz-3-0": {
+      "title": "Zenless Zone Zero Wiki — Version 3.0",
+      "url": "https://zenless-zone-zero.fandom.com/wiki/Version/3.0",
+      "kind": "archive"
+    },
+    "zzz-3-1": {
+      "title": "Windows Central — Version 3.1 release on July 29",
+      "url": "https://www.windowscentral.com/gaming/zenless-zone-zero-is-launching-on-xbox-on-pc-and-xbox-play-anywhere-soon-with-its-version-3-1-update-in-celebration-of-the-games-2nd-anniversary",
+      "kind": "archive"
+    },
+    "zzz-3-2": {
+      "title": "HoYoverse on Steam — Version 3.2 update details",
+      "url": "https://store.steampowered.com/app/4162040/Zenless_Zone_Zero/",
+      "kind": "official",
+      "notes": "Publisher update excerpt indexed September 9, 2026: maintenance begins 2026/09/09 06:00 UTC+8. The store page news changes over time."
+    },
+    "endfield-launch": {
+      "title": "PlayStation — Arknights: Endfield launch date",
+      "url": "https://www.playstation.com/en-hk/games/arknights-endfield/",
+      "kind": "official"
+    },
+    "endfield-tide": {
+      "title": "GRYPHLINE press release — First major update on March 12",
+      "url": "https://www.gamespress.com/en-US/Arknights-Endfield-Announces-First-Major-Content-Update-Old-Deep-Water",
+      "kind": "official",
+      "notes": "Publisher-distributed press release. Explicitly identifies the first update as version 1.1."
+    },
+    "endfield-dreamscape": {
+      "title": "GRYPHLINE — Dreamscape update and maintenance notice",
+      "url": "https://endfield.gryphline.com/en-us/news/5209",
+      "kind": "official",
+      "notes": "Asia maintenance September 2, 2026, 06:00–12:00 UTC+8 = 05:00–11:00 Jakarta. Date is Wednesday, retained exactly."
+    },
+    "zzz-3-3-name": {
+      "title": "Angels Support Operation — official event details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/165980",
+      "kind": "official",
+      "notes": "The event explicitly spans Versions 3.2–3.3. This confirms the number 3.3, not its release date."
+    },
+    "endfield-ink-name": {
+      "title": "Sanctuary of Ink — official special-program announcement",
+      "url": "https://x.com/AKEndfield/status/2105508003554189727",
+      "kind": "official",
+      "notes": "Confirms the update title. October 6 is the special-program date, not the release date. No official numeric version label is asserted here."
+    },
+    "official-98f7b00e2849d688": {
+      "title": "Version 4.5 \"To Roll the Stars in Astropolis\" Update Details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/165767",
+      "kind": "official"
+    },
+    "official-a505d05a7943e658": {
+      "title": "[Dreamscape of Wind and Snow] Version Pre-Download & Update Notice",
+      "url": "https://endfield.gryphline.com/en-us/news/5209",
+      "kind": "official",
+      "publishedOn": "2026-08-31"
+    },
+    "official-8922c00df90ed02c": {
+      "title": "Version 3.2 \"Their Secret Histories\" Update Announcement",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166000",
+      "kind": "official"
+    },
+    "official-bd58a048544cb29f": {
+      "title": "Version 4.6 \"Dance With the Beast Before Moonrise\" Update Details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/166468",
+      "kind": "official"
+    },
+    "official-d960dc430894ed28": {
+      "title": "[Dreamscape of Wind and Snow] Version Update Notes",
+      "url": "https://endfield.gryphline.com/en-us/news/5208",
+      "kind": "official",
+      "publishedOn": "2026-09-02"
+    },
+    "official-dcac0af878a2cfac": {
+      "title": "\"Angels Support Operation\" Event Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/165980",
+      "kind": "official"
+    },
+    "official-1248718475755d23": {
+      "title": "Version 3.2 New Eridu City Fund Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/165995",
+      "kind": "official"
+    },
+    "official-c278fcae9a48b81a": {
+      "title": "\"Potential Hypothesis: Reforged in Fire\" Event Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/165996",
+      "kind": "official"
+    },
+    "official-37108a433dd60da0": {
+      "title": "\"All-New Program\" Event Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/165997",
+      "kind": "official"
+    },
+    "official-7eca3fe57dd42f08": {
+      "title": "Ridu Renovation Talk Vol. 14 | System & Gameplay",
+      "url": "https://zenless.hoyoverse.com/en-us/news/165999",
+      "kind": "official"
+    },
+    "official-8940c5c07fb4c417": {
+      "title": "🎁 Version 3.2 Twitch Drops Event Now Live",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166015",
+      "kind": "official"
+    },
+    "official-b4f0600f8ab154e7": {
+      "title": "Version 3.2 New Stock in the Store",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166021",
+      "kind": "official"
+    },
+    "official-3a6e9ae05e5011fa": {
+      "title": "Their Secret Histories | Version 3.2 Content Overview (Phase I)",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166023",
+      "kind": "official"
+    },
+    "official-b8c32e263e2fd24b": {
+      "title": "\"Clink, Clank, Pinball Knight!\" Event Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166025",
+      "kind": "official"
+    },
+    "official-88238ff20ca7be2a": {
+      "title": "Zenless Zone Zero Version 3.2 Character Avatars",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166042",
+      "kind": "official"
+    },
+    "official-253e187ae08cb265": {
+      "title": "Their Secret Histories | Version 3.2 Content Overview (Phase II)",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166497",
+      "kind": "official"
+    },
+    "official-08e9270a7e5fa5c0": {
+      "title": "Astral Imagea Draw Rates Notice",
+      "url": "https://hsr.hoyoverse.com/en-us/news/166189",
+      "kind": "official"
+    }
+  },
+  "coverage": {
+    "hsr": "31 historical releases, launch through 4.6. Official announcements are supplemented with a regional-normalized banner archive.",
+    "zzz": "20 historical releases, launch through 3.2. Official announcements are supplemented with community version history and reporting. The upcoming version number 3.3 is confirmed independently of the projected date.",
+    "endfield": "Six historical releases, launch through Dreamscape of Wind and Snow. Official announcements are supplemented with the community version index. The upcoming title Sanctuary of Ink is confirmed; a numerical 1.6 label is not asserted as official."
+  },
+  "caveats": [
+    "This is a manually researched snapshot, not a live news feed. No future release after the latest anchor was verified for inclusion on October 4, 2026.",
+    "Official means backed by a publisher announcement or publisher-authored release material. Archive means reported by a secondary source, not independently verified here against the original maintenance notice.",
+    "A stored date is pinned exactly, including exceptional weekdays. Projected dates are calculations, never announcements. Historical records can still require correction; this is not an exhaustive official-source audit.",
+    "Artwork is linked to official public media. The optional asset downloader can copy it into this repository. Public availability is not a redistribution license; rights remain with the respective publishers."
+  ],
+  "collectionMethod": "official-feeds",
+  "lastHunt": {
+    "checkedOn": "2026-10-04",
+    "scope": [
+      "hsr",
+      "zzz",
+      "endfield"
+    ],
+    "pendingNames": 0,
+    "games": {
+      "hsr": {
+        "articlesRead": 6,
+        "observations": 5,
+        "datedObservations": 2,
+        "missingPublicationDates": 6,
+        "discovery": {
+          "pagesRead": 1,
+          "recordsDiscovered": 5,
+          "endReason": "no-more-control-or-scroll-results",
+          "passes": [
+            {
+              "pass": 1,
+              "distinctRecords": 5
+            }
+          ],
+          "additionalKnownArticles": 1
+        }
+      },
+      "zzz": {
+        "articlesRead": 37,
+        "observations": 14,
+        "datedObservations": 1,
+        "missingPublicationDates": 37,
+        "discovery": {
+          "pagesRead": 4,
+          "recordsDiscovered": 36,
+          "endReason": "configured-page-limit",
+          "passes": [
+            {
+              "pass": 1,
+              "distinctRecords": 9
+            },
+            {
+              "pass": 2,
+              "distinctRecords": 18
+            },
+            {
+              "pass": 3,
+              "distinctRecords": 27
+            },
+            {
+              "pass": 4,
+              "distinctRecords": 36
+            }
+          ],
+          "additionalKnownArticles": 1
+        }
+      },
+      "endfield": {
+        "articlesRead": 10,
+        "observations": 2,
+        "datedObservations": 1,
+        "missingPublicationDates": 0,
+        "discovery": {
+          "pagesRead": 1,
+          "recordsDiscovered": 10,
+          "endReason": "no-more-control-or-scroll-results",
+          "passes": [
+            {
+              "pass": 1,
+              "distinctRecords": 10
+            }
+          ],
+          "additionalKnownArticles": 0
+        }
+      }
+    }
+  }
+}

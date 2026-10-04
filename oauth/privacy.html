@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for Game Calendar and its optional personal Google Calendar synchronization.">
+  <title>Privacy policy · Game Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <nav aria-label="Application information">
+      <a class="brand" href="./">Game Calendar</a>
+      <a href="privacy.html" aria-current="page">Privacy policy</a>
+      <a href="terms.html">Terms of use</a>
+    </nav>
+  </header>
+  <main id="main">
+    <h1>Privacy policy</h1>
+    <p class="meta">Game Calendar · Last updated 4 October 2026</p>
+    <p>Game Calendar is an owner-operated personal project. This policy covers its public release calendar, also called Patch calendar, and its optional Google Calendar synchronization. The integration is not offered as a public account-connection service.</p>
+    <h2>Public website</h2>
+    <p>The web calendar displays public game-release information and calculated predictions. It does not receive Google OAuth credentials or retrieve visitors' private Google Calendar information. Game filters and view preferences may be stored in the visitor's browser.</p>
+    <p>These application-information pages contain no sign-in form, analytics script, or advertising. Hosting providers process web requests under their own policies. For example, GitHub Pages records visitor IP addresses for security. The main calendar may request promotional images from their configured hosts if local artwork is unavailable.</p>
+    <h2>Google data accessed</h2>
+    <p>After explicit authorization, the Python integration can read the owner's calendar list, including calendar names, identifiers, ownership, and time zones. It reads sharing permissions to check that the chosen destination is unshared.</p>
+    <p>The integration reads and maintains events identified as its own release entries. Relevant fields include event identifiers, titles, dates, descriptions, status, visibility, reminders, application markers, and change metadata. The event permission granted by Google is broader than those specific entries; the script restricts its operations to application-managed events.</p>
+    <p>OAuth client settings and a refresh token are used to obtain temporary access tokens. The project does not collect the Google account password, email messages, contact list, or Google Drive files.</p>
+    <h2>Purpose of processing</h2>
+    <p>Google data is used only to identify the destination, check privacy settings, prevent duplicate managed events, and synchronize game-release history and the rolling future window. Managed releases can be renamed or moved when the stored release evidence changes. The current policy keeps completed releases and uses private, free, all-day events without reminders.</p>
+    <p>Google user data is not sold, used for advertising, used to build user profiles, or used to train artificial-intelligence models. Game Calendar's use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+    <h2>Storage and service providers</h2>
+    <p>For local operation, credentials, previews, reports, and synchronization state are stored in the project's <code>.patch-calendar/</code> directory. That directory is excluded from version control. Temporary access tokens are kept in process memory. Managed release events are stored in the owner's Google Calendar.</p>
+    <p>If the owner enables GitHub Actions synchronization, credentials are supplied through GitHub Actions secrets and used by the workflow runner. Google processes authorization and Calendar API requests; GitHub processes the workflow, its state cache, and any retained diagnostics. Public release files are separate from private Calendar state.</p>
+    <p>Any file synchronization or backup chosen by the owner, such as synchronization of the project folder through OneDrive, also applies to local runtime files. Access to those copies is governed by the owner's settings and the provider's policies. Runtime files and credentials must not be committed, included in a public website build, or posted in public issue reports.</p>
+    <h2>Retention and removal</h2>
+    <p>Local credentials and state remain until the owner removes them. Events remain in Google Calendar until deleted there or removed by a permitted synchronization operation. Completed release history is retained by default. Workflow diagnostics, caches, and backups follow their configured retention periods.</p>
+    <p>The owner can revoke the application's access in their Google Account's third-party connections settings and disable any scheduled workflow. Deleting local credential files and the corresponding Actions secret removes those stored copies; revocation is needed to invalidate existing access. Revoking access does not automatically delete events already created in Google Calendar. Those events can be removed separately without authorizing the application again.</p>
+    <h2>Contact and changes</h2>
+    <p>For authorization or data-handling questions, use the support email shown in the Google authorization screen. This policy should be updated before changing the integration's data use or making it available to additional users.</p>
+  </main>
+  <footer><p><a href="./">Game Calendar</a> · <a href="terms.html">Terms of use</a></p></footer>
+</body>
+</html>

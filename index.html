@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Game update dates for Honkai: Star Rail, Zenless Zone Zero and Arknights: Endfield, in Jakarta time.">
+  <meta name="referrer" content="no-referrer">
+  <title>Patch calendar</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <script type="module" src="js/ui.js?v=3"></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="4"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h2m4 0h2m-8 3h2"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.7 13a9 9 0 0 1-9.7-9.7A9 9 0 1 0 20.7 13Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M3 6h.1M3 12h.1M3 18h.1"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M7 5h12v12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to calendar</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Patch calendar home">
+        <span class="brand-mark"><svg class="icon"><use href="#i-calendar"/></svg></span>
+        <span>Patch calendar</span>
+      </a>
+      <div class="header-actions">
+        <span class="time-zone">Jakarta <span>UTC+7</span></span>
+        <button class="icon-button" id="sources-button" aria-label="Sources and calendar rules" title="Sources and calendar rules"><svg class="icon"><use href="#i-info"/></svg></button>
+        <button class="icon-button" id="theme-button" aria-label="Switch theme" title="Switch theme"><svg class="icon"><use id="theme-icon" href="#i-moon"/></svg></button>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <div id="loading" class="loading-panel" role="status">
+        <span class="loading-dot" aria-hidden="true"></span>
+        <h1>Loading calendar</h1>
+        
+      </div>
+      <section id="load-error" class="error-panel" hidden aria-labelledby="error-title">
+        <h1 id="error-title">Calendar could not load</h1>
+        <p id="error-message"></p>
+        <button class="button" id="retry-button">Reload</button>
+      </section>
+      <div id="app" hidden>
+        <section class="overview" aria-labelledby="page-title">
+          <div class="page-heading"><div><p class="eyebrow" id="today-label">JAKARTA</p><h1 id="page-title">Release calendar</h1></div><span class="local-label">Asia/Jakarta</span></div>
+          <fieldset class="game-filters"><legend class="sr-only">Games visible in the calendar</legend><div id="game-filters" class="filter-options"></div><button class="text-button" id="all-games">Show all</button></fieldset>
+        </section>
+
+        <div class="workspace">
+          <section class="calendar-column" aria-label="Calendar and releases">
+            <div class="calendar-panel">
+              <div class="calendar-head">
+                <button id="month-button" class="month-button" aria-haspopup="dialog"><span id="month-title"></span><svg class="icon small"><use href="#i-down"/></svg></button>
+                <div class="calendar-controls">
+                  <div class="segmented" aria-label="Calendar view"><button id="grid-view" class="icon-button" aria-label="Month grid" title="Month grid" aria-pressed="true"><svg class="icon small"><use href="#i-grid"/></svg></button><button id="list-view" class="icon-button" aria-label="Release list" title="Release list" aria-pressed="false"><svg class="icon small"><use href="#i-list"/></svg></button></div>
+                  <button class="button today-button" id="today-button">Today</button>
+                  <div class="month-navigation"><button class="icon-button" id="previous-month" aria-label="Previous month" title="Previous month"><svg class="icon"><use href="#i-left"/></svg></button><button class="icon-button" id="next-month" aria-label="Next month" title="Next month"><svg class="icon"><use href="#i-right"/></svg></button></div>
+                </div>
+              </div>
+              <div class="release-navigation" aria-label="Navigate release dates">
+                <button class="text-button" id="previous-release"><svg class="icon small" aria-hidden="true"><use href="#i-left"/></svg>Previous release</button>
+                <button class="text-button" id="next-release">Next release<svg class="icon small" aria-hidden="true"><use href="#i-right"/></svg></button>
+              </div>
+              <div id="month-grid-wrap"><div class="weekdays" id="weekdays" aria-hidden="true"></div><div id="month-grid" class="calendar-grid" role="grid" aria-labelledby="month-title"></div></div>
+              <div class="calendar-legend" aria-label="Date status legend"><span><i class="status-symbol official"></i>Confirmed</span><span><i class="status-symbol archive"></i>Archive</span><span><i class="status-symbol projected"></i>Projected</span></div>
+              <div id="selection-empty" class="selection-empty" hidden>No games selected. <button class="text-button" id="empty-show-all">Show all three</button></div>
+              <div class="agenda-head" id="agenda-heading" tabindex="-1"><h2 id="agenda-title">This month</h2><button class="text-button" id="clear-day" hidden>Show month</button><span id="month-count" class="muted"></span></div>
+              <div id="agenda" class="agenda"></div>
+            </div>
+            <p class="projection-note"><span class="note-dot" aria-hidden="true"></span>Projected dates follow the configured schedule, not an announcement.</p>
+          </section>
+
+          <aside class="upcoming" aria-labelledby="upcoming-title"><div class="section-head"><h2 id="upcoming-title">Up next</h2><span class="muted">From today</span></div><div id="upcoming-games"></div></aside>
+        </div>
+        <footer class="site-footer"><span id="data-checked"></span><button class="text-button" id="footer-sources">Sources &amp; rules <svg class="icon small"><use href="#i-arrow"/></svg></button></footer>
+      </div>
+    </main>
+  </div>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+
+  <dialog id="details-dialog" class="dialog" aria-labelledby="details-title"><div class="dialog-head"><p class="eyebrow">RELEASE DETAILS</p><button class="icon-button" data-close aria-label="Close release details"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="details-body"></div></dialog>
+  <dialog id="sources-dialog" class="dialog sources-dialog" aria-labelledby="sources-title"><div class="dialog-head"><h2 id="sources-title">Sources &amp; rules</h2><button class="icon-button" data-close aria-label="Close sources"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="sources-body"></div></dialog>
+  <dialog id="jump-dialog" class="dialog jump-dialog" aria-labelledby="jump-title"><form id="jump-form"><div class="dialog-head"><h2 id="jump-title">Go to month</h2><button type="button" class="icon-button" data-close aria-label="Close month selector"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="jump-fields"><label>Month<select id="jump-month" name="month"></select></label><label>Year<input id="jump-year" name="year" type="number" inputmode="numeric" min="2023" max="275760" step="1" required></label></div><p id="jump-help" class="muted"></p><p id="jump-error" class="form-error" role="alert"></p><button class="button primary" type="submit">Go to month</button></form></dialog>
+  <noscript><div class="error-panel">JavaScript is required to calculate release dates.</div></noscript>
+</body>
+</html>

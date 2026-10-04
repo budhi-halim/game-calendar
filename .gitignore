@@ -1,0 +1,42 @@
+# Local editor / operating system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Never publish credentials or runtime state
+.env
+.env.*
+!.env.example
+secrets/
+.private/
+*credentials*.json
+*token*.json
+*.pem
+*.key
+*.local.json
+secrets*.json
+google-calendar.dev.json
+google-calendar.json
+google-oauth-client.json
+client_secret*.json
+
+# Local Python environment / caches / logs
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+
+# All project-generated reports, OAuth credentials, and sync state stay local
+/.patch-calendar/
+calendar-preview.json
+calendar-state.json
+calendar-sync-report.json
+hunt-report.json
+pipeline-report.json
+reliability-review.json
+!automation/google-calendar.example.json
+
+# Downloaded update archives are not project source
+*.zip

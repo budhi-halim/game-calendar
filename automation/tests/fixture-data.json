@@ -1,0 +1,1254 @@
+{
+  "config": {
+    "schemaVersion": 1,
+    "datasetId": "release-calendar-2026-10-04",
+    "title": "Patch calendar",
+    "timeZone": "Asia/Jakarta",
+    "weekStartsOn": 1,
+    "minYear": 2023,
+    "upcomingCount": 3,
+    "games": [
+      {
+        "id": "hsr",
+        "name": "Honkai: Star Rail",
+        "shortName": "HSR",
+        "cadenceWeeks": 6,
+        "preferredWeekday": 3,
+        "rounding": "nearest",
+        "artwork": {
+          "local": "assets/hsr.jpg",
+          "remote": "https://blog.playstation.com/tachyon/2026/02/129e906bba34e77fd7138f7b0810e2a72fcc2317-scaled.jpg?crop_strategy=smart&resize=1088%2C612",
+          "source": "hsr-4-0",
+          "credit": "Honkai: Star Rail promotional artwork © HoYoverse",
+          "bundled": false
+        }
+      },
+      {
+        "id": "zzz",
+        "name": "Zenless Zone Zero",
+        "shortName": "ZZZ",
+        "cadenceWeeks": 6,
+        "preferredWeekday": 3,
+        "rounding": "nearest",
+        "artwork": {
+          "local": "assets/zzz.png",
+          "remote": "https://blog.playstation.com/tachyon/2028/12/f25c9563ef7d2eb3ee7f3e1dd88f216d89cef35d-scaled.png?crop_strategy=smart&resize=1088%2C612",
+          "source": "zzz-2-5",
+          "credit": "Zenless Zone Zero promotional artwork © HoYoverse",
+          "bundled": false
+        }
+      },
+      {
+        "id": "endfield",
+        "name": "Arknights: Endfield",
+        "shortName": "Endfield",
+        "cadenceWeeks": 6,
+        "preferredWeekday": 4,
+        "rounding": "nearest",
+        "artwork": {
+          "local": "assets/endfield.jpg",
+          "remote": "https://web-static.hg-cdn.com/upload/image/20260828/e83698dd203d70377ff6ec97ea359c06.jpg",
+          "source": "endfield-dreamscape",
+          "credit": "Arknights: Endfield promotional artwork © HYPERGRYPH / GRYPHLINE",
+          "bundled": false
+        }
+      }
+    ],
+    "automation": {
+      "sources": {
+        "timeoutSeconds": 35,
+        "settleSeconds": 4,
+        "maxListPages": 4,
+        "maxArticlesPerGame": 100,
+        "recentDays": 100,
+        "maximumAdvanceDays": 210,
+        "minimumIntervalDays": 14,
+        "feeds": {
+          "hsr": {
+            "url": "https://hsr.hoyoverse.com/en-us/news",
+            "articlePattern": "/en-us/news/\\d+$",
+            "hosts": [
+              "hsr.hoyoverse.com"
+            ],
+            "titleStyle": "number"
+          },
+          "zzz": {
+            "url": "https://zenless.hoyoverse.com/en-us/news",
+            "articlePattern": "/en-us/news/\\d+$",
+            "hosts": [
+              "zenless.hoyoverse.com"
+            ],
+            "titleStyle": "number"
+          },
+          "endfield": {
+            "url": "https://endfield.gryphline.com/en-us/news",
+            "articlePattern": "/en-us/news/\\d+$",
+            "hosts": [
+              "endfield.gryphline.com"
+            ],
+            "titleStyle": "title"
+          }
+        },
+        "maximumAnchorAgeDays": 100
+      },
+      "googleCalendar": {
+        "enabled": false,
+        "namespace": "patch-calendar-v1",
+        "futureCountPerGame": 3,
+        "allDay": true,
+        "rollover": "midnight-jakarta",
+        "backfillHistory": true,
+        "keepPastEvents": true,
+        "visibility": "private",
+        "transparency": "transparent",
+        "reminders": {
+          "useDefault": false,
+          "overrides": []
+        },
+        "requireUnsharedCalendar": true,
+        "projectedSuffix": " · Projected"
+      }
+    }
+  },
+  "overrides": {
+    "schemaVersion": 1,
+    "datasetId": "release-calendar-2026-10-04",
+    "games": {
+      "hsr": [
+        {
+          "sequence": 0,
+          "date": "2023-04-26",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 1,
+          "date": "2023-06-07",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 2,
+          "date": "2023-07-19",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 3,
+          "date": "2023-08-30",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 4,
+          "date": "2023-10-11",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 5,
+          "date": "2023-11-15",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-1-5"
+          ]
+        },
+        {
+          "sequence": 6,
+          "date": "2023-12-27",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-1-6"
+          ]
+        },
+        {
+          "sequence": 7,
+          "date": "2024-02-06",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-2-0"
+          ]
+        },
+        {
+          "sequence": 8,
+          "date": "2024-03-27",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-2-1"
+          ]
+        },
+        {
+          "sequence": 9,
+          "date": "2024-05-08",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-2-2"
+          ]
+        },
+        {
+          "sequence": 10,
+          "date": "2024-06-19",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-2-3"
+          ]
+        },
+        {
+          "sequence": 11,
+          "date": "2024-07-31",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 12,
+          "date": "2024-09-10",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-2-5"
+          ]
+        },
+        {
+          "sequence": 13,
+          "date": "2024-10-23",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 14,
+          "date": "2024-12-04",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-2-7"
+          ]
+        },
+        {
+          "sequence": 15,
+          "date": "2025-01-15",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-3-0"
+          ]
+        },
+        {
+          "sequence": 16,
+          "date": "2025-02-26",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-3-1"
+          ]
+        },
+        {
+          "sequence": 17,
+          "date": "2025-04-09",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 18,
+          "date": "2025-05-21",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-3-3"
+          ]
+        },
+        {
+          "sequence": 19,
+          "date": "2025-07-02",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-3-4"
+          ]
+        },
+        {
+          "sequence": 20,
+          "date": "2025-08-13",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 21,
+          "date": "2025-09-24",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 22,
+          "date": "2025-11-05",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-3-7"
+          ]
+        },
+        {
+          "sequence": 23,
+          "date": "2025-12-17",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 24,
+          "date": "2026-02-13",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-4-0"
+          ]
+        },
+        {
+          "sequence": 25,
+          "date": "2026-03-25",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 26,
+          "date": "2026-04-22",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "hsr-history"
+          ],
+          "notes": "Historical archive date, normalized to the Asia/Jakarta release day. Not independently reverified against an official maintenance notice in this dataset."
+        },
+        {
+          "sequence": 27,
+          "date": "2026-06-01",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-4-3"
+          ]
+        },
+        {
+          "sequence": 28,
+          "date": "2026-07-15",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-4-4"
+          ]
+        },
+        {
+          "sequence": 29,
+          "date": "2026-08-26",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-4-5"
+          ]
+        },
+        {
+          "sequence": 30,
+          "date": "2026-09-28",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "hsr-4-6",
+            "hsr-4-5"
+          ],
+          "notes": "Monday release. Confirmed dates are not rounded. The 4.5 update notice independently specifies the September 28 transition."
+        }
+      ],
+      "zzz": [
+        {
+          "sequence": 0,
+          "date": "2024-07-04",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-1-0"
+          ]
+        },
+        {
+          "sequence": 1,
+          "date": "2024-08-14",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 2,
+          "date": "2024-09-25",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 3,
+          "date": "2024-11-06",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 4,
+          "date": "2024-12-18",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-1-4"
+          ]
+        },
+        {
+          "sequence": 5,
+          "date": "2025-01-22",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-1-5"
+          ]
+        },
+        {
+          "sequence": 6,
+          "date": "2025-03-12",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 7,
+          "date": "2025-04-23",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 8,
+          "date": "2025-06-06",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-2-0"
+          ]
+        },
+        {
+          "sequence": 9,
+          "date": "2025-07-16",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 10,
+          "date": "2025-09-04",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 11,
+          "date": "2025-10-15",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 12,
+          "date": "2025-11-26",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 13,
+          "date": "2025-12-30",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-2-5"
+          ]
+        },
+        {
+          "sequence": 14,
+          "date": "2026-02-06",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-history"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 15,
+          "date": "2026-03-24",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-2-7"
+          ]
+        },
+        {
+          "sequence": 16,
+          "date": "2026-05-06",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-2-8"
+          ],
+          "notes": "Date supported by the officially announced end of version 2.7; the version number is from the historical version index."
+        },
+        {
+          "sequence": 17,
+          "date": "2026-06-17",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-3-0"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 18,
+          "date": "2026-07-29",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "zzz-3-1"
+          ],
+          "notes": "Historical community archive; not an official date announcement."
+        },
+        {
+          "sequence": 19,
+          "date": "2026-09-09",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "zzz-3-2"
+          ]
+        }
+      ],
+      "endfield": [
+        {
+          "sequence": 0,
+          "date": "2026-01-22",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "endfield-launch"
+          ],
+          "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+        },
+        {
+          "sequence": 1,
+          "date": "2026-03-12",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "endfield-tide"
+          ],
+          "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+        },
+        {
+          "sequence": 2,
+          "date": "2026-04-17",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "endfield-history"
+          ],
+          "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+        },
+        {
+          "sequence": 3,
+          "date": "2026-06-05",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "endfield-history"
+          ],
+          "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+        },
+        {
+          "sequence": 4,
+          "date": "2026-07-16",
+          "status": "confirmed",
+          "verification": "archive",
+          "sources": [
+            "endfield-history"
+          ],
+          "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented."
+        },
+        {
+          "sequence": 5,
+          "date": "2026-09-02",
+          "status": "confirmed",
+          "verification": "official",
+          "sources": [
+            "endfield-dreamscape"
+          ],
+          "notes": "Endfield titles are recorded independently of numeric version labels. No unverified numeric label is invented. Official maintenance falls on Wednesday; only subsequent predictions use Thursday."
+        }
+      ]
+    }
+  },
+  "versions": {
+    "schemaVersion": 1,
+    "datasetId": "release-calendar-2026-10-04",
+    "games": {
+      "hsr": {
+        "0": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "1.0"
+        },
+        "1": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "1.1"
+        },
+        "2": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "1.2"
+        },
+        "3": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "1.3"
+        },
+        "4": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "1.4"
+        },
+        "5": {
+          "sources": [
+            "hsr-1-5"
+          ],
+          "label": "1.5"
+        },
+        "6": {
+          "sources": [
+            "hsr-1-6"
+          ],
+          "label": "1.6"
+        },
+        "7": {
+          "sources": [
+            "hsr-2-0"
+          ],
+          "label": "2.0"
+        },
+        "8": {
+          "sources": [
+            "hsr-2-1"
+          ],
+          "label": "2.1"
+        },
+        "9": {
+          "sources": [
+            "hsr-2-2"
+          ],
+          "label": "2.2"
+        },
+        "10": {
+          "sources": [
+            "hsr-2-3"
+          ],
+          "label": "2.3"
+        },
+        "11": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "2.4"
+        },
+        "12": {
+          "sources": [
+            "hsr-2-5"
+          ],
+          "label": "2.5"
+        },
+        "13": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "2.6"
+        },
+        "14": {
+          "sources": [
+            "hsr-2-7"
+          ],
+          "label": "2.7"
+        },
+        "15": {
+          "sources": [
+            "hsr-3-0"
+          ],
+          "label": "3.0"
+        },
+        "16": {
+          "sources": [
+            "hsr-3-1"
+          ],
+          "label": "3.1"
+        },
+        "17": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "3.2"
+        },
+        "18": {
+          "sources": [
+            "hsr-3-3"
+          ],
+          "label": "3.3"
+        },
+        "19": {
+          "sources": [
+            "hsr-3-4"
+          ],
+          "label": "3.4"
+        },
+        "20": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "3.5"
+        },
+        "21": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "3.6"
+        },
+        "22": {
+          "sources": [
+            "hsr-3-7"
+          ],
+          "label": "3.7"
+        },
+        "23": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "3.8"
+        },
+        "24": {
+          "sources": [
+            "hsr-4-0"
+          ],
+          "label": "4.0"
+        },
+        "25": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "4.1"
+        },
+        "26": {
+          "sources": [
+            "hsr-history"
+          ],
+          "label": "4.2"
+        },
+        "27": {
+          "sources": [
+            "hsr-4-3"
+          ],
+          "label": "4.3"
+        },
+        "28": {
+          "sources": [
+            "hsr-4-4"
+          ],
+          "label": "4.4"
+        },
+        "29": {
+          "sources": [
+            "hsr-4-5"
+          ],
+          "label": "4.5"
+        },
+        "30": {
+          "sources": [
+            "hsr-4-6"
+          ],
+          "label": "4.6"
+        }
+      },
+      "zzz": {
+        "0": {
+          "sources": [
+            "zzz-1-0"
+          ],
+          "label": "1.0"
+        },
+        "1": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "1.1"
+        },
+        "2": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "1.2"
+        },
+        "3": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "1.3"
+        },
+        "4": {
+          "sources": [
+            "zzz-1-4"
+          ],
+          "label": "1.4"
+        },
+        "5": {
+          "sources": [
+            "zzz-1-5"
+          ],
+          "label": "1.5"
+        },
+        "6": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "1.6"
+        },
+        "7": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "1.7"
+        },
+        "8": {
+          "sources": [
+            "zzz-2-0"
+          ],
+          "label": "2.0"
+        },
+        "9": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "2.1"
+        },
+        "10": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "2.2"
+        },
+        "11": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "2.3"
+        },
+        "12": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "2.4"
+        },
+        "13": {
+          "sources": [
+            "zzz-2-5"
+          ],
+          "label": "2.5"
+        },
+        "14": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "2.6"
+        },
+        "15": {
+          "sources": [
+            "zzz-2-7"
+          ],
+          "label": "2.7"
+        },
+        "16": {
+          "sources": [
+            "zzz-history"
+          ],
+          "label": "2.8"
+        },
+        "17": {
+          "sources": [
+            "zzz-3-0"
+          ],
+          "label": "3.0"
+        },
+        "18": {
+          "sources": [
+            "zzz-3-1"
+          ],
+          "label": "3.1"
+        },
+        "19": {
+          "sources": [
+            "zzz-3-2"
+          ],
+          "label": "3.2"
+        },
+        "20": {
+          "label": "3.3",
+          "sources": [
+            "zzz-3-3-name"
+          ],
+          "verification": "official"
+        }
+      },
+      "endfield": {
+        "0": {
+          "sources": [
+            "endfield-history"
+          ],
+          "title": "Zeroth Directive"
+        },
+        "1": {
+          "sources": [
+            "endfield-tide"
+          ],
+          "label": "1.1",
+          "title": "Old Deep Water Dies, by Rising Tide It is Denied"
+        },
+        "2": {
+          "sources": [
+            "endfield-history"
+          ],
+          "title": "At the Wake of Spring"
+        },
+        "3": {
+          "sources": [
+            "endfield-history"
+          ],
+          "title": "Sketches of Lost Heirlooms"
+        },
+        "4": {
+          "sources": [
+            "endfield-history"
+          ],
+          "title": "Homecoming"
+        },
+        "5": {
+          "sources": [
+            "endfield-dreamscape"
+          ],
+          "title": "Dreamscape of Wind and Snow"
+        },
+        "6": {
+          "title": "Sanctuary of Ink",
+          "sources": [
+            "endfield-ink-name"
+          ],
+          "verification": "official"
+        }
+      }
+    }
+  },
+  "sources": {
+    "schemaVersion": 1,
+    "datasetId": "release-calendar-2026-10-04",
+    "checkedOn": "2026-10-04",
+    "sources": {
+      "hsr-history": {
+        "title": "PC Gamer — Star Rail historical banner archive",
+        "url": "https://www.pcgamer.com/games/rpg/honkai-star-rail-banner-next-current/",
+        "kind": "archive",
+        "notes": "Archive rows use mixed regional date conventions. Dates in this dataset are the Asia/Jakarta release day, not the previous evening in the Americas. The erroneous 2.0 row is not used; see the developer announcement instead."
+      },
+      "zzz-history": {
+        "title": "Zenless Zone Zero Wiki — Version history",
+        "url": "https://zenless-zone-zero.fandom.com/wiki/Version",
+        "kind": "archive",
+        "notes": "Historical date and version index, accessed through indexed search excerpts. Community-maintained, not an official announcement."
+      },
+      "endfield-history": {
+        "title": "Arknights: Endfield Wiki — Version history",
+        "url": "https://endfield.wiki.gg/wiki/Version",
+        "kind": "archive",
+        "notes": "Historical title and date index, accessed through indexed search excerpts. Future end-date estimates in the wiki are not imported."
+      },
+      "hsr-1-5": {
+        "title": "HoYoverse — Version 1.5 update details",
+        "url": "https://hsr.hoyoverse.com/en-us/news/113648",
+        "kind": "official"
+      },
+      "hsr-1-6": {
+        "title": "HoYoverse — Version 1.6 update details (Russian)",
+        "url": "https://hsr.hoyoverse.com/ru-ru/news/114194",
+        "kind": "official"
+      },
+      "hsr-2-0": {
+        "title": "Developer PlayStation Blog — Version 2.0 releases February 6",
+        "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+        "kind": "official",
+        "notes": "The developer article index explicitly dates the 2.0 release to February 6, 2024."
+      },
+      "hsr-2-1": {
+        "title": "HoYoverse — Version 2.1 update (Chinese)",
+        "url": "https://hsr.hoyoverse.com/zh-cn/news/123034",
+        "kind": "official"
+      },
+      "hsr-2-2": {
+        "title": "HoYoverse — Version 2.2 update (Chinese)",
+        "url": "https://hsr.hoyoverse.com/zh-cn/news/123642",
+        "kind": "official"
+      },
+      "hsr-2-3": {
+        "title": "Developer PlayStation Blog — Version 2.3 releases June 19",
+        "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+        "kind": "official",
+        "notes": "Developer article index; June 19, 2024 release, not article publication day."
+      },
+      "hsr-2-5": {
+        "title": "Polygon — Version 2.5 release times by region",
+        "url": "https://www.polygon.com/honkai-star-rail-guides/448932/patch-2-5-release-time-maintenance-end",
+        "kind": "archive",
+        "notes": "September 9 in the Americas corresponds to September 10 in Jakarta."
+      },
+      "hsr-2-7": {
+        "title": "Developer PlayStation Blog — Version 2.7 releases December 4",
+        "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+        "kind": "official"
+      },
+      "hsr-3-0": {
+        "title": "HoYoverse — Version 3.0 update (Vietnamese)",
+        "url": "https://hsr.hoyoverse.com/vi-vn/news/127987",
+        "kind": "official"
+      },
+      "hsr-3-1": {
+        "title": "HoYoverse — Version 3.1 update details",
+        "url": "https://hsr.hoyoverse.com/en-us/news/154500",
+        "kind": "official"
+      },
+      "hsr-3-3": {
+        "title": "Polygon — Version 3.3 release times by region",
+        "url": "https://www.polygon.com/honkai-star-rail-guides/599692/version-3-3-release-times-maintenance-end",
+        "kind": "archive"
+      },
+      "hsr-3-4": {
+        "title": "Developer PlayStation Blog — Version 3.4 releases July 2",
+        "url": "https://blog.playstation.com/tag/honkai-star-rail/",
+        "kind": "official"
+      },
+      "hsr-3-7": {
+        "title": "HoYoverse — Version 3.7 update (Portuguese)",
+        "url": "https://hsr.hoyoverse.com/pt-pt/news/160735",
+        "kind": "official"
+      },
+      "hsr-4-0": {
+        "title": "Developer PlayStation Blog — Version 4.0 releases February 13",
+        "url": "https://blog.playstation.com/2026/02/06/honkai-star-rail-version-4-0-no-aha-at-full-moon-will-go-live-on-february-13/",
+        "kind": "official"
+      },
+      "hsr-4-3": {
+        "title": "HoYoverse — Version 4.3 releases June 1",
+        "url": "https://www.hoyoverse.com/en-us/news/164350",
+        "kind": "official"
+      },
+      "hsr-4-4": {
+        "title": "HoYoverse — Version 4.4 update details",
+        "url": "https://hsr.hoyoverse.com/en-us/news/165195",
+        "kind": "official"
+      },
+      "hsr-4-5": {
+        "title": "HoYoverse — Version 4.5 update details",
+        "url": "https://hsr.hoyoverse.com/en-us/news/165767",
+        "kind": "official",
+        "notes": "Begins August 26, 2026 at 06:00 UTC+8; ends September 28, 2026 at 06:00 UTC+8."
+      },
+      "hsr-4-6": {
+        "title": "HoYoverse — Version 4.6 announcement",
+        "url": "https://www.hoyoverse.com/en-us/news/166390",
+        "kind": "official"
+      },
+      "zzz-1-0": {
+        "title": "Developer PlayStation Blog — Launch on July 4",
+        "url": "https://blog.playstation.com/tag/zenless-zone-zero/",
+        "kind": "official"
+      },
+      "zzz-1-4": {
+        "title": "Developer PlayStation Blog — Version 1.4 releases December 18",
+        "url": "https://blog.playstation.com/tag/zenless-zone-zero/",
+        "kind": "official"
+      },
+      "zzz-1-5": {
+        "title": "HoYoverse — Version 1.5 update details",
+        "url": "https://zenless.hoyoverse.com/en-us/news/129572",
+        "kind": "official",
+        "notes": "Version 1.5 lasts seven weeks, until March 12, 2025."
+      },
+      "zzz-2-0": {
+        "title": "Developer PlayStation Blog — Version 2.0 releases June 6",
+        "url": "https://blog.playstation.com/2025/05/23/zenless-zone-zero-version-2-0-launches-on-june-6/",
+        "kind": "official"
+      },
+      "zzz-2-5": {
+        "title": "Developer PlayStation Blog — Version 2.5 releases December 30",
+        "url": "https://blog.playstation.com/2025/12/19/zenless-zone-zero-version-2-5-introduces-dual-form-void-hunter-on-december-30/",
+        "kind": "official"
+      },
+      "zzz-2-7": {
+        "title": "HoYoverse — Version 2.7 update details",
+        "url": "https://zenless.hoyoverse.com/en-us/news/163253",
+        "kind": "official",
+        "notes": "Released March 24, 2026; runs 43 days until May 6, 2026 at 06:00 UTC+8."
+      },
+      "zzz-2-8": {
+        "title": "HoYoverse — Version 2.7 schedule through the next update",
+        "url": "https://zenless.hoyoverse.com/en-us/news/163253",
+        "kind": "official",
+        "notes": "May 6 follows the explicitly announced 2.7 version end. This is scheduled-boundary evidence, not a separate 2.8 maintenance notice."
+      },
+      "zzz-3-0": {
+        "title": "Zenless Zone Zero Wiki — Version 3.0",
+        "url": "https://zenless-zone-zero.fandom.com/wiki/Version/3.0",
+        "kind": "archive"
+      },
+      "zzz-3-1": {
+        "title": "Windows Central — Version 3.1 release on July 29",
+        "url": "https://www.windowscentral.com/gaming/zenless-zone-zero-is-launching-on-xbox-on-pc-and-xbox-play-anywhere-soon-with-its-version-3-1-update-in-celebration-of-the-games-2nd-anniversary",
+        "kind": "archive"
+      },
+      "zzz-3-2": {
+        "title": "HoYoverse on Steam — Version 3.2 update details",
+        "url": "https://store.steampowered.com/app/4162040/Zenless_Zone_Zero/",
+        "kind": "official",
+        "notes": "Publisher update excerpt indexed September 9, 2026: maintenance begins 2026/09/09 06:00 UTC+8. The store page news changes over time."
+      },
+      "endfield-launch": {
+        "title": "PlayStation — Arknights: Endfield launch date",
+        "url": "https://www.playstation.com/en-hk/games/arknights-endfield/",
+        "kind": "official"
+      },
+      "endfield-tide": {
+        "title": "GRYPHLINE press release — First major update on March 12",
+        "url": "https://www.gamespress.com/en-US/Arknights-Endfield-Announces-First-Major-Content-Update-Old-Deep-Water",
+        "kind": "official",
+        "notes": "Publisher-distributed press release. Explicitly identifies the first update as version 1.1."
+      },
+      "endfield-dreamscape": {
+        "title": "GRYPHLINE — Dreamscape update and maintenance notice",
+        "url": "https://endfield.gryphline.com/en-us/news/5209",
+        "kind": "official",
+        "notes": "Asia maintenance September 2, 2026, 06:00–12:00 UTC+8 = 05:00–11:00 Jakarta. Date is Wednesday, retained exactly."
+      },
+      "zzz-3-3-name": {
+        "title": "Angels Support Operation — official event details",
+        "url": "https://zenless.hoyoverse.com/en-us/news/165980",
+        "kind": "official",
+        "notes": "The event explicitly spans Versions 3.2–3.3. This confirms the number 3.3, not its release date."
+      },
+      "endfield-ink-name": {
+        "title": "Sanctuary of Ink — official special-program announcement",
+        "url": "https://x.com/AKEndfield/status/2105508003554189727",
+        "kind": "official",
+        "notes": "Confirms the update title. October 6 is the special-program date, not the release date. No official numeric version label is asserted here."
+      }
+    },
+    "coverage": {
+      "hsr": "31 historical releases, launch through 4.6. Official announcements are supplemented with a regional-normalized banner archive.",
+      "zzz": "20 historical releases, launch through 3.2. Official announcements are supplemented with community version history and reporting. The upcoming version number 3.3 is confirmed independently of the projected date.",
+      "endfield": "Six historical releases, launch through Dreamscape of Wind and Snow. Official announcements are supplemented with the community version index. The upcoming title Sanctuary of Ink is confirmed; a numerical 1.6 label is not asserted as official."
+    },
+    "caveats": [
+      "This is a manually researched snapshot, not a live news feed. No future release after the latest anchor was verified for inclusion on October 4, 2026.",
+      "Official means backed by a publisher announcement or publisher-authored release material. Archive means reported by a secondary source, not independently verified here against the original maintenance notice.",
+      "A stored date is pinned exactly, including exceptional weekdays. Projected dates are calculations, never announcements. Historical records can still require correction; this is not an exhaustive official-source audit.",
+      "Artwork is linked to official public media. The optional asset downloader can copy it into this repository. Public availability is not a redistribution license; rights remain with the respective publishers."
+    ]
+  }
+}

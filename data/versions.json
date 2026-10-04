@@ -1,0 +1,403 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "release-calendar-ba564f4817680f89",
+  "games": {
+    "hsr": {
+      "0": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "1.0"
+      },
+      "1": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "1.1"
+      },
+      "2": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "1.2"
+      },
+      "3": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "1.3"
+      },
+      "4": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "1.4"
+      },
+      "5": {
+        "sources": [
+          "hsr-1-5"
+        ],
+        "label": "1.5"
+      },
+      "6": {
+        "sources": [
+          "hsr-1-6"
+        ],
+        "label": "1.6"
+      },
+      "7": {
+        "sources": [
+          "hsr-2-0"
+        ],
+        "label": "2.0"
+      },
+      "8": {
+        "sources": [
+          "hsr-2-1"
+        ],
+        "label": "2.1"
+      },
+      "9": {
+        "sources": [
+          "hsr-2-2"
+        ],
+        "label": "2.2"
+      },
+      "10": {
+        "sources": [
+          "hsr-2-3"
+        ],
+        "label": "2.3"
+      },
+      "11": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "2.4"
+      },
+      "12": {
+        "sources": [
+          "hsr-2-5"
+        ],
+        "label": "2.5"
+      },
+      "13": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "2.6"
+      },
+      "14": {
+        "sources": [
+          "hsr-2-7"
+        ],
+        "label": "2.7"
+      },
+      "15": {
+        "sources": [
+          "hsr-3-0"
+        ],
+        "label": "3.0"
+      },
+      "16": {
+        "sources": [
+          "hsr-3-1"
+        ],
+        "label": "3.1"
+      },
+      "17": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "3.2"
+      },
+      "18": {
+        "sources": [
+          "hsr-3-3"
+        ],
+        "label": "3.3"
+      },
+      "19": {
+        "sources": [
+          "hsr-3-4"
+        ],
+        "label": "3.4"
+      },
+      "20": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "3.5"
+      },
+      "21": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "3.6"
+      },
+      "22": {
+        "sources": [
+          "hsr-3-7"
+        ],
+        "label": "3.7"
+      },
+      "23": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "3.8"
+      },
+      "24": {
+        "sources": [
+          "hsr-4-0",
+          "official-98f7b00e2849d688"
+        ],
+        "label": "4.0",
+        "verification": "official",
+        "managedBy": "hunter"
+      },
+      "25": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "4.1"
+      },
+      "26": {
+        "sources": [
+          "hsr-history"
+        ],
+        "label": "4.2"
+      },
+      "27": {
+        "sources": [
+          "hsr-4-3"
+        ],
+        "label": "4.3"
+      },
+      "28": {
+        "sources": [
+          "hsr-4-4"
+        ],
+        "label": "4.4"
+      },
+      "29": {
+        "sources": [
+          "hsr-4-5",
+          "official-98f7b00e2849d688"
+        ],
+        "label": "4.5",
+        "verification": "official",
+        "managedBy": "hunter"
+      },
+      "30": {
+        "sources": [
+          "hsr-4-6",
+          "official-08e9270a7e5fa5c0",
+          "official-98f7b00e2849d688",
+          "official-bd58a048544cb29f"
+        ],
+        "label": "4.6",
+        "verification": "official",
+        "managedBy": "hunter"
+      }
+    },
+    "zzz": {
+      "0": {
+        "sources": [
+          "zzz-1-0"
+        ],
+        "label": "1.0"
+      },
+      "1": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "1.1"
+      },
+      "2": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "1.2"
+      },
+      "3": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "1.3"
+      },
+      "4": {
+        "sources": [
+          "zzz-1-4"
+        ],
+        "label": "1.4"
+      },
+      "5": {
+        "sources": [
+          "zzz-1-5"
+        ],
+        "label": "1.5"
+      },
+      "6": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "1.6"
+      },
+      "7": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "1.7"
+      },
+      "8": {
+        "sources": [
+          "zzz-2-0"
+        ],
+        "label": "2.0"
+      },
+      "9": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "2.1"
+      },
+      "10": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "2.2"
+      },
+      "11": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "2.3"
+      },
+      "12": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "2.4"
+      },
+      "13": {
+        "sources": [
+          "zzz-2-5"
+        ],
+        "label": "2.5"
+      },
+      "14": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "2.6"
+      },
+      "15": {
+        "sources": [
+          "zzz-2-7"
+        ],
+        "label": "2.7"
+      },
+      "16": {
+        "sources": [
+          "zzz-history"
+        ],
+        "label": "2.8"
+      },
+      "17": {
+        "sources": [
+          "zzz-3-0"
+        ],
+        "label": "3.0"
+      },
+      "18": {
+        "sources": [
+          "official-8922c00df90ed02c",
+          "zzz-3-1"
+        ],
+        "label": "3.1",
+        "verification": "official",
+        "managedBy": "hunter"
+      },
+      "19": {
+        "sources": [
+          "official-1248718475755d23",
+          "official-253e187ae08cb265",
+          "official-37108a433dd60da0",
+          "official-3a6e9ae05e5011fa",
+          "official-7eca3fe57dd42f08",
+          "official-88238ff20ca7be2a",
+          "official-8922c00df90ed02c",
+          "official-8940c5c07fb4c417",
+          "official-b4f0600f8ab154e7",
+          "official-b8c32e263e2fd24b",
+          "official-c278fcae9a48b81a",
+          "official-dcac0af878a2cfac",
+          "zzz-3-2"
+        ],
+        "label": "3.2",
+        "verification": "official",
+        "managedBy": "hunter"
+      },
+      "20": {
+        "label": "3.3",
+        "sources": [
+          "official-dcac0af878a2cfac",
+          "zzz-3-3-name"
+        ],
+        "verification": "official",
+        "managedBy": "hunter"
+      }
+    },
+    "endfield": {
+      "0": {
+        "sources": [
+          "endfield-history"
+        ],
+        "title": "Zeroth Directive"
+      },
+      "1": {
+        "sources": [
+          "endfield-tide"
+        ],
+        "label": "1.1",
+        "title": "Old Deep Water Dies, by Rising Tide It is Denied"
+      },
+      "2": {
+        "sources": [
+          "endfield-history"
+        ],
+        "title": "At the Wake of Spring"
+      },
+      "3": {
+        "sources": [
+          "endfield-history"
+        ],
+        "title": "Sketches of Lost Heirlooms"
+      },
+      "4": {
+        "sources": [
+          "endfield-history"
+        ],
+        "title": "Homecoming"
+      },
+      "5": {
+        "sources": [
+          "endfield-dreamscape",
+          "official-a505d05a7943e658",
+          "official-d960dc430894ed28"
+        ],
+        "title": "Dreamscape of Wind and Snow",
+        "verification": "official",
+        "managedBy": "hunter"
+      },
+      "6": {
+        "title": "Sanctuary of Ink",
+        "sources": [
+          "endfield-ink-name"
+        ],
+        "verification": "official"
+      }
+    }
+  }
+}

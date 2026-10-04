@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "release-calendar-ba564f4817680f89",
+  "title": "Patch calendar",
+  "timeZone": "Asia/Jakarta",
+  "weekStartsOn": 1,
+  "minYear": 2023,
+  "upcomingCount": 3,
+  "games": [
+    {
+      "id": "hsr",
+      "name": "Honkai: Star Rail",
+      "shortName": "HSR",
+      "cadenceWeeks": 6,
+      "preferredWeekday": 3,
+      "rounding": "nearest",
+      "artwork": {
+        "local": "assets/hsr.jpg",
+        "remote": "https://blog.playstation.com/tachyon/2026/02/129e906bba34e77fd7138f7b0810e2a72fcc2317-scaled.jpg?crop_strategy=smart&resize=1088%2C612",
+        "source": "hsr-4-0",
+        "credit": "Honkai: Star Rail promotional artwork © HoYoverse",
+        "bundled": false
+      }
+    },
+    {
+      "id": "zzz",
+      "name": "Zenless Zone Zero",
+      "shortName": "ZZZ",
+      "cadenceWeeks": 6,
+      "preferredWeekday": 3,
+      "rounding": "nearest",
+      "artwork": {
+        "local": "assets/zzz.png",
+        "remote": "https://blog.playstation.com/tachyon/2028/12/f25c9563ef7d2eb3ee7f3e1dd88f216d89cef35d-scaled.png?crop_strategy=smart&resize=1088%2C612",
+        "source": "zzz-2-5",
+        "credit": "Zenless Zone Zero promotional artwork © HoYoverse",
+        "bundled": false
+      }
+    },
+    {
+      "id": "endfield",
+      "name": "Arknights: Endfield",
+      "shortName": "Endfield",
+      "cadenceWeeks": 6,
+      "preferredWeekday": 4,
+      "rounding": "nearest",
+      "artwork": {
+        "local": "assets/endfield.jpg",
+        "remote": "https://web-static.hg-cdn.com/upload/image/20260828/e83698dd203d70377ff6ec97ea359c06.jpg",
+        "source": "endfield-dreamscape",
+        "credit": "Arknights: Endfield promotional artwork © HYPERGRYPH / GRYPHLINE",
+        "bundled": false
+      }
+    }
+  ],
+  "automation": {
+    "sources": {
+      "timeoutSeconds": 35,
+      "settleSeconds": 4,
+      "maxListPages": 4,
+      "maxArticlesPerGame": 100,
+      "recentDays": 100,
+      "maximumAdvanceDays": 210,
+      "minimumIntervalDays": 14,
+      "feeds": {
+        "hsr": {
+          "url": "https://hsr.hoyoverse.com/en-us/news",
+          "articlePattern": "/en-us/news/\\d+$",
+          "hosts": [
+            "hsr.hoyoverse.com"
+          ],
+          "titleStyle": "number"
+        },
+        "zzz": {
+          "url": "https://zenless.hoyoverse.com/en-us/news",
+          "articlePattern": "/en-us/news/\\d+$",
+          "hosts": [
+            "zenless.hoyoverse.com"
+          ],
+          "titleStyle": "number"
+        },
+        "endfield": {
+          "url": "https://endfield.gryphline.com/en-us/news",
+          "articlePattern": "/en-us/news/\\d+$",
+          "hosts": [
+            "endfield.gryphline.com"
+          ],
+          "titleStyle": "title"
+        }
+      },
+      "maximumAnchorAgeDays": 100
+    },
+    "googleCalendar": {
+      "enabled": true,
+      "namespace": "patch-calendar-v1",
+      "futureCountPerGame": 3,
+      "allDay": true,
+      "rollover": "midnight-jakarta",
+      "backfillHistory": true,
+      "keepPastEvents": true,
+      "visibility": "private",
+      "transparency": "transparent",
+      "reminders": {
+        "useDefault": false,
+        "overrides": []
+      },
+      "requireUnsharedCalendar": true,
+      "projectedSuffix": " · Projected"
+    }
+  }
+}

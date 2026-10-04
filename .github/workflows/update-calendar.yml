@@ -1,0 +1,163 @@
+name: Update game calendar
+
+on:
+  schedule:
+    # 19:00 UTC is 02:00 the following day in Jakarta.
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'check = no release/Google writes; apply = enabled data/Calendar updates'
+        type: choice
+        options: [check, apply]
+        default: check
+        required: true
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: patch-calendar-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    # Uploading this YAML alone cannot activate scheduled runs.
+    if: >-
+      github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+      (github.event_name == 'workflow_dispatch' || vars.PATCH_CALENDAR_AUTOMATION == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      PATCH_CALENDAR_STATE_DIR: ${{ github.workspace }}/.patch-calendar
+      PATCH_CALENDAR_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: automation/requirements.txt
+
+      - name: Check project-local runtime isolation
+        run: python -c "import sys; sys.path.insert(0, 'automation'); from common import private_directory; print('Runtime:', private_directory())"
+
+      - name: Install the publisher-news browser
+        run: |
+          python -m pip install --disable-pip-version-check -r automation/requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Validate and test without account secrets
+        run: |
+          python automation/hunt.py --validate
+          python -m unittest discover -s automation/tests -v
+
+      - name: Restore only the nonsecret synchronization fingerprint
+        uses: actions/cache/restore@v4
+        with:
+          path: .patch-calendar/ci-state/calendar-state.json
+          key: patch-calendar-fingerprint-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: patch-calendar-fingerprint-v1-
+
+      - name: Hunt first, then preview or synchronize Calendar
+        id: daily
+        continue-on-error: true
+        env:
+          MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode }}
+          PATCH_CALENDAR_GOOGLE_JSON: ${{ secrets.PATCH_CALENDAR_GOOGLE_JSON }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$MODE" = 'apply' ]; then
+            python automation/daily.py --apply --publish-history
+          else
+            python automation/daily.py --check
+          fi
+
+      - name: Save only a successful nonsecret fingerprint
+        if: always() && steps.daily.outputs.cache_ready == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .patch-calendar/ci-state/calendar-state.json
+          key: patch-calendar-fingerprint-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Commit validated data and the compact run receipt only
+        id: commit
+        if: always() && steps.daily.outputs.history_file != ''
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          HISTORY_FILE: ${{ steps.daily.outputs.history_file }}
+          HUNT_APPLIED: ${{ steps.daily.outputs.hunt_applied }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$HISTORY_FILE" =~ ^automation/history/[0-9]{4}-[0-9]{2}\.jsonl$ ]] || exit 1
+          # Stage by explicit path, never git add . or the private runtime directory.
+          git add -- "$HISTORY_FILE"
+          if [ "$HUNT_APPLIED" = 'true' ]; then
+            python automation/hunt.py --validate
+            git add -- data/config.json data/overrides.json data/versions.json data/sources.json
+          fi
+          site_changed=false
+          if ! git diff --cached --quiet -- data/config.json data/overrides.json data/versions.json data/sources.json; then
+            site_changed=true
+          fi
+          if git diff --cached --quiet; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git fetch origin "$DEFAULT_BRANCH"
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse FETCH_HEAD)" ]; then
+            echo 'The branch changed during this run. No force-push or automatic merge; rerun on the latest branch.' >&2
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Record calendar automation result and validated data'
+          git push origin "HEAD:$DEFAULT_BRANCH"
+          echo "changed=$site_changed" >> "$GITHUB_OUTPUT"
+
+      - name: Request Pages rebuild only when explicitly enabled
+        if: always() && steps.commit.outcome == 'success' && steps.commit.outputs.changed == 'true' && vars.PATCH_CALENDAR_PAGES == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          site="$(gh api "repos/$GITHUB_REPOSITORY/pages")"
+          echo "$site" | jq -e --arg branch "$DEFAULT_BRANCH" '.source.branch == $branch and .source.path == "/" and (.build_type // "legacy") == "legacy"' > /dev/null || {
+            echo 'Pages must use the default branch and / (root).' >&2
+            exit 1
+          }
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+
+      - name: Retain reports without credentials or destination state
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: calendar-run-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .patch-calendar/hunt-report.json
+            .patch-calendar/hunt-progress.log
+            .patch-calendar/calendar-sync-report.json
+            .patch-calendar/calendar-sync.log
+            .patch-calendar/pipeline-report.json
+            .patch-calendar/pipeline-progress.log
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Keep a failed pipeline visibly failed
+        if: always() && steps.daily.outcome == 'failure'
+        run: |
+          echo 'The daily pipeline failed. Reports were retained where possible; Calendar may have been skipped or partly applied. Review the recorded result.' >&2
+          exit 1
