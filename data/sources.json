@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-ba564f4817680f89",
-  "checkedOn": "2026-10-04",
+  "checkedOn": "2026-10-05",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -299,7 +299,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-04",
+    "checkedOn": "2026-10-05",
     "scope": [
       "hsr",
       "zzz",
@@ -322,8 +322,24 @@
               "distinctRecords": 5
             }
           ],
+          "categories": [],
+          "discoveredURLs": [
+            "https://hsr.hoyoverse.com/en-us/news/166180",
+            "https://hsr.hoyoverse.com/en-us/news/166181",
+            "https://hsr.hoyoverse.com/en-us/news/166182",
+            "https://hsr.hoyoverse.com/en-us/news/166189",
+            "https://hsr.hoyoverse.com/en-us/news/166468"
+          ],
+          "anchorURLsSeen": [
+            "https://hsr.hoyoverse.com/en-us/news/166468"
+          ],
+          "checkpointReached": true,
+          "coverage": "current-anchor-overlap",
+          "initialPageBudget": 4,
+          "maximumPageBudget": 12,
           "additionalKnownArticles": 1
-        }
+        },
+        "listingUnchangedSince": "2026-10-05"
       },
       "zzz": {
         "articlesRead": 37,
@@ -333,7 +349,7 @@
         "discovery": {
           "pagesRead": 4,
           "recordsDiscovered": 36,
-          "endReason": "configured-page-limit",
+          "endReason": "anchor-overlap",
           "passes": [
             {
               "pass": 1,
@@ -352,8 +368,55 @@
               "distinctRecords": 36
             }
           ],
+          "categories": [],
+          "discoveredURLs": [
+            "https://zenless.hoyoverse.com/en-us/news/123483",
+            "https://zenless.hoyoverse.com/en-us/news/165968",
+            "https://zenless.hoyoverse.com/en-us/news/165994",
+            "https://zenless.hoyoverse.com/en-us/news/165995",
+            "https://zenless.hoyoverse.com/en-us/news/165996",
+            "https://zenless.hoyoverse.com/en-us/news/165997",
+            "https://zenless.hoyoverse.com/en-us/news/165998",
+            "https://zenless.hoyoverse.com/en-us/news/165999",
+            "https://zenless.hoyoverse.com/en-us/news/166000",
+            "https://zenless.hoyoverse.com/en-us/news/166015",
+            "https://zenless.hoyoverse.com/en-us/news/166021",
+            "https://zenless.hoyoverse.com/en-us/news/166023",
+            "https://zenless.hoyoverse.com/en-us/news/166024",
+            "https://zenless.hoyoverse.com/en-us/news/166025",
+            "https://zenless.hoyoverse.com/en-us/news/166042",
+            "https://zenless.hoyoverse.com/en-us/news/166053",
+            "https://zenless.hoyoverse.com/en-us/news/166054",
+            "https://zenless.hoyoverse.com/en-us/news/166071",
+            "https://zenless.hoyoverse.com/en-us/news/166073",
+            "https://zenless.hoyoverse.com/en-us/news/166122",
+            "https://zenless.hoyoverse.com/en-us/news/166190",
+            "https://zenless.hoyoverse.com/en-us/news/166191",
+            "https://zenless.hoyoverse.com/en-us/news/166192",
+            "https://zenless.hoyoverse.com/en-us/news/166193",
+            "https://zenless.hoyoverse.com/en-us/news/166194",
+            "https://zenless.hoyoverse.com/en-us/news/166449",
+            "https://zenless.hoyoverse.com/en-us/news/166450",
+            "https://zenless.hoyoverse.com/en-us/news/166451",
+            "https://zenless.hoyoverse.com/en-us/news/166474",
+            "https://zenless.hoyoverse.com/en-us/news/166475",
+            "https://zenless.hoyoverse.com/en-us/news/166476",
+            "https://zenless.hoyoverse.com/en-us/news/166496",
+            "https://zenless.hoyoverse.com/en-us/news/166497",
+            "https://zenless.hoyoverse.com/en-us/news/166498",
+            "https://zenless.hoyoverse.com/en-us/news/166535",
+            "https://zenless.hoyoverse.com/en-us/news/166536"
+          ],
+          "anchorURLsSeen": [
+            "https://zenless.hoyoverse.com/en-us/news/166000"
+          ],
+          "checkpointReached": true,
+          "coverage": "current-anchor-overlap",
+          "initialPageBudget": 4,
+          "maximumPageBudget": 12,
           "additionalKnownArticles": 1
-        }
+        },
+        "listingUnchangedSince": "2026-10-05"
       },
       "endfield": {
         "articlesRead": 10,
@@ -370,8 +433,29 @@
               "distinctRecords": 10
             }
           ],
+          "categories": [],
+          "discoveredURLs": [
+            "https://endfield.gryphline.com/en-us/news/1326",
+            "https://endfield.gryphline.com/en-us/news/2653",
+            "https://endfield.gryphline.com/en-us/news/3839",
+            "https://endfield.gryphline.com/en-us/news/4480",
+            "https://endfield.gryphline.com/en-us/news/5208",
+            "https://endfield.gryphline.com/en-us/news/5209",
+            "https://endfield.gryphline.com/en-us/news/6171",
+            "https://endfield.gryphline.com/en-us/news/6172",
+            "https://endfield.gryphline.com/en-us/news/7013",
+            "https://endfield.gryphline.com/en-us/news/9562"
+          ],
+          "anchorURLsSeen": [
+            "https://endfield.gryphline.com/en-us/news/5209"
+          ],
+          "checkpointReached": true,
+          "coverage": "current-anchor-overlap",
+          "initialPageBudget": 4,
+          "maximumPageBudget": 12,
           "additionalKnownArticles": 0
-        }
+        },
+        "listingUnchangedSince": "2026-10-05"
       }
     }
   }

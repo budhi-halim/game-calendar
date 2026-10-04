@@ -88,7 +88,12 @@
           "titleStyle": "title"
         }
       },
-      "maximumAnchorAgeDays": 100
+      "maximumAnchorAgeDays": 100,
+      "maxAdaptiveListPages": 12,
+      "publicationWaitSeconds": 1.0,
+      "unchangedListingWarningDays": 14,
+      "confirmationWarningDays": 3,
+      "feedWorkers": 3
     },
     "googleCalendar": {
       "enabled": true,
@@ -106,6 +111,10 @@
       },
       "requireUnsharedCalendar": true,
       "projectedSuffix": " · Projected"
+    },
+    "monitoring": {
+      "runRetentionDays": 180,
+      "stageTimeoutSeconds": 1200
     }
   }
 }
