@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ba564f4817680f89",
-  "checkedOn": "2026-10-05",
+  "datasetId": "release-calendar-198710921cb680c3",
+  "checkedOn": "2026-10-06",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -284,6 +284,11 @@
       "title": "Astral Imagea Draw Rates Notice",
       "url": "https://hsr.hoyoverse.com/en-us/news/166189",
       "kind": "official"
+    },
+    "official-3e180d41727ad739": {
+      "title": "Zenless Zone Zero Version 3.3 \"Journey to the Sky\" Special Program Announcement",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166552",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -299,7 +304,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-05",
+    "checkedOn": "2026-10-06",
     "scope": [
       "hsr",
       "zzz",
@@ -343,7 +348,7 @@
       },
       "zzz": {
         "articlesRead": 37,
-        "observations": 14,
+        "observations": 15,
         "datedObservations": 1,
         "missingPublicationDates": 37,
         "discovery": {
@@ -371,7 +376,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/165968",
             "https://zenless.hoyoverse.com/en-us/news/165994",
             "https://zenless.hoyoverse.com/en-us/news/165995",
             "https://zenless.hoyoverse.com/en-us/news/165996",
@@ -405,7 +409,8 @@
             "https://zenless.hoyoverse.com/en-us/news/166497",
             "https://zenless.hoyoverse.com/en-us/news/166498",
             "https://zenless.hoyoverse.com/en-us/news/166535",
-            "https://zenless.hoyoverse.com/en-us/news/166536"
+            "https://zenless.hoyoverse.com/en-us/news/166536",
+            "https://zenless.hoyoverse.com/en-us/news/166552"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166000"
@@ -416,7 +421,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-05"
+        "listingUnchangedSince": "2026-10-06"
       },
       "endfield": {
         "articlesRead": 10,
