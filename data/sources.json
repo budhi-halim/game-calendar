@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-198710921cb680c3",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-07",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -304,7 +304,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-06",
+    "checkedOn": "2026-10-07",
     "scope": [
       "hsr",
       "zzz",
@@ -424,7 +424,7 @@
         "listingUnchangedSince": "2026-10-06"
       },
       "endfield": {
-        "articlesRead": 10,
+        "articlesRead": 11,
         "observations": 2,
         "datedObservations": 1,
         "missingPublicationDates": 0,
@@ -444,23 +444,21 @@
             "https://endfield.gryphline.com/en-us/news/2653",
             "https://endfield.gryphline.com/en-us/news/3839",
             "https://endfield.gryphline.com/en-us/news/4480",
+            "https://endfield.gryphline.com/en-us/news/5207",
             "https://endfield.gryphline.com/en-us/news/5208",
-            "https://endfield.gryphline.com/en-us/news/5209",
             "https://endfield.gryphline.com/en-us/news/6171",
             "https://endfield.gryphline.com/en-us/news/6172",
             "https://endfield.gryphline.com/en-us/news/7013",
             "https://endfield.gryphline.com/en-us/news/9562"
           ],
-          "anchorURLsSeen": [
-            "https://endfield.gryphline.com/en-us/news/5209"
-          ],
-          "checkpointReached": true,
-          "coverage": "current-anchor-overlap",
+          "anchorURLsSeen": [],
+          "checkpointReached": false,
+          "coverage": "bounded-unverified",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 0
+          "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-05"
+        "listingUnchangedSince": "2026-10-07"
       }
     }
   }
