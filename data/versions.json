@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-198710921cb680c3",
+  "datasetId": "release-calendar-589bc0c94f6415d8",
   "games": {
     "hsr": {
       "0": {
@@ -395,9 +395,11 @@
       "6": {
         "title": "Sanctuary of Ink",
         "sources": [
-          "endfield-ink-name"
+          "endfield-ink-name",
+          "official-a17ff5be38083fb2"
         ],
-        "verification": "official"
+        "verification": "official",
+        "managedBy": "hunter"
       }
     }
   }
