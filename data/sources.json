@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-70ef5bee552cf8ad",
-  "checkedOn": "2026-10-10",
+  "datasetId": "release-calendar-37f3ce8d0084c2ca",
+  "checkedOn": "2026-10-11",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -300,6 +300,11 @@
       "title": "Zenless Zone Zero Version 3.3 \"Journey to the Sky\" Special Program | Intel Report",
       "url": "https://zenless.hoyoverse.com/en-us/news/166644",
       "kind": "official"
+    },
+    "official-f2abcb3f06f69cf7": {
+      "title": "Notice Regarding Adjustments to the Existing Zenless Zone Zero × Discord Account Linking Service",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166647",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -315,7 +320,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-10",
+    "checkedOn": "2026-10-11",
     "scope": [
       "hsr",
       "zzz",
@@ -340,11 +345,11 @@
           ],
           "categories": [],
           "discoveredURLs": [
-            "https://hsr.hoyoverse.com/en-us/news/166180",
             "https://hsr.hoyoverse.com/en-us/news/166181",
             "https://hsr.hoyoverse.com/en-us/news/166182",
             "https://hsr.hoyoverse.com/en-us/news/166189",
-            "https://hsr.hoyoverse.com/en-us/news/166468"
+            "https://hsr.hoyoverse.com/en-us/news/166468",
+            "https://hsr.hoyoverse.com/en-us/news/166548"
           ],
           "anchorURLsSeen": [
             "https://hsr.hoyoverse.com/en-us/news/166468"
@@ -355,13 +360,13 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-05"
+        "listingUnchangedSince": "2026-10-11"
       },
       "zzz": {
-        "articlesRead": 39,
-        "observations": 16,
+        "articlesRead": 40,
+        "observations": 17,
         "datedObservations": 1,
-        "missingPublicationDates": 39,
+        "missingPublicationDates": 40,
         "discovery": {
           "pagesRead": 4,
           "recordsDiscovered": 36,
@@ -388,7 +393,6 @@
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/165994",
-            "https://zenless.hoyoverse.com/en-us/news/165997",
             "https://zenless.hoyoverse.com/en-us/news/165998",
             "https://zenless.hoyoverse.com/en-us/news/165999",
             "https://zenless.hoyoverse.com/en-us/news/166000",
@@ -421,7 +425,8 @@
             "https://zenless.hoyoverse.com/en-us/news/166536",
             "https://zenless.hoyoverse.com/en-us/news/166552",
             "https://zenless.hoyoverse.com/en-us/news/166553",
-            "https://zenless.hoyoverse.com/en-us/news/166644"
+            "https://zenless.hoyoverse.com/en-us/news/166644",
+            "https://zenless.hoyoverse.com/en-us/news/166647"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166000"
@@ -430,9 +435,9 @@
           "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 3
+          "additionalKnownArticles": 4
         },
-        "listingUnchangedSince": "2026-10-10"
+        "listingUnchangedSince": "2026-10-11"
       },
       "endfield": {
         "articlesRead": 11,
