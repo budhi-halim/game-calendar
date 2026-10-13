@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ef970a0d12e98b03",
-  "checkedOn": "2026-10-13",
+  "datasetId": "release-calendar-527e2d84c6f3c613",
+  "checkedOn": "2026-10-14",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -310,6 +310,12 @@
       "title": "Their Secret Histories | Video Archive Sharing",
       "url": "https://zenless.hoyoverse.com/en-us/news/166667",
       "kind": "official"
+    },
+    "official-33c0cd067f1bde4b": {
+      "title": "[Sanctuary of Ink] Version Pre-Download & Update Notice",
+      "url": "https://endfield.gryphline.com/en-us/news/0744",
+      "kind": "official",
+      "publishedOn": "2026-10-13"
     }
   },
   "coverage": {
@@ -325,7 +331,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-13",
+    "checkedOn": "2026-10-14",
     "scope": [
       "hsr",
       "zzz",
@@ -446,8 +452,8 @@
       },
       "endfield": {
         "articlesRead": 11,
-        "observations": 3,
-        "datedObservations": 1,
+        "observations": 4,
+        "datedObservations": 2,
         "missingPublicationDates": 0,
         "discovery": {
           "pagesRead": 1,
@@ -461,12 +467,12 @@
           ],
           "categories": [],
           "discoveredURLs": [
+            "https://endfield.gryphline.com/en-us/news/0744",
             "https://endfield.gryphline.com/en-us/news/1326",
             "https://endfield.gryphline.com/en-us/news/3838",
             "https://endfield.gryphline.com/en-us/news/3839",
             "https://endfield.gryphline.com/en-us/news/5207",
             "https://endfield.gryphline.com/en-us/news/5208",
-            "https://endfield.gryphline.com/en-us/news/6171",
             "https://endfield.gryphline.com/en-us/news/7013",
             "https://endfield.gryphline.com/en-us/news/7014",
             "https://endfield.gryphline.com/en-us/news/8995",
@@ -479,7 +485,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-09"
+        "listingUnchangedSince": "2026-10-14"
       }
     }
   }
