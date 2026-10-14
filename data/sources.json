@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-527e2d84c6f3c613",
-  "checkedOn": "2026-10-14",
+  "checkedOn": "2026-10-15",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -331,7 +331,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-14",
+    "checkedOn": "2026-10-15",
     "scope": [
       "hsr",
       "zzz",
@@ -403,7 +403,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/165994",
             "https://zenless.hoyoverse.com/en-us/news/166000",
             "https://zenless.hoyoverse.com/en-us/news/166015",
             "https://zenless.hoyoverse.com/en-us/news/166023",
@@ -437,7 +436,8 @@
             "https://zenless.hoyoverse.com/en-us/news/166647",
             "https://zenless.hoyoverse.com/en-us/news/166664",
             "https://zenless.hoyoverse.com/en-us/news/166665",
-            "https://zenless.hoyoverse.com/en-us/news/166667"
+            "https://zenless.hoyoverse.com/en-us/news/166667",
+            "https://zenless.hoyoverse.com/en-us/news/166760"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166000"
@@ -448,12 +448,12 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 6
         },
-        "listingUnchangedSince": "2026-10-13"
+        "listingUnchangedSince": "2026-10-15"
       },
       "endfield": {
-        "articlesRead": 11,
-        "observations": 4,
-        "datedObservations": 2,
+        "articlesRead": 10,
+        "observations": 2,
+        "datedObservations": 1,
         "missingPublicationDates": 0,
         "discovery": {
           "pagesRead": 1,
@@ -468,24 +468,26 @@
           "categories": [],
           "discoveredURLs": [
             "https://endfield.gryphline.com/en-us/news/0744",
-            "https://endfield.gryphline.com/en-us/news/1326",
+            "https://endfield.gryphline.com/en-us/news/2652",
+            "https://endfield.gryphline.com/en-us/news/3837",
             "https://endfield.gryphline.com/en-us/news/3838",
-            "https://endfield.gryphline.com/en-us/news/3839",
+            "https://endfield.gryphline.com/en-us/news/4488",
+            "https://endfield.gryphline.com/en-us/news/4489",
             "https://endfield.gryphline.com/en-us/news/5207",
-            "https://endfield.gryphline.com/en-us/news/5208",
             "https://endfield.gryphline.com/en-us/news/7013",
             "https://endfield.gryphline.com/en-us/news/7014",
-            "https://endfield.gryphline.com/en-us/news/8995",
-            "https://endfield.gryphline.com/en-us/news/9562"
+            "https://endfield.gryphline.com/en-us/news/8995"
           ],
-          "anchorURLsSeen": [],
-          "checkpointReached": false,
-          "coverage": "bounded-unverified",
+          "anchorURLsSeen": [
+            "https://endfield.gryphline.com/en-us/news/0744"
+          ],
+          "checkpointReached": true,
+          "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 1
+          "additionalKnownArticles": 0
         },
-        "listingUnchangedSince": "2026-10-14"
+        "listingUnchangedSince": "2026-10-15"
       }
     }
   }
