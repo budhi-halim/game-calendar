@@ -968,7 +968,22 @@ def explicit_release_windows(headline, body, primary):
             (re.escape(primary.get('label')) if primary.get('label') else r'\d+\.\d+') +
             r'\s+)?(?:version\s+)?(?:update|release)\s+(?:start\s+)?'
             r'(?:time|date|schedule|period)(?:\s*(?:&|and)\s*time)?[^\w\n]{0,10}(.*)', re.I)
+        # An unqualified "Release Time" in the content catalogue can describe
+        # a quest, feature, or event rather than the patch. Generic date headings
+        # are only authoritative in the opening release-information section.
+        # Explicit statements bound to this version remain valid anywhere above.
+        section_boundary = re.search(
+            r'(?:^|\n)[^\w\n]{0,10}(?:update notes|new (?:content|contents|characters|agents|events|features)|'
+            r'(?:event|banner|character|agent|feature|quest) (?:details|overview))\s*(?:[:：]|\n|$)',
+            body, re.I)
+        opening_end = min(len(body), 2000,
+                          section_boundary.start() if section_boundary else len(body))
         for m in header.finditer(body):
+            header_line = m[0].split('\n')[-1]
+            explicit_identity = bool(primary.get('label') and re.search(
+                r'\bversion\s+' + re.escape(primary['label']) + r'\b', header_line, re.I))
+            if m.start() >= opening_end and not explicit_identity:
+                continue
             rest = m[1].strip()
             # Read the immediately following nonempty line only, not the next
             # arbitrary date anywhere in the article (often a reward deadline).
