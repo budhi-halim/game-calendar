@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-527e2d84c6f3c613",
+  "datasetId": "release-calendar-1431e2c3c6bfc1f5",
   "checkedOn": "2026-10-15",
   "sources": {
     "hsr-history": {
@@ -201,7 +201,15 @@
     "official-98f7b00e2849d688": {
       "title": "Version 4.5 \"To Roll the Stars in Astropolis\" Update Details",
       "url": "https://hsr.hoyoverse.com/en-us/news/165767",
-      "kind": "official"
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-08-26",
+          "kind": "update-date-block",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ]
     },
     "official-a505d05a7943e658": {
       "title": "[Dreamscape of Wind and Snow] Version Pre-Download & Update Notice",
@@ -212,12 +220,28 @@
     "official-8922c00df90ed02c": {
       "title": "Version 3.2 \"Their Secret Histories\" Update Announcement",
       "url": "https://zenless.hoyoverse.com/en-us/news/166000",
-      "kind": "official"
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-09-09",
+          "kind": "update-date-block",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ]
     },
     "official-bd58a048544cb29f": {
       "title": "Version 4.6 \"Dance With the Beast Before Moonrise\" Update Details",
       "url": "https://hsr.hoyoverse.com/en-us/news/166468",
-      "kind": "official"
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-09-28",
+          "kind": "update-date-block",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ]
     },
     "official-d960dc430894ed28": {
       "title": "[Dreamscape of Wind and Snow] Version Update Notes",
@@ -294,7 +318,15 @@
       "title": "Arknights: Endfield [Sanctuary of Ink] Version DEV Comm",
       "url": "https://endfield.gryphline.com/en-us/news/7014",
       "kind": "official",
-      "publishedOn": "2026-10-07"
+      "publishedOn": "2026-10-07",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-10-15",
+          "kind": "explicit-release-statement",
+          "yearSource": "article-publication-date",
+          "publicationReference": "2026-10-07"
+        }
+      ]
     },
     "official-dd86a414eaafb673": {
       "title": "Zenless Zone Zero Version 3.3 \"Journey to the Sky\" Special Program | Intel Report",
@@ -315,7 +347,73 @@
       "title": "[Sanctuary of Ink] Version Pre-Download & Update Notice",
       "url": "https://endfield.gryphline.com/en-us/news/0744",
       "kind": "official",
-      "publishedOn": "2026-10-13"
+      "publishedOn": "2026-10-13",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-10-15",
+          "kind": "maintenance-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        },
+        {
+          "date": "2026-10-15",
+          "kind": "maintenance-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ]
+    },
+    "official-eafe769651b6c868": {
+      "title": "Zenless Zone Zero Version 3.2 \"Their Secret Histories\" Coming Soon: The All-New Armorer Specialty Makes Its Debut as Flint Workshop's Dynamic Duo Takes the Stage",
+      "url": "https://www.hoyoverse.com/en-us/news/165951",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-09-09",
+          "kind": "explicit-release-statement",
+          "yearSource": "article-publication-date",
+          "publicationReference": "2026-08-28"
+        },
+        {
+          "date": "2026-09-09",
+          "kind": "explicit-release-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ],
+      "publishedOn": "2026-08-28"
+    },
+    "official-adcffef9f3dda0f7": {
+      "title": "[Sanctuary of Ink] Version Update Notes",
+      "url": "https://endfield.gryphline.com/en-us/news/9560",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-10-15",
+          "kind": "maintenance-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ],
+      "publishedOn": "2026-10-15"
+    },
+    "official-32d8ae67c8796343": {
+      "title": "Zenless Zone Zero Version 3.3 \"Journey to the Sky\" Coming Soon: S-Rank Agents Phoenix and Severian Join the Fray, Alongside All-New Mech Combat Gameplay",
+      "url": "https://www.hoyoverse.com/en-us/news/166759",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-10-21",
+          "kind": "explicit-release-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ]
+    },
+    "official-6372ebe7d54d5c6e": {
+      "title": "Zenless Zone Zero Celebrates Its 2nd Anniversary: All-New Lumiflux Attribute Debuts, First-Generation Void Hunter Remielle Dan Makes a Dazzling Entrance as an S-Rank Agent",
+      "url": "https://www.hoyoverse.com/en-us/news/165330",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -374,13 +472,13 @@
         "listingUnchangedSince": "2026-10-11"
       },
       "zzz": {
-        "articlesRead": 42,
-        "observations": 18,
-        "datedObservations": 1,
-        "missingPublicationDates": 42,
+        "articlesRead": 49,
+        "observations": 23,
+        "datedObservations": 3,
+        "missingPublicationDates": 48,
         "discovery": {
-          "pagesRead": 4,
-          "recordsDiscovered": 36,
+          "pagesRead": 5,
+          "recordsDiscovered": 45,
           "endReason": "anchor-overlap",
           "passes": [
             {
@@ -398,13 +496,25 @@
             {
               "pass": 4,
               "distinctRecords": 36
+            },
+            {
+              "pass": 5,
+              "distinctRecords": 45
             }
           ],
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
+            "https://zenless.hoyoverse.com/en-us/news/165968",
+            "https://zenless.hoyoverse.com/en-us/news/165994",
+            "https://zenless.hoyoverse.com/en-us/news/165995",
+            "https://zenless.hoyoverse.com/en-us/news/165996",
+            "https://zenless.hoyoverse.com/en-us/news/165997",
+            "https://zenless.hoyoverse.com/en-us/news/165998",
+            "https://zenless.hoyoverse.com/en-us/news/165999",
             "https://zenless.hoyoverse.com/en-us/news/166000",
             "https://zenless.hoyoverse.com/en-us/news/166015",
+            "https://zenless.hoyoverse.com/en-us/news/166021",
             "https://zenless.hoyoverse.com/en-us/news/166023",
             "https://zenless.hoyoverse.com/en-us/news/166024",
             "https://zenless.hoyoverse.com/en-us/news/166025",
@@ -437,7 +547,8 @@
             "https://zenless.hoyoverse.com/en-us/news/166664",
             "https://zenless.hoyoverse.com/en-us/news/166665",
             "https://zenless.hoyoverse.com/en-us/news/166667",
-            "https://zenless.hoyoverse.com/en-us/news/166760"
+            "https://zenless.hoyoverse.com/en-us/news/166760",
+            "https://zenless.hoyoverse.com/en-us/news/166761"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166000"
@@ -446,14 +557,50 @@
           "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 6
+          "additionalKnownArticles": 1,
+          "pressFallback": {
+            "attempted": true,
+            "url": "https://www.hoyoverse.com/en-us/news",
+            "status": "collected",
+            "articlesRead": 3,
+            "datedObservations": 2,
+            "diagnostic": null,
+            "discovery": {
+              "pagesRead": 1,
+              "recordsDiscovered": 7,
+              "endReason": "no-more-control-or-scroll-results",
+              "passes": [
+                {
+                  "pass": 1,
+                  "distinctRecords": 7
+                }
+              ],
+              "categories": [],
+              "discoveredURLs": [
+                "https://www.hoyoverse.com/en-us/news/165330",
+                "https://www.hoyoverse.com/en-us/news/165689",
+                "https://www.hoyoverse.com/en-us/news/165826",
+                "https://www.hoyoverse.com/en-us/news/165951",
+                "https://www.hoyoverse.com/en-us/news/166386",
+                "https://www.hoyoverse.com/en-us/news/166390",
+                "https://www.hoyoverse.com/en-us/news/166759"
+              ],
+              "anchorURLsSeen": [],
+              "checkpointReached": false,
+              "coverage": "bounded-unverified",
+              "initialPageBudget": 2,
+              "maximumPageBudget": 2,
+              "additionalKnownArticles": 0,
+              "matchingTitleRecords": 3
+            }
+          }
         },
         "listingUnchangedSince": "2026-10-15"
       },
       "endfield": {
         "articlesRead": 10,
-        "observations": 2,
-        "datedObservations": 1,
+        "observations": 3,
+        "datedObservations": 3,
         "missingPublicationDates": 0,
         "discovery": {
           "pagesRead": 1,
@@ -474,9 +621,9 @@
             "https://endfield.gryphline.com/en-us/news/4488",
             "https://endfield.gryphline.com/en-us/news/4489",
             "https://endfield.gryphline.com/en-us/news/5207",
-            "https://endfield.gryphline.com/en-us/news/7013",
             "https://endfield.gryphline.com/en-us/news/7014",
-            "https://endfield.gryphline.com/en-us/news/8995"
+            "https://endfield.gryphline.com/en-us/news/8995",
+            "https://endfield.gryphline.com/en-us/news/9560"
           ],
           "anchorURLsSeen": [
             "https://endfield.gryphline.com/en-us/news/0744"

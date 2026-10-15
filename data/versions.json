@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-527e2d84c6f3c613",
+  "datasetId": "release-calendar-1431e2c3c6bfc1f5",
   "games": {
     "hsr": {
       "0": {
@@ -312,7 +312,9 @@
       },
       "18": {
         "sources": [
+          "official-6372ebe7d54d5c6e",
           "official-8922c00df90ed02c",
+          "official-eafe769651b6c868",
           "zzz-3-1"
         ],
         "label": "3.1",
@@ -333,6 +335,7 @@
           "official-b8c32e263e2fd24b",
           "official-c278fcae9a48b81a",
           "official-dcac0af878a2cfac",
+          "official-eafe769651b6c868",
           "official-ef6f669e008ec376",
           "zzz-3-2"
         ],
@@ -343,9 +346,11 @@
       "20": {
         "label": "3.3",
         "sources": [
+          "official-32d8ae67c8796343",
           "official-3e180d41727ad739",
           "official-dcac0af878a2cfac",
           "official-dd86a414eaafb673",
+          "official-eafe769651b6c868",
           "official-f2abcb3f06f69cf7",
           "zzz-3-3-name"
         ],
@@ -400,7 +405,8 @@
         "sources": [
           "endfield-ink-name",
           "official-33c0cd067f1bde4b",
-          "official-a17ff5be38083fb2"
+          "official-a17ff5be38083fb2",
+          "official-adcffef9f3dda0f7"
         ],
         "verification": "official",
         "managedBy": "hunter"

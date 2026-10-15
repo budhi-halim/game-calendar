@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-527e2d84c6f3c613",
+  "datasetId": "release-calendar-1431e2c3c6bfc1f5",
   "title": "Patch calendar",
   "timeZone": "Asia/Jakarta",
   "weekStartsOn": 1,
@@ -93,7 +93,23 @@
       "publicationWaitSeconds": 1.0,
       "unchangedListingWarningDays": 14,
       "confirmationWarningDays": 3,
-      "feedWorkers": 3
+      "feedWorkers": 3,
+      "preReleaseWarningDays": 14,
+      "pressFallback": {
+        "zzz": {
+          "enabled": true,
+          "url": "https://www.hoyoverse.com/en-us/news",
+          "hosts": [
+            "www.hoyoverse.com",
+            "hoyoverse.com"
+          ],
+          "articlePattern": "/en-us/news/\\d+$",
+          "titleStyle": "number",
+          "requiredTitle": "Zenless Zone Zero",
+          "maxListPages": 2,
+          "maxArticlesPerGame": 12
+        }
+      }
     },
     "googleCalendar": {
       "enabled": true,

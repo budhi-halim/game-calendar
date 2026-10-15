@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-527e2d84c6f3c613",
+  "datasetId": "release-calendar-1431e2c3c6bfc1f5",
   "games": {
     "hsr": [
       {
@@ -494,7 +494,19 @@
         "verification": "official",
         "sources": [
           "official-8922c00df90ed02c",
+          "official-eafe769651b6c868",
           "zzz-3-2"
+        ],
+        "managedBy": "hunter",
+        "announcedOn": "2026-08-28"
+      },
+      {
+        "sequence": 20,
+        "date": "2026-10-21",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "official-32d8ae67c8796343"
         ],
         "managedBy": "hunter"
       }
@@ -569,10 +581,12 @@
         "status": "confirmed",
         "verification": "official",
         "sources": [
-          "official-33c0cd067f1bde4b"
+          "official-33c0cd067f1bde4b",
+          "official-a17ff5be38083fb2",
+          "official-adcffef9f3dda0f7"
         ],
         "managedBy": "hunter",
-        "announcedOn": "2026-10-13"
+        "announcedOn": "2026-10-15"
       }
     ]
   }
