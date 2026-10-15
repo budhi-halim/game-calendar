@@ -19,6 +19,7 @@ NOT_A_RELEASE = re.compile(r'hotfix|known issues|issue fixes|bug fixes|optimizat
 MONTHS = {name.lower(): index for index, name in enumerate(
     ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'), 1)}
 MONTHS.update({name[:3]: index for name, index in list(MONTHS.items())})
+MONTHS['sept'] = 9
 DATE = re.compile(r'(?P<iso>20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})|(?P<month>' + '|'.join(MONTHS) + r')\.?\s+(?P<day>\d{1,2})(?:st|nd|rd|th)?[,]?\s+(?P<year>20\d{2})', re.I)
 ZONE = re.compile(r'UTC\s*([+−-])\s*(\d{1,2})(?::(\d{2}))?', re.I)
 
@@ -64,6 +65,28 @@ def html_text(value):
     parser.feed(str(value))
     return clean(''.join(parser.parts))
 
+
+
+def article_media(markup, base_url):
+    """Retain public image references/alt text for diagnosis; never download or OCR."""
+    class Media(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.items = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag not in ('img', 'video', 'iframe') or len(self.items) >= 20:
+                return
+            fields = dict(attrs)
+            raw = fields.get('src') or fields.get('data-src') or fields.get('data-original')
+            url = public_url(urljoin(base_url, raw or ''))
+            if raw and url.startswith('https://'):
+                item = {'kind': tag, 'url': url, 'alt': clean(fields.get('alt') or fields.get('title'))[:400]}
+                if item not in self.items:
+                    self.items.append(item)
+    value = Media()
+    value.feed(str(markup or '')[:500000])
+    return value.items
 
 def canonical_article(url, feed):
     """Accept only article URLs on this game's configured publisher website."""
@@ -112,6 +135,16 @@ PUBLICATION_KEYS = ('datepublished', 'publishedon', 'publishedat', 'publishtime'
                     'starttime', 'istarttime', 'createdat', 'createtime', 'releasedat', 'date', 'time')
 PUBLICATION_WRAPPERS = {'metadata', 'meta', 'ext', 'extend', 'extra', 'extensions', 'attributes', 'fields'}
 
+
+
+def press_dateline(text):
+    """Read a dated press-release dateline, not a maintenance or crawl timestamp."""
+    for line in clean(text).splitlines()[:4]:
+        value = line.strip()
+        match = DATE.match(value)
+        if match and re.match(r'\s*[,，]?\s*(?:Singapore|Shanghai|Tokyo|Seoul|Los Angeles|SINGAPORE)\s*[,，]?\s*[—–-]', value[match.end():], re.I):
+            return published_day(match[0])
+    return None
 
 def publication_candidates(record):
     """Read only date fields on this article or its own metadata, never body/related records."""
@@ -185,8 +218,9 @@ def walk_news(value, feed, depth=0, in_collection=False):
                     url = canonical_article(feed['url'].rstrip('/') + '/' + str(identifier), feed)
             if url:
                 published, publication_source = publication_metadata(lower)
-                body = next((html_text(lower[key]) for key in ('content', 'articlecontent', 'newscontent', 'scontent', 'articlebody', 'body') if isinstance(lower.get(key), str) and lower[key].strip()), None)
-                result.append({'url': url, 'title': html_text(title), 'publishedOn': published, 'publicationSource': publication_source, 'publicationFields': publication_candidates(lower), 'text': body, '_titleRank': 3, '_detail': not in_collection})
+                raw_body = next((lower[key] for key in ('content', 'articlecontent', 'newscontent', 'scontent', 'articlebody', 'body') if isinstance(lower.get(key), str) and lower[key].strip()), None)
+                body = html_text(raw_body) if raw_body else None
+                result.append({'url': url, 'title': html_text(title), 'publishedOn': published, 'publicationSource': publication_source, 'publicationFields': publication_candidates(lower), 'text': body, 'media': article_media(raw_body, url), '_titleRank': 3, '_detail': not in_collection})
         for key, item in value.items():
             if isinstance(item, (dict, list)):
                 collection = in_collection or re.sub(r'[_-]', '', key.lower()) in ('list', 'items', 'records', 'articles', 'related', 'recommendations')
@@ -274,6 +308,11 @@ ARTICLE_SNAPSHOT = r"""() => {
         const selector = node.tagName.toLowerCase() + (typeof node.className === 'string' && node.className ? '.' + node.className.trim().replace(/\s+/g, '.') : '');
         candidates.push({selector, text: text.slice(0,250000), headings: [...new Set(localHeadings)].slice(0,24),
             hasMedia: !!node.querySelector('img[src],video,iframe[src]'),
+            media: [...node.querySelectorAll('img,video,iframe')]
+                .filter(n => !n.closest('nav,footer,aside,[class*="related" i],[class*="recommend" i]'))
+                .slice(0,20).map(n => ({kind:n.tagName.toLowerCase(),
+                    url:n.getAttribute('src') || n.getAttribute('data-src') || n.getAttribute('data-original') || '',
+                    alt:(n.getAttribute('alt') || n.getAttribute('title') || '').slice(0,400)})),
             loading: !!node.querySelector('[aria-busy="true"],[role="progressbar"]'),
             related: !!node.querySelector('[class*="related" i],[class*="recommend" i]')});
         if (candidates.length >= 20) break;
@@ -288,7 +327,7 @@ ARTICLE_SNAPSHOT = r"""() => {
 }"""
 
 
-PUBLICATION_SNAPSHOT = r"""() => {
+PUBLICATION_SNAPSHOT = r"""expectedTitle => {
     const meta = [...document.querySelectorAll('meta[property="article:published_time"],meta[name="publishdate"],meta[name="date"],meta[itemprop="datePublished"]')]
         .map(n => ({value: n.content, source: 'article publication meta'}));
     const excluded = n => n.closest('a,nav,footer,aside,[class*="related" i],[class*="recommend" i]');
@@ -302,6 +341,20 @@ PUBLICATION_SNAPSHOT = r"""() => {
             if (n === h || excluded(n) || !n.getClientRects().length) continue;
             if (/date|publish|time/i.test(String(n.className)) && (n.innerText || '').length < 65)
                 fields.push({value: n.getAttribute('datetime') || n.innerText, source: 'headline-adjacent publication field'});
+        }
+    }
+    const key = s => (s || '').normalize('NFKC').replace(/[“”]/g,'"').replace(/[‘’]/g,"'").replace(/\s+/g,' ').trim().toLowerCase();
+    if (expectedTitle) {
+        for (const h of document.querySelectorAll('h1,h2,h3,[role="heading"],[class*="title" i]')) {
+            if (excluded(h) || key(h.innerText) !== key(expectedTitle)) continue;
+            // A short independent date adjacent to the exact headline is a
+            // publication header, never the first date inside article prose.
+            for (const n of [h.previousElementSibling, h.nextElementSibling]) {
+                if (!n || excluded(n) || !n.getClientRects().length || /^(P|IMG|IFRAME|VIDEO)$/.test(n.tagName)) continue;
+                const value = (n.getAttribute('datetime') || n.textContent || '').trim();
+                if (/^(?:News\s*)?20\d{2}[\/.-]\d{1,2}[\/.-]\d{1,2}(?:\s+\d{1,2}:\d{2})?$/i.test(value))
+                    fields.push({value:value.replace(/^News\s*/i,''),source:'exact-headline-adjacent publication date'});
+            }
         }
     }
     const jsonld = [...document.querySelectorAll('script[type="application/ld+json"]')]
@@ -348,7 +401,9 @@ def dom_article(record, snapshot):
         if CHALLENGE.search(text) or (len(remainder) < 20 and not scope.get('hasMedia')):
             continue
         # Media-only notices retain the headline; date parsing still requires explicit text.
-        candidates.append((len(text), {'title': matched, 'text': text, 'readVia': 'article DOM', 'selector': scope['selector']}))
+        candidates.append((len(text), {'title': matched, 'text': text, 'readVia': 'article DOM', 'selector': scope['selector'],
+            'media': [{'kind': m.get('kind', 'img'), 'url': public_url(urljoin(record['url'], m['url'])), 'alt': clean(m.get('alt'))[:400]}
+                      for m in scope.get('media', []) if m.get('url') and urljoin(record['url'], m['url']).startswith('https://')]}))
     return min(candidates, key=lambda entry: entry[0])[1] if candidates else None
 
 
@@ -571,7 +626,7 @@ def collect_feed(game_id, feed, settings, executable=None, progress=None, headed
                 metadata = discovered.get(item['url'], item)
                 if metadata.get('publishedOn'):
                     return metadata['publishedOn'], metadata.get('publicationSource')
-                snapshot = page.evaluate(PUBLICATION_SNAPSHOT)
+                snapshot = page.evaluate(PUBLICATION_SNAPSHOT, item.get('title'))
                 date, source = publication_from_snapshot(snapshot, item, feed)
                 if date or time.monotonic() >= deadline:
                     return date, source
@@ -722,6 +777,9 @@ def collect_feed(game_id, feed, settings, executable=None, progress=None, headed
                     merge_news_record(discovered, dict(seed, _titleRank=0))
             articles.discovery['additionalKnownArticles'] = seed_count
             listing = list(discovered.values())
+            if feed.get('requiredTitle'):
+                listing = [item for item in listing if str(feed['requiredTitle']).casefold() in item['title'].casefold()]
+                articles.discovery['matchingTitleRecords'] = len(listing)
             listing.sort(key=lambda item: (bool(RELEASE_HEADLINE.search(item['title'])), item.get('publishedOn') or today()), reverse=True)
             recent = [item for item in listing if not item.get('publishedOn') or parse_day(today()) - parse_day(item['publishedOn']) <= settings['recentDays']]
             if len(recent) > settings['maxArticlesPerGame']:
@@ -734,11 +792,16 @@ def collect_feed(game_id, feed, settings, executable=None, progress=None, headed
                 progress(f'Article {article_number}/{len(recent)}: {item["title"]}')
                 visit(item['url'])
                 article = read_article(item)
+                if not article.get('publishedOn') and not discovered.get(item['url'], {}).get('publishedOn'):
+                    dateline = press_dateline(article['text'])
+                    if dateline:
+                        article = dict(article, publishedOn=dateline, publicationSource='dated publisher press-release dateline')
                 articles.append({'gameId': game_id, 'url': item['url'], 'title': article['title'],
                                  'publishedOn': article.get('publishedOn') or discovered.get(item['url'], {}).get('publishedOn'),
                                  'publicationSource': article.get('publicationSource') or discovered.get(item['url'], {}).get('publicationSource'),
                                  'publicationFields': discovered.get(item['url'], {}).get('publicationFields', []),
                                  'bodyHash': digest(article['text']), 'readVia': article['readVia'],
+                                 'media': article.get('media', []),
                                  'text': article['text'][:250000]})
                 progress(f'Article {article_number}/{len(recent)} read via {article["readVia"]} ({len(article["text"])} characters).')
         except CollectionCancelled:
@@ -785,6 +848,155 @@ def date_from_match(match, context, declared_zone=None):
     return value.date().isoformat()
 
 
+
+# Release prose often omits a year ("Oct. 15"). This expression is separate from
+# DATE: publication metadata must still contain its own complete year.
+RELEASE_DATE = re.compile(
+    r'(?<!\w)(?:(?P<iso>20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})|'
+    r'(?P<month>' + '|'.join(MONTHS) + r')\.?\s+(?P<day>\d{1,2})(?:st|nd|rd|th)?'
+    r'(?:,?\s+(?P<year>20\d{2}))?|'
+    r'(?P<day_first>\d{1,2})(?:st|nd|rd|th)?\s+(?P<month_last>' + '|'.join(MONTHS) +
+    r')\.?(?:,?\s+(?P<year_last>20\d{2}))?)(?!\w)', re.I)
+RELEASE_VERB = (
+    r'(?:will\s+(?:officially\s+)?(?:launch|arrive|release|go\s+live|'
+    r'be\s+(?:available|released|launched))|(?:officially\s+)?(?:launches|arrives|releases|goes\s+live)|'
+    r'is\s+(?:set|scheduled)\s+to\s+(?:launch|arrive|release|go\s+live)|'
+    r'is\s+scheduled\s+for)')
+NOT_RELEASE_SUBJECT = re.compile(
+    r'\b(?:special\s+program|live\s*stream|preview\s+program|trailer|teaser|'
+    r'redemption|codes?|rewards?|outfits?|avatars?|banners?|web\s*events?|'
+    r'pre[- ]?download|pre[- ]?installation|Steam|Xbox|PlayStation|Discord|Twitch|'
+    r'events?|story|characters?|agents?|store|fund|missions?|service|DEV\s+Comm|developer\s+(?:communication|diary))\b', re.I)
+BROADCAST = re.compile(r'special\s+program|live\s*stream|preview\s+program', re.I)
+
+
+class MissingReleaseYear(ValueError):
+    """The release month/day is explicit but its year is not yet evidenced."""
+
+
+def release_date_value(match, context, publication=None, declared_zone=None):
+    """Resolve only an explicit date, or a near-future date relative to publication.
+
+    The clock, crawl date, previous patch cadence, and projected date are NEVER
+    year evidence. The bounded 0..120-day publication window handles Dec/Jan
+    rollover without interpreting old news in the current calendar year.
+    """
+    if match['iso']:
+        year, month, day = map(int, re.split(r'[-/.]', match['iso']))
+        year_source = 'explicit-date'
+    else:
+        month = MONTHS[(match['month'] or match['month_last']).lower()]
+        day = int(match['day'] or match['day_first'])
+        explicit_year = match['year'] or match['year_last']
+        if explicit_year:
+            year, year_source = int(explicit_year), 'explicit-date'
+        else:
+            pub = published_day(publication)
+            if not pub:
+                raise MissingReleaseYear('The release month/day has no year and the article publication date is unavailable.')
+            reference = datetime.fromisoformat(pub)
+            possible = []
+            for year_candidate in (reference.year, reference.year + 1):
+                try:
+                    value = datetime(year_candidate, month, day)
+                except ValueError:
+                    continue
+                if 0 <= (value - reference).days <= 120:
+                    possible.append(year_candidate)
+            if len(possible) != 1:
+                raise MissingReleaseYear('The yearless date is not uniquely within 120 days after the publication date.')
+            year, year_source = possible[0], 'article-publication-date'
+    value = datetime(year, month, day)
+    tail = context[match.end():match.end() + 100]
+    clock = re.match(r'\s*(?:at\s+)?(\d{1,2}):(\d{2})(?::(\d{2}))?(?:\s*([AP]M))?', tail, re.I)
+    if clock:
+        zone = ZONE.search(tail.split('\n', 1)[0]) or declared_zone
+        if not zone:
+            raise ValueError('A release time has no explicit UTC offset; server time is not a global timezone.')
+        offset = (int(zone[2]) * 60 + int(zone[3] or 0)) * (1 if zone[1] == '+' else -1)
+        hour = int(clock[1])
+        if clock[4]:
+            if not 1 <= hour <= 12:
+                raise ValueError('Invalid 12-hour release time.')
+            hour = hour % 12 + (12 if clock[4].upper() == 'PM' else 0)
+        value = value.replace(hour=hour, minute=int(clock[2]), second=int(clock[3] or 0),
+                              tzinfo=timezone(timedelta(minutes=offset))).astimezone(JAKARTA)
+    return value.date().isoformat(), year_source
+
+
+def explicit_release_windows(headline, body, primary):
+    """Bind a launch predicate to this exact version, not a broadcast or reward.
+
+    An article's category is not a whitelist of acceptable evidence. A DEV Comm
+    or special-program recap can state a release date, but its broadcast, code
+    expiry, outfit, or platform launch date does not confirm the game's update.
+    """
+    subjects = []
+    if primary.get('label'):
+        subjects.append(r'\b(?:version|ver\.)\s*' + re.escape(primary['label']) + r'\b')
+    if primary.get('title'):
+        subjects.append(re.escape(primary['title']))
+    text = headline + '\n' + body
+    windows = []
+    for subject in subjects:
+        pattern = subject + r'(?P<gap>[^\n]{0,150}?)\b(?P<verb>' + RELEASE_VERB + r')\b(?P<tail>[^\n]{0,170})'
+        for m in re.finditer(pattern, text, re.I):
+            gap = m['gap']
+            # Another grammatical subject or a sentence boundary cannot borrow
+            # this version's identity. Periods inside a quoted title are fine.
+            unquoted = re.sub(r'[“\"][^”\"]*[”\"]', '', gap)
+            if NOT_RELEASE_SUBJECT.search(unquoted) or re.search(r'[.!?;]', unquoted):
+                continue
+            if re.search(r'\b(?:not|never|may|might|could|expected|rumou?red)\b', unquoted, re.I):
+                continue
+            other_labels = VERSION.findall(gap)
+            if other_labels and any(v != primary.get('label') for v in other_labels):
+                continue
+            prefix = text[max(text.rfind('\n', 0, m.start()) + 1, m.start() - 100):m.start()]
+            if re.search(r'(?:special\s+program|livestream|trailer|teaser|event)\s+(?:for|of)\s*$', prefix, re.I):
+                continue
+            # The first date must immediately follow release wording, not a
+            # later sentence describing a code deadline or a platform launch.
+            tail = m['tail']
+            date = RELEASE_DATE.search(tail)
+            if date and re.fullmatch(r'\s*(?:(?:worldwide|globally)\s*)?(?:(?:on|from|starting|for)\s*)?', tail[:date.start()], re.I):
+                windows.append(('explicit-release-statement', m[0]))
+    # Strongly labelled update-date blocks remain useful in post-stream reports.
+    # Generic event/store headlines do not gain release meaning from "Update Time".
+    if primary.get('releaseAnnouncement'):
+        header = re.compile(r'(?:^|\n)[^\w\n]{0,10}(?:version\s+' +
+            (re.escape(primary.get('label')) if primary.get('label') else r'\d+\.\d+') +
+            r'\s+)?(?:version\s+)?(?:update|release)\s+(?:start\s+)?'
+            r'(?:time|date|schedule|period)(?:\s*(?:&|and)\s*time)?[^\w\n]{0,10}(.*)', re.I)
+        for m in header.finditer(body):
+            rest = m[1].strip()
+            # Read the immediately following nonempty line only, not the next
+            # arbitrary date anywhere in the article (often a reward deadline).
+            if not rest:
+                following = body[m.end():].lstrip('\n').split('\n', 1)[0].strip()
+                rest = following
+            windows.append(('update-date-block', rest[:260]))
+    return windows
+
+
+def date_diagnostics(article, primary, windows, evidence, reasons):
+    """Retain bounded public evidence and unresolved reasons in the private report."""
+    body = clean(article.get('text'))
+    snippets = []
+    for match in RELEASE_DATE.finditer(body):
+        start = max(body.rfind('\n', 0, match.start()) + 1, match.start() - 90)
+        snippets.append({'dateText': match[0], 'context': body[start:match.end() + 90][:260]})
+        if len(snippets) == 6:
+            break
+    return {'status': 'date-extracted' if primary.get('date') else 'date-not-extracted',
+            'reasonCodes': sorted(set(reasons or ([] if evidence else ['no-explicit-release-date-in-readable-text']))),
+            'releaseWindows': [{'kind': kind, 'text': value[:350]} for kind, value in windows[:6]],
+            'dateMentionsForReviewOnly': snippets,
+            'media': article.get('media', [])[:8],
+            'textExcerpt': body[:1600] if not primary.get('date') else '',
+            'mediaWasNotOCRed': True}
+
+
 def is_release_announcement(headline):
     """Distinguish a patch announcement from merchandise/events mentioning its number."""
     return bool(re.search(r'update\s+(?:and\s+maintenance\s+)?(?:details|notes|notice|announcement)|'
@@ -796,6 +1008,9 @@ def is_release_announcement(headline):
 def parse_article(article, title_style='number'):
     """Return independent naming/date observations without inventing version numbers."""
     headline, body = clean(article['title']), clean(article['text'])
+    alt_text = [clean(m.get('alt')) for m in article.get('media', []) if len(clean(m.get('alt'))) >= 20]
+    if alt_text:
+        body += '\n' + '\n'.join(alt_text[:20])
     if NOT_A_RELEASE.search(headline):
         return []
     version = VERSION.search(headline)
@@ -821,38 +1036,53 @@ def parse_article(article, title_style='number'):
             results.append({'gameId': article['gameId'], 'label': extra, 'title': None, 'date': None,
                             'url': article['url'], 'sourceTitle': headline, 'publishedOn': article.get('publishedOn'),
                             'releaseAnnouncement': False, 'warnings': []})
-    if not primary or not primary['releaseAnnouncement'] or re.search(r'special program|livestream|preview program', headline, re.I):
+    if not primary:
         return results
     # A global timezone declaration is allowed, but a timezone inferred from the user's locale is not.
     global_zone = None
     declaration = re.search(r'(?:all times?|times? (?:are|is)|time zone)[^\n]{0,65}UTC\s*[+−-]\s*\d{1,2}(?::\d{2})?', body, re.I)
     if declaration:
         global_zone = ZONE.search(declaration[0])
-    patterns = [
-        r'(?:^|\n)[^\w\n]{0,10}(?:version\s+)?update\s+(?:start\s+)?(?:time|date|schedule|period)(?:\s*(?:&|and)\s*time)?\s*[:：]?\s*[\s\S]{0,240}',
-        r'(?:begin|start|commence)\s+maintenance[^\n]{0,200}',
-        r'(?:update\s+)?maintenance\s+(?:will\s+)?(?:begin|start|commence)(?:s)?\b[^\n]{0,240}',
-        r'(?:update\s+)?maintenance\s+(?:time|schedule|period)\s*[:：]?\s*[\s\S]{0,260}',
-        r'update\s+(?:will\s+)?(?:begin|start|commence)(?:s)?\b[^\n]{0,180}',
-    ]
-    if label:
-        patterns.append(r'(?:version|ver\.)\s*' + re.escape(label) + r'\b[^\n.!?]{0,140}\b(?:launches|arrives|releases|will be available|will be released|goes live)\b[^\n]{0,150}')
-    if title:
-        patterns.append(re.escape(title) + r'[^\n.!?]{0,80}\b(?:launches|arrives|releases|will be available|will be released|goes live)\b[^\n]{0,150}')
-    candidates = set()
-    for pattern in patterns:
-        for window in re.finditer(pattern, body, re.I):
-            context = window[0]
-            found = DATE.search(context)
-            if found:
-                try:
-                    candidates.add(date_from_match(found, context, global_zone))
-                except ValueError as error:
-                    primary['warnings'].append(str(error))
+    windows = explicit_release_windows(headline, body, primary)
+    # Existing maintenance formats apply only to non-broadcast release notices.
+    # Never interpret a special-program start time as maintenance.
+    if primary['releaseAnnouncement'] and not BROADCAST.search(headline):
+        patterns = [
+            r'(?:begin|start|commence)\s+maintenance[^\n]{0,200}',
+            r'(?:update\s+)?maintenance\s+(?:will\s+)?(?:begin|start|commence)(?:s)?\b[^\n]{0,240}',
+            r'(?:update\s+)?maintenance\s+(?:time|schedule|period)\s*[:：]?\s*[\s\S]{0,260}',
+            r'update\s+(?:will\s+)?(?:begin|start|commence)(?:s)?\b[^\n]{0,180}',
+        ]
+        for pattern in patterns:
+            windows.extend(('maintenance-statement', m[0]) for m in re.finditer(pattern, body, re.I))
+    candidates, evidence, reasons = set(), [], []
+    for kind, context in windows:
+        found = RELEASE_DATE.search(context)
+        if found:
+            try:
+                value, year_source = release_date_value(found, context, article.get('publishedOn'), global_zone)
+                candidates.add(value)
+                evidence.append({'date': value, 'kind': kind, 'text': context[:350], 'yearSource': year_source,
+                                 'publicationReference': article.get('publishedOn') if year_source == 'article-publication-date' else None})
+            except MissingReleaseYear:
+                reasons.append('missing-or-ambiguous-year-reference')
+            except ValueError as error:
+                primary['warnings'].append(str(error))
+                reasons.append('invalid-date-or-timezone')
     if len(candidates) == 1 and not primary['warnings']:
         primary['date'] = next(iter(candidates))
+        primary['releaseAnnouncement'] = True
+        primary['dateEvidence'] = evidence
     elif len(candidates) > 1:
         primary['warnings'].append('Conflicting explicit release dates: ' + ', '.join(sorted(candidates)))
-    elif re.search(r'maintenance|pre-download\s*&?\s*update notice', headline, re.I) or re.search(r'(?:^|\n)[^\w\n]{0,10}(?:update|maintenance)\s+(?:start\s+)?(?:time|date|schedule|period)\b', body, re.I):
+        reasons.append('conflicting-release-dates')
+    elif primary['releaseAnnouncement'] and not BROADCAST.search(headline) and (
+            re.search(r'maintenance|pre-download\s*&?\s*update notice', headline, re.I) or
+            re.search(r'(?:^|\n)[^\w\n]{0,10}(?:update|maintenance)\s+(?:start\s+)?(?:time|date|schedule|period)\b', body, re.I)):
         primary['warnings'].append('A release notice was recognized but no unambiguous release date was parsed.')
+    if BROADCAST.search(headline) and not primary.get('date'):
+        reasons.append('broadcast-or-reward-date-is-not-update-date')
+    if article.get('media') and not primary.get('date'):
+        reasons.append('media-present-needs-readable-release-date')
+    primary['dateParsing'] = date_diagnostics(article, primary, windows, evidence, reasons)
     return results

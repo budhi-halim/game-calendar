@@ -7,11 +7,98 @@ from contextlib import closing
 from datetime import datetime
 
 from common import JAKARTA, ROOT, digest, exclusive_lock, recover_data, get_game, load_data, parse_day, release, private_directory, read_json, save_data, today, validate, write_json
-from sources import canonical_article, collect_feed, normalize_name, parse_article
-from feed_pool import collect_parallel
+from sources import BROADCAST, CollectedArticles, FeedReadError, canonical_article, collect_feed, normalize_name, parse_article
+from feed_pool import CollectionCancelled, collect_parallel
 from progress import Progress
 from run_history import archive_run, run_identity
 
+
+
+# One persistent publisher-owned news listing, not a version-specific search URL.
+# Only ZZZ uses this host, so the existing three game workers never concurrently
+# collect this supplementary hostname. Configuration remains in config.json.
+DEFAULT_PRESS_FALLBACK = {
+    'zzz': {'enabled': True, 'url': 'https://www.hoyoverse.com/en-us/news',
+            'hosts': ['www.hoyoverse.com', 'hoyoverse.com'],
+            'articlePattern': r'/en-us/news/\d+$', 'titleStyle': 'number',
+            'requiredTitle': 'Zenless Zone Zero', 'maxListPages': 2,
+            'maxArticlesPerGame': 12}
+}
+
+
+def trusted_evidence(item, settings):
+    """Accept the configured game site or explicitly configured game-filtered press."""
+    feed = settings['feeds'][item['gameId']]
+    if canonical_article(item['url'], feed):
+        return True
+    fallback = settings.get('pressFallback', {}).get(item['gameId'])
+    return bool(fallback and fallback.get('enabled') and
+                str(fallback.get('requiredTitle') or '').casefold() in item['sourceTitle'].casefold() and
+                fallback.get('requiredTitle') and canonical_article(item['url'], fallback))
+
+
+def press_needed(data, game_id, parsed):
+    """Try the text press feed after an unresolved upcoming broadcast/teaser notice."""
+    anchors = {row['sequence']: row for row in data['overrides']['games'][game_id]}
+    for item in parsed:
+        if not (BROADCAST.search(item.get('sourceTitle', '')) or 'trailer' in item.get('sourceTitle', '').lower()):
+            continue
+        sequence = locate_sequence(data, game_id, item)
+        if sequence is None or sequence in anchors:
+            continue
+        if not any(other.get('date') and locate_sequence(data, game_id, other) == sequence for other in parsed):
+            return True
+    return False
+
+
+def add_press_evidence(data, game_id, parsed, articles, settings, executable, emit, headed, cancel):
+    """Supplement an unresolved pre-release notice with a bounded official text feed.
+
+    Network/discovery absence is reported, not mistaken for confirmation. Parser
+    conflicts in acquired evidence are still fatal in the caller. The same fixed
+    source is rediscovered every run; no release date or article ID is hardcoded.
+    """
+    fallback = settings.get('pressFallback', {}).get(game_id)
+    if not fallback or not fallback.get('enabled') or not press_needed(data, game_id, parsed):
+        return parsed, articles
+    if type(fallback.get('maxListPages')) is not int or not 1 <= fallback['maxListPages'] <= 4:
+        raise ValueError('Press fallback maxListPages must be between 1 and 4.')
+    if type(fallback.get('maxArticlesPerGame')) is not int or not 1 <= fallback['maxArticlesPerGame'] <= 30:
+        raise ValueError('Press fallback maxArticlesPerGame must be between 1 and 30.')
+    if not str(fallback.get('requiredTitle') or '').strip():
+        raise ValueError('A press fallback requires a nonempty game title filter.')
+    if not isinstance(articles, CollectedArticles):
+        copied = CollectedArticles()
+        copied.extend(articles)
+        articles = copied
+    detail = {'attempted': True, 'url': fallback['url'], 'status': 'reading',
+              'articlesRead': 0, 'datedObservations': 0, 'diagnostic': None}
+    articles.discovery['pressFallback'] = detail
+    emit(f'[{game_id}] Pre-release date unresolved; checking the fixed official press listing: {fallback["url"]}')
+    opts = dict(settings, maxListPages=fallback['maxListPages'],
+                maxAdaptiveListPages=fallback['maxListPages'],
+                maxArticlesPerGame=fallback['maxArticlesPerGame'], seedArticles=[], coverageAnchors=[])
+    try:
+        extra = collect_feed(game_id, fallback, opts, executable,
+                progress=lambda message: emit(f'[{game_id}/press] {message}'), headed=headed, cancel=cancel)
+    except CollectionCancelled:
+        raise
+    except Exception as error:
+        detail.update(status='unavailable', diagnostic=str(error)[:700])
+        if isinstance(error, FeedReadError):
+            detail['failureDetails'] = error.details
+        emit(f'NOTICE: {game_id}: official press fallback unavailable; a missing date remains projected. Details are in the report.')
+        return parsed, articles
+    # Verify the game association again after the article headline has been read.
+    # Other games on the same corporate domain cannot become ZZZ evidence.
+    matching = [article for article in extra if fallback['requiredTitle'].casefold() in article['title'].casefold()]
+    extra_parsed = [item for article in matching for item in parse_article(article, fallback['titleStyle'])]
+    seen = {article['url'] for article in articles}
+    articles.extend(article for article in matching if article['url'] not in seen)
+    detail.update(status='collected', articlesRead=len(matching), datedObservations=sum(bool(item.get('date')) for item in extra_parsed),
+                  discovery=getattr(extra, 'discovery', {}))
+    emit(f'[{game_id}] Official press fallback: {len(matching)} game-specific articles; {detail["datedObservations"]} dated observations.')
+    return parsed + extra_parsed, articles
 
 def version_pair(value):
     """Parse a numeric label only when the publisher actually supplied it."""
@@ -67,7 +154,7 @@ def locate_sequence(data, game_id, observation):
 def merge_observation(data, item, settings):
     """Merge independent official date/name evidence into the one canonical schema."""
     game_id = item['gameId']
-    if not canonical_article(item['url'], settings['feeds'][game_id]):
+    if not trusted_evidence(item, settings):
         raise ValueError('Evidence does not belong to the configured publisher feed.')
     sequence = locate_sequence(data, game_id, item)
     if sequence is None:
@@ -92,6 +179,12 @@ def merge_observation(data, item, settings):
     source_key = 'official-' + digest(item['url'])[:16]
     source = dict(data['sources']['sources'].get(source_key, {}))
     source.update({'title': item['sourceTitle'], 'url': item['url'], 'kind': 'official'})
+    if item.get('date') and item.get('dateEvidence'):
+        # Bounded excerpts belong in the private report. Public data retains the
+        # extraction method and year provenance, not complete article bodies.
+        source['releaseDateEvidence'] = [
+            {key: value.get(key) for key in ('date', 'kind', 'yearSource', 'publicationReference')}
+            for value in item['dateEvidence'][:6]]
     if item.get('publishedOn'):
         source['publishedOn'] = item['publishedOn']
     data['sources']['sources'][source_key] = source
@@ -161,6 +254,29 @@ def release_changes(before, after):
                                 'currentCalculatedDate': release(after, game_id, int(sequence))['date']})
     return changes
 
+
+
+def confirmation_review(data, observations):
+    """Explain every known upcoming name without claiming complete source coverage."""
+    review = []
+    for game in data['config']['games']:
+        game_id = game['id']
+        for key, name in data['versions']['games'][game_id].items():
+            value = release(data, game_id, int(key))
+            if value['day'] < parse_day(today()):
+                continue
+            matching = [item for item in observations if item['gameId'] == game_id and (
+                (name.get('label') and name.get('label') == item.get('label')) or
+                (name.get('title') and normalize_name(name['title']) == normalize_name(item.get('title'))))]
+            review.append({'releaseId': f'{game_id}-{key}', 'gameId': game_id,
+                'label': name.get('label'), 'title': name.get('title'), 'date': value['date'],
+                'status': value['status'], 'daysUntilDate': value['day'] - parse_day(today()),
+                'reason': 'official-date-recorded' if value['status'] == 'confirmed' else 'no-accepted-date-evidence',
+                'articles': [{'url': item['url'], 'sourceTitle': item['sourceTitle'],
+                    'publishedOn': item.get('publishedOn'), 'parsedDate': item.get('date'),
+                    'dateParsing': item.get('dateParsing'), 'dateEvidence': item.get('dateEvidence', [])}
+                    for item in matching]})
+    return review
 
 class HuntLog(Progress):
     """Keep the established hunt log path with the shared reporter implementation."""
@@ -233,18 +349,21 @@ def main():
             return 0
         settings = data['config']['automation']['sources']
         for key, default in {'maxAdaptiveListPages': max(12, settings['maxListPages']), 'publicationWaitSeconds': 1.0,
-                             'unchangedListingWarningDays': 14, 'confirmationWarningDays': 3, 'feedWorkers': 3}.items():
+                             'unchangedListingWarningDays': 14, 'confirmationWarningDays': 3, 'preReleaseWarningDays': 14, 'feedWorkers': 3}.items():
             settings.setdefault(key, default)
+        settings.setdefault('pressFallback', copy.deepcopy(DEFAULT_PRESS_FALLBACK))
         monitoring = data['config']['automation'].setdefault('monitoring', {})
         monitoring.setdefault('runRetentionDays', 180)
         monitoring.setdefault('stageTimeoutSeconds', 1200)
         retain_days = monitoring['runRetentionDays']
         report['effectiveSettings'] = {key: settings[key] for key in ('maxListPages', 'maxAdaptiveListPages',
-            'maxArticlesPerGame', 'recentDays', 'publicationWaitSeconds', 'unchangedListingWarningDays', 'confirmationWarningDays', 'feedWorkers')}
+            'maxArticlesPerGame', 'recentDays', 'publicationWaitSeconds', 'unchangedListingWarningDays', 'confirmationWarningDays', 'preReleaseWarningDays', 'feedWorkers')}
         if type(settings['maxAdaptiveListPages']) is not int or not settings['maxListPages'] <= settings['maxAdaptiveListPages'] <= 30:
             raise ValueError('maxAdaptiveListPages must be an integer from maxListPages through 30.')
         if not isinstance(settings['publicationWaitSeconds'], (int, float)) or not 0 <= settings['publicationWaitSeconds'] <= 5:
             raise ValueError('publicationWaitSeconds must be between 0 and 5.')
+        if type(settings['preReleaseWarningDays']) is not int or not 0 <= settings['preReleaseWarningDays'] <= 42:
+            raise ValueError('preReleaseWarningDays must be an integer from 0 through 42.')
         if args.game and args.game not in settings['feeds']:
             raise ValueError('Unknown game. Choose: ' + ', '.join(settings['feeds']))
         feeds = {key: value for key, value in settings['feeds'].items() if not args.game or key == args.game}
@@ -274,11 +393,18 @@ def main():
                 cancel()
                 emit(f'[{game_id}] Parsing release evidence from {len(articles)} articles.')
                 parsed = [item for article in articles for item in parse_article(article, feed['titleStyle'])]
+                parsed, articles = add_press_evidence(data, game_id, parsed, articles, settings,
+                    args.browser_executable, emit, args.headed, cancel)
+                cancel()
                 if not parsed:
                     raise ValueError('No version/name evidence was recognized in this feed.')
                 warnings = [f"{item['url']}: {warning}" for item in parsed for warning in item['warnings']]
                 if warnings:
-                    raise ValueError('Ambiguous release evidence: ' + '; '.join(warnings))
+                    raise FeedReadError('Ambiguous release evidence: ' + '; '.join(warnings),
+                                        {'stage': 'date-parsing', 'observations': parsed})
+                for item in parsed:
+                    if item.get('date'):
+                        emit(f'[{game_id}] Date evidence: {item.get("label") or item.get("title")} -> {item["date"]} (official announcement, not release-day gating).')
                 emit(f'[{game_id}] Found {len(parsed)} naming/date observations.')
                 return {'articles': articles, 'parsed': parsed}
 
@@ -317,8 +443,10 @@ def main():
                 'articleMetadata': [{'url': article.get('url'), 'title': article.get('title'),
                     'publishedOn': article.get('publishedOn'), 'publicationSource': article.get('publicationSource'),
                     'publicationFields': article.get('publicationFields', []), 'bodyHash': article.get('bodyHash'),
-                    'readVia': article.get('readVia')} for article in articles]})
+                    'readVia': article.get('readVia'), 'mediaCount': len(article.get('media', []))} for article in articles]})
             discovery = report['games'][game_id]['discovery']
+            if discovery.get('pressFallback', {}).get('status') == 'unavailable':
+                report['notices'].append(f'{game_id}: official press fallback unavailable; no release date was inferred.')
             if discovery.get('coverage') == 'bounded-unverified':
                 report['notices'].append(f'{game_id}: listing coverage is bounded without a current-release checkpoint; seed articles are not counted as discovery coverage.')
             previous_hunt = original['sources'].get('lastHunt', {})
@@ -348,13 +476,19 @@ def main():
             except Exception as error:
                 report['errors'].append(f"{item['gameId']}: {item['url']}: {error}")
         report['proposedChanges'] = release_changes(original, data)
+        report['confirmationReview'] = confirmation_review(data, observations)
         for game_id in feeds:
             latest = max(data['overrides']['games'][game_id], key=lambda row: row['sequence'])
             latest_day = parse_day(latest['date'])
             projected = release(data, game_id, latest['sequence'] + 1)
             overdue = max(0, parse_day(today()) - projected['day'])
             report['games'][game_id]['confirmationHealth'] = {'latestDatedRelease': latest['date'],
-                'nextProjectedDate': projected['date'], 'daysPastProjectionWithoutConfirmation': overdue}
+                'nextProjectedDate': projected['date'], 'daysPastProjectionWithoutConfirmation': overdue,
+                'daysUntilProjection': projected['day'] - parse_day(today()),
+                'unresolvedNamedReleases': sum(item['gameId'] == game_id and item['status'] == 'projected' for item in report['confirmationReview'])}
+            lead = projected['day'] - parse_day(today())
+            if 0 <= lead <= settings['preReleaseWarningDays']:
+                report['notices'].append(f'{game_id}: next projected update is {lead} days away, but no date confirmation has been imported. Review confirmationReview; this does not mean the publisher has not announced it.')
             if overdue > settings['confirmationWarningDays']:
                 report['notices'].append(f'{game_id}: the next projected date has passed by {overdue} days without a newer confirmed date; this may be a delay or missing evidence, not proof that the projection was correct.')
             if parse_day(today()) - latest_day > settings['maximumAnchorAgeDays']:
@@ -371,6 +505,7 @@ def main():
             value['datasetId'] = dataset_id
         validate(data)
         report['proposedChanges'] = release_changes(original, data)
+        report['confirmationReview'] = confirmation_review(data, observations)
         report['observations'] = observations
         emit(f'Release records with proposed changes: {len(report["proposedChanges"])}; before/after values are in hunt-report.json.')
         report['changed'] = [f'data/{name}.json' for name in ('config', 'overrides', 'versions', 'sources') if read_json(ROOT / 'data' / f'{name}.json') != data[name]]

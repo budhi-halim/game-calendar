@@ -264,10 +264,10 @@ class HunterTests(unittest.TestCase):
         item = parse_article(self.article('[Example Season] Version Pre-Download & Update Notice', 'We plan to begin maintenance for the client update on October 15, 2026 at 06:00 (UTC+8).', 'endfield'), 'title')[0]
         self.assertEqual(item['date'], '2026-10-15')
 
-    def test_special_program_never_sets_release_date(self):
+    def test_special_program_release_date_is_independent_of_broadcast(self):
         item = parse_article(self.article('Version 4.7 Special Program', 'The broadcast starts October 10, 2026. Version 4.7 arrives October 20, 2026.'))[0]
         self.assertEqual(item['label'], '4.7')
-        self.assertIsNone(item['date'])
+        self.assertEqual(item['date'], '2026-10-20')
 
     def test_event_body_can_confirm_a_future_number_only(self):
         items = parse_article(self.article('Example Rewards Event Details', 'Available after the update until 2026/11/30. Missions unlock during Versions 3.2 – 3.3.', 'zzz'))
