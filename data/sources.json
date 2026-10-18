@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-1431e2c3c6bfc1f5",
-  "checkedOn": "2026-10-18",
+  "checkedOn": "2026-10-19",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -429,7 +429,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-18",
+    "checkedOn": "2026-10-19",
     "scope": [
       "hsr",
       "zzz",
