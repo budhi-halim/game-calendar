@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-1431e2c3c6bfc1f5",
-  "checkedOn": "2026-10-19",
+  "datasetId": "release-calendar-837ea7de66ef800c",
+  "checkedOn": "2026-10-20",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -414,6 +414,26 @@
       "title": "Zenless Zone Zero Celebrates Its 2nd Anniversary: All-New Lumiflux Attribute Debuts, First-Generation Void Hunter Remielle Dan Makes a Dazzling Entrance as an S-Rank Agent",
       "url": "https://www.hoyoverse.com/en-us/news/165330",
       "kind": "official"
+    },
+    "official-cca1cc9fd8e1bd33": {
+      "title": "Version 3.3 \"Journey to the Sky\" Pre-Download Available & Update Notice",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166925",
+      "kind": "official"
+    },
+    "official-6c864f008317aaa7": {
+      "title": "V3.3 Limited-Time Channels (Phase I)",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166926",
+      "kind": "official"
+    },
+    "official-e56c362453e69c82": {
+      "title": "Version 3.3 New Stock in the Store",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166927",
+      "kind": "official"
+    },
+    "official-5f18acb0ad55ca78": {
+      "title": "New Main Story: Season 3 Chapter 4 \"Journey to the Sky\"",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166928",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -429,7 +449,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-19",
+    "checkedOn": "2026-10-20",
     "scope": [
       "hsr",
       "zzz",
@@ -473,7 +493,7 @@
       },
       "zzz": {
         "articlesRead": 37,
-        "observations": 9,
+        "observations": 11,
         "datedObservations": 0,
         "missingPublicationDates": 37,
         "discovery": {
@@ -501,12 +521,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/166025",
-            "https://zenless.hoyoverse.com/en-us/news/166042",
-            "https://zenless.hoyoverse.com/en-us/news/166053",
-            "https://zenless.hoyoverse.com/en-us/news/166054",
-            "https://zenless.hoyoverse.com/en-us/news/166071",
-            "https://zenless.hoyoverse.com/en-us/news/166073",
             "https://zenless.hoyoverse.com/en-us/news/166122",
             "https://zenless.hoyoverse.com/en-us/news/166190",
             "https://zenless.hoyoverse.com/en-us/news/166191",
@@ -535,7 +549,13 @@
             "https://zenless.hoyoverse.com/en-us/news/166761",
             "https://zenless.hoyoverse.com/en-us/news/166906",
             "https://zenless.hoyoverse.com/en-us/news/166907",
-            "https://zenless.hoyoverse.com/en-us/news/166908"
+            "https://zenless.hoyoverse.com/en-us/news/166908",
+            "https://zenless.hoyoverse.com/en-us/news/166909",
+            "https://zenless.hoyoverse.com/en-us/news/166924",
+            "https://zenless.hoyoverse.com/en-us/news/166925",
+            "https://zenless.hoyoverse.com/en-us/news/166926",
+            "https://zenless.hoyoverse.com/en-us/news/166927",
+            "https://zenless.hoyoverse.com/en-us/news/166928"
           ],
           "anchorURLsSeen": [],
           "checkpointReached": false,
@@ -544,7 +564,7 @@
           "maximumPageBudget": 4,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-18"
+        "listingUnchangedSince": "2026-10-20"
       },
       "endfield": {
         "articlesRead": 11,
