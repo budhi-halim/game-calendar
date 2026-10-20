@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-837ea7de66ef800c",
-  "checkedOn": "2026-10-20",
+  "datasetId": "release-calendar-16bf9669ca465571",
+  "checkedOn": "2026-10-21",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -434,6 +434,26 @@
       "title": "New Main Story: Season 3 Chapter 4 \"Journey to the Sky\"",
       "url": "https://zenless.hoyoverse.com/en-us/news/166928",
       "kind": "official"
+    },
+    "official-c34d4b188b513b71": {
+      "title": "Ridu Renovation Talk Vol. 15 | System Optimizations",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166929",
+      "kind": "official"
+    },
+    "official-ca835d4de9d27369": {
+      "title": "Version 3.3 New Eridu City Fund Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166944",
+      "kind": "official"
+    },
+    "official-0d46e72ca6544d44": {
+      "title": "\"All-New Program\" Event Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166945",
+      "kind": "official"
+    },
+    "official-2629b3e0cead2b8a": {
+      "title": "Version 3.3 \"Enigma of the Labyrinth\" Update Introduction",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166947",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -449,7 +469,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-20",
+    "checkedOn": "2026-10-21",
     "scope": [
       "hsr",
       "zzz",
@@ -493,7 +513,7 @@
       },
       "zzz": {
         "articlesRead": 37,
-        "observations": 11,
+        "observations": 15,
         "datedObservations": 0,
         "missingPublicationDates": 37,
         "discovery": {
@@ -521,11 +541,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/166122",
-            "https://zenless.hoyoverse.com/en-us/news/166190",
-            "https://zenless.hoyoverse.com/en-us/news/166191",
-            "https://zenless.hoyoverse.com/en-us/news/166192",
-            "https://zenless.hoyoverse.com/en-us/news/166193",
             "https://zenless.hoyoverse.com/en-us/news/166194",
             "https://zenless.hoyoverse.com/en-us/news/166449",
             "https://zenless.hoyoverse.com/en-us/news/166450",
@@ -555,7 +570,12 @@
             "https://zenless.hoyoverse.com/en-us/news/166925",
             "https://zenless.hoyoverse.com/en-us/news/166926",
             "https://zenless.hoyoverse.com/en-us/news/166927",
-            "https://zenless.hoyoverse.com/en-us/news/166928"
+            "https://zenless.hoyoverse.com/en-us/news/166928",
+            "https://zenless.hoyoverse.com/en-us/news/166929",
+            "https://zenless.hoyoverse.com/en-us/news/166944",
+            "https://zenless.hoyoverse.com/en-us/news/166945",
+            "https://zenless.hoyoverse.com/en-us/news/166946",
+            "https://zenless.hoyoverse.com/en-us/news/166947"
           ],
           "anchorURLsSeen": [],
           "checkpointReached": false,
@@ -564,7 +584,7 @@
           "maximumPageBudget": 4,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-20"
+        "listingUnchangedSince": "2026-10-21"
       },
       "endfield": {
         "articlesRead": 11,

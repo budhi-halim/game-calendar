@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-837ea7de66ef800c",
+  "datasetId": "release-calendar-16bf9669ca465571",
   "games": {
     "hsr": {
       "0": {
@@ -346,10 +346,14 @@
       "20": {
         "label": "3.3",
         "sources": [
+          "official-0d46e72ca6544d44",
+          "official-2629b3e0cead2b8a",
           "official-32d8ae67c8796343",
           "official-3e180d41727ad739",
           "official-5f18acb0ad55ca78",
           "official-6c864f008317aaa7",
+          "official-c34d4b188b513b71",
+          "official-ca835d4de9d27369",
           "official-cca1cc9fd8e1bd33",
           "official-dcac0af878a2cfac",
           "official-dd86a414eaafb673",
