@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-16bf9669ca465571",
-  "checkedOn": "2026-10-21",
+  "datasetId": "release-calendar-ec3063e30568e6df",
+  "checkedOn": "2026-10-22",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -454,6 +454,39 @@
       "title": "Version 3.3 \"Enigma of the Labyrinth\" Update Introduction",
       "url": "https://zenless.hoyoverse.com/en-us/news/166947",
       "kind": "official"
+    },
+    "official-26b7d386d88af457": {
+      "title": "Version 3.3 \"Journey to the Sky\" Update Announcement",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166963",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-10-21",
+          "kind": "update-date-block",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ]
+    },
+    "official-5334e7d1bcf97e79": {
+      "title": "Journey to the Sky | Version 3.3 Content Overview (Phase I)",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166964",
+      "kind": "official"
+    },
+    "official-67766c29a49ba8f9": {
+      "title": "\"Spooky Funhouse Tales\" Event Details",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166967",
+      "kind": "official"
+    },
+    "official-994d63a0289c2c94": {
+      "title": "[ZZZ × Discord] New Account Linking and Rich Presence Functions Now Available",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166968",
+      "kind": "official"
+    },
+    "official-28a40157747e9ee0": {
+      "title": "🎁 Version 3.3 Twitch Drops Event Now Live",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166985",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -469,7 +502,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-21",
+    "checkedOn": "2026-10-22",
     "scope": [
       "hsr",
       "zzz",
@@ -513,8 +546,8 @@
       },
       "zzz": {
         "articlesRead": 37,
-        "observations": 15,
-        "datedObservations": 0,
+        "observations": 21,
+        "datedObservations": 1,
         "missingPublicationDates": 37,
         "discovery": {
           "pagesRead": 4,
@@ -541,12 +574,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/166194",
-            "https://zenless.hoyoverse.com/en-us/news/166449",
-            "https://zenless.hoyoverse.com/en-us/news/166450",
-            "https://zenless.hoyoverse.com/en-us/news/166451",
-            "https://zenless.hoyoverse.com/en-us/news/166474",
-            "https://zenless.hoyoverse.com/en-us/news/166475",
             "https://zenless.hoyoverse.com/en-us/news/166476",
             "https://zenless.hoyoverse.com/en-us/news/166496",
             "https://zenless.hoyoverse.com/en-us/news/166497",
@@ -575,7 +602,13 @@
             "https://zenless.hoyoverse.com/en-us/news/166944",
             "https://zenless.hoyoverse.com/en-us/news/166945",
             "https://zenless.hoyoverse.com/en-us/news/166946",
-            "https://zenless.hoyoverse.com/en-us/news/166947"
+            "https://zenless.hoyoverse.com/en-us/news/166947",
+            "https://zenless.hoyoverse.com/en-us/news/166963",
+            "https://zenless.hoyoverse.com/en-us/news/166964",
+            "https://zenless.hoyoverse.com/en-us/news/166966",
+            "https://zenless.hoyoverse.com/en-us/news/166967",
+            "https://zenless.hoyoverse.com/en-us/news/166968",
+            "https://zenless.hoyoverse.com/en-us/news/166985"
           ],
           "anchorURLsSeen": [],
           "checkpointReached": false,
@@ -584,7 +617,7 @@
           "maximumPageBudget": 4,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-21"
+        "listingUnchangedSince": "2026-10-22"
       },
       "endfield": {
         "articlesRead": 11,

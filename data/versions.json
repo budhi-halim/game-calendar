@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-16bf9669ca465571",
+  "datasetId": "release-calendar-ec3063e30568e6df",
   "games": {
     "hsr": {
       "0": {
@@ -348,10 +348,15 @@
         "sources": [
           "official-0d46e72ca6544d44",
           "official-2629b3e0cead2b8a",
+          "official-26b7d386d88af457",
+          "official-28a40157747e9ee0",
           "official-32d8ae67c8796343",
           "official-3e180d41727ad739",
+          "official-5334e7d1bcf97e79",
           "official-5f18acb0ad55ca78",
+          "official-67766c29a49ba8f9",
           "official-6c864f008317aaa7",
+          "official-994d63a0289c2c94",
           "official-c34d4b188b513b71",
           "official-ca835d4de9d27369",
           "official-cca1cc9fd8e1bd33",
@@ -361,6 +366,14 @@
           "official-eafe769651b6c868",
           "official-f2abcb3f06f69cf7",
           "zzz-3-3-name"
+        ],
+        "verification": "official",
+        "managedBy": "hunter"
+      },
+      "21": {
+        "label": "3.4",
+        "sources": [
+          "official-26b7d386d88af457"
         ],
         "verification": "official",
         "managedBy": "hunter"
