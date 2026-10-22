@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-ec3063e30568e6df",
-  "checkedOn": "2026-10-22",
+  "checkedOn": "2026-10-23",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -502,7 +502,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-22",
+    "checkedOn": "2026-10-23",
     "scope": [
       "hsr",
       "zzz",
@@ -552,7 +552,7 @@
         "discovery": {
           "pagesRead": 4,
           "recordsDiscovered": 36,
-          "endReason": "configured-page-limit",
+          "endReason": "anchor-overlap",
           "passes": [
             {
               "pass": 1,
@@ -610,11 +610,13 @@
             "https://zenless.hoyoverse.com/en-us/news/166968",
             "https://zenless.hoyoverse.com/en-us/news/166985"
           ],
-          "anchorURLsSeen": [],
-          "checkpointReached": false,
-          "coverage": "bounded-unverified",
+          "anchorURLsSeen": [
+            "https://zenless.hoyoverse.com/en-us/news/166963"
+          ],
+          "checkpointReached": true,
+          "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
-          "maximumPageBudget": 4,
+          "maximumPageBudget": 12,
           "additionalKnownArticles": 1
         },
         "listingUnchangedSince": "2026-10-22"
