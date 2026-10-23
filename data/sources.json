@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ec3063e30568e6df",
-  "checkedOn": "2026-10-23",
+  "datasetId": "release-calendar-08a5ac951abf5ddc",
+  "checkedOn": "2026-10-24",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -487,6 +487,11 @@
       "title": "🎁 Version 3.3 Twitch Drops Event Now Live",
       "url": "https://zenless.hoyoverse.com/en-us/news/166985",
       "kind": "official"
+    },
+    "official-f604d7b3cef0a05b": {
+      "title": "Zenless Zone Zero Version 3.3 Character Avatars",
+      "url": "https://zenless.hoyoverse.com/en-us/news/166998",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -502,7 +507,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-23",
+    "checkedOn": "2026-10-24",
     "scope": [
       "hsr",
       "zzz",
@@ -546,7 +551,7 @@
       },
       "zzz": {
         "articlesRead": 37,
-        "observations": 21,
+        "observations": 22,
         "datedObservations": 1,
         "missingPublicationDates": 37,
         "discovery": {
@@ -574,8 +579,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/166476",
-            "https://zenless.hoyoverse.com/en-us/news/166496",
             "https://zenless.hoyoverse.com/en-us/news/166497",
             "https://zenless.hoyoverse.com/en-us/news/166498",
             "https://zenless.hoyoverse.com/en-us/news/166535",
@@ -608,7 +611,9 @@
             "https://zenless.hoyoverse.com/en-us/news/166966",
             "https://zenless.hoyoverse.com/en-us/news/166967",
             "https://zenless.hoyoverse.com/en-us/news/166968",
-            "https://zenless.hoyoverse.com/en-us/news/166985"
+            "https://zenless.hoyoverse.com/en-us/news/166985",
+            "https://zenless.hoyoverse.com/en-us/news/166997",
+            "https://zenless.hoyoverse.com/en-us/news/166998"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -619,7 +624,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-22"
+        "listingUnchangedSince": "2026-10-24"
       },
       "endfield": {
         "articlesRead": 11,

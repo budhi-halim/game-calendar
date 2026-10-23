@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ec3063e30568e6df",
+  "datasetId": "release-calendar-08a5ac951abf5ddc",
   "games": {
     "hsr": {
       "0": {
@@ -365,6 +365,7 @@
           "official-e56c362453e69c82",
           "official-eafe769651b6c868",
           "official-f2abcb3f06f69cf7",
+          "official-f604d7b3cef0a05b",
           "zzz-3-3-name"
         ],
         "verification": "official",
