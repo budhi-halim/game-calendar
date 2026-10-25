@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-08a5ac951abf5ddc",
-  "checkedOn": "2026-10-25",
+  "checkedOn": "2026-10-26",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -507,7 +507,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-25",
+    "checkedOn": "2026-10-26",
     "scope": [
       "hsr",
       "zzz",
@@ -579,7 +579,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/166535",
             "https://zenless.hoyoverse.com/en-us/news/166536",
             "https://zenless.hoyoverse.com/en-us/news/166552",
             "https://zenless.hoyoverse.com/en-us/news/166553",
@@ -613,7 +612,8 @@
             "https://zenless.hoyoverse.com/en-us/news/166968",
             "https://zenless.hoyoverse.com/en-us/news/166985",
             "https://zenless.hoyoverse.com/en-us/news/166997",
-            "https://zenless.hoyoverse.com/en-us/news/166998"
+            "https://zenless.hoyoverse.com/en-us/news/166998",
+            "https://zenless.hoyoverse.com/en-us/news/167015"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -624,7 +624,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 1
         },
-        "listingUnchangedSince": "2026-10-25"
+        "listingUnchangedSince": "2026-10-26"
       },
       "endfield": {
         "articlesRead": 11,
