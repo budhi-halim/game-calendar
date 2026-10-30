@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-08a5ac951abf5ddc",
-  "checkedOn": "2026-10-30",
+  "datasetId": "release-calendar-1f31573a59e2b859",
+  "checkedOn": "2026-10-31",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -492,6 +492,16 @@
       "title": "Zenless Zone Zero Version 3.3 Character Avatars",
       "url": "https://zenless.hoyoverse.com/en-us/news/166998",
       "kind": "official"
+    },
+    "official-b70748640c048a36": {
+      "title": "Version 4.7 Trailer: \"Now, Lay Laughter to All Stars\" | Honkai: Star Rail",
+      "url": "https://hsr.hoyoverse.com/en-us/news/167053",
+      "kind": "official"
+    },
+    "official-15188727da4304bf": {
+      "title": "\"Cosmic Aesthetics: Phantasia Showstage\" Outfit Draw Event Details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/167132",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -507,7 +517,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-30",
+    "checkedOn": "2026-10-31",
     "scope": [
       "hsr",
       "zzz",
@@ -516,10 +526,10 @@
     "pendingNames": 0,
     "games": {
       "hsr": {
-        "articlesRead": 6,
-        "observations": 5,
+        "articlesRead": 7,
+        "observations": 7,
         "datedObservations": 2,
-        "missingPublicationDates": 6,
+        "missingPublicationDates": 7,
         "discovery": {
           "pagesRead": 1,
           "recordsDiscovered": 5,
@@ -532,22 +542,20 @@
           ],
           "categories": [],
           "discoveredURLs": [
-            "https://hsr.hoyoverse.com/en-us/news/166182",
             "https://hsr.hoyoverse.com/en-us/news/166189",
-            "https://hsr.hoyoverse.com/en-us/news/166468",
             "https://hsr.hoyoverse.com/en-us/news/166548",
-            "https://hsr.hoyoverse.com/en-us/news/167052"
+            "https://hsr.hoyoverse.com/en-us/news/167052",
+            "https://hsr.hoyoverse.com/en-us/news/167053",
+            "https://hsr.hoyoverse.com/en-us/news/167132"
           ],
-          "anchorURLsSeen": [
-            "https://hsr.hoyoverse.com/en-us/news/166468"
-          ],
-          "checkpointReached": true,
-          "coverage": "current-anchor-overlap",
+          "anchorURLsSeen": [],
+          "checkpointReached": false,
+          "coverage": "bounded-unverified",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 1
+          "additionalKnownArticles": 2
         },
-        "listingUnchangedSince": "2026-10-30"
+        "listingUnchangedSince": "2026-10-31"
       },
       "zzz": {
         "articlesRead": 38,

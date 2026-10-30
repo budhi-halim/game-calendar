@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-08a5ac951abf5ddc",
+  "datasetId": "release-calendar-1f31573a59e2b859",
   "games": {
     "hsr": {
       "0": {
@@ -197,6 +197,15 @@
           "official-bd58a048544cb29f"
         ],
         "label": "4.6",
+        "verification": "official",
+        "managedBy": "hunter"
+      },
+      "31": {
+        "label": "4.7",
+        "sources": [
+          "official-15188727da4304bf",
+          "official-b70748640c048a36"
+        ],
         "verification": "official",
         "managedBy": "hunter"
       }
