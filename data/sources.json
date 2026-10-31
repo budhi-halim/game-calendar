@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-1f31573a59e2b859",
-  "checkedOn": "2026-10-31",
+  "checkedOn": "2026-11-01",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -517,7 +517,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-10-31",
+    "checkedOn": "2026-11-01",
     "scope": [
       "hsr",
       "zzz",
@@ -558,10 +558,10 @@
         "listingUnchangedSince": "2026-10-31"
       },
       "zzz": {
-        "articlesRead": 38,
+        "articlesRead": 39,
         "observations": 21,
         "datedObservations": 1,
-        "missingPublicationDates": 38,
+        "missingPublicationDates": 39,
         "discovery": {
           "pagesRead": 4,
           "recordsDiscovered": 36,
@@ -587,8 +587,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/166553",
-            "https://zenless.hoyoverse.com/en-us/news/166644",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
             "https://zenless.hoyoverse.com/en-us/news/166647",
@@ -621,7 +619,9 @@
             "https://zenless.hoyoverse.com/en-us/news/166998",
             "https://zenless.hoyoverse.com/en-us/news/167015",
             "https://zenless.hoyoverse.com/en-us/news/167038",
-            "https://zenless.hoyoverse.com/en-us/news/167082"
+            "https://zenless.hoyoverse.com/en-us/news/167082",
+            "https://zenless.hoyoverse.com/en-us/news/167083",
+            "https://zenless.hoyoverse.com/en-us/news/167084"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -630,9 +630,9 @@
           "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 2
+          "additionalKnownArticles": 3
         },
-        "listingUnchangedSince": "2026-10-30"
+        "listingUnchangedSince": "2026-11-01"
       },
       "endfield": {
         "articlesRead": 11,
