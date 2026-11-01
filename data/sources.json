@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-1f31573a59e2b859",
-  "checkedOn": "2026-11-01",
+  "checkedOn": "2026-11-02",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -517,7 +517,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-01",
+    "checkedOn": "2026-11-02",
     "scope": [
       "hsr",
       "zzz",
@@ -558,10 +558,10 @@
         "listingUnchangedSince": "2026-10-31"
       },
       "zzz": {
-        "articlesRead": 39,
+        "articlesRead": 40,
         "observations": 21,
         "datedObservations": 1,
-        "missingPublicationDates": 39,
+        "missingPublicationDates": 40,
         "discovery": {
           "pagesRead": 4,
           "recordsDiscovered": 36,
@@ -589,7 +589,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166647",
             "https://zenless.hoyoverse.com/en-us/news/166664",
             "https://zenless.hoyoverse.com/en-us/news/166665",
             "https://zenless.hoyoverse.com/en-us/news/166667",
@@ -621,7 +620,8 @@
             "https://zenless.hoyoverse.com/en-us/news/167038",
             "https://zenless.hoyoverse.com/en-us/news/167082",
             "https://zenless.hoyoverse.com/en-us/news/167083",
-            "https://zenless.hoyoverse.com/en-us/news/167084"
+            "https://zenless.hoyoverse.com/en-us/news/167084",
+            "https://zenless.hoyoverse.com/en-us/news/167085"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -630,9 +630,9 @@
           "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 3
+          "additionalKnownArticles": 4
         },
-        "listingUnchangedSince": "2026-11-01"
+        "listingUnchangedSince": "2026-11-02"
       },
       "endfield": {
         "articlesRead": 11,
