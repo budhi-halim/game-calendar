@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-1f31573a59e2b859",
-  "checkedOn": "2026-11-03",
+  "checkedOn": "2026-11-04",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -517,7 +517,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-03",
+    "checkedOn": "2026-11-04",
     "scope": [
       "hsr",
       "zzz",
@@ -543,10 +543,10 @@
           "categories": [],
           "discoveredURLs": [
             "https://hsr.hoyoverse.com/en-us/news/166189",
-            "https://hsr.hoyoverse.com/en-us/news/166548",
             "https://hsr.hoyoverse.com/en-us/news/167052",
             "https://hsr.hoyoverse.com/en-us/news/167053",
-            "https://hsr.hoyoverse.com/en-us/news/167132"
+            "https://hsr.hoyoverse.com/en-us/news/167132",
+            "https://hsr.hoyoverse.com/en-us/news/167177"
           ],
           "anchorURLsSeen": [],
           "checkpointReached": false,
@@ -555,11 +555,11 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 2
         },
-        "listingUnchangedSince": "2026-10-31"
+        "listingUnchangedSince": "2026-11-04"
       },
       "zzz": {
         "articlesRead": 40,
-        "observations": 21,
+        "observations": 20,
         "datedObservations": 1,
         "missingPublicationDates": 40,
         "discovery": {
@@ -589,7 +589,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166667",
             "https://zenless.hoyoverse.com/en-us/news/166760",
             "https://zenless.hoyoverse.com/en-us/news/166761",
             "https://zenless.hoyoverse.com/en-us/news/166906",
@@ -621,7 +620,8 @@
             "https://zenless.hoyoverse.com/en-us/news/167084",
             "https://zenless.hoyoverse.com/en-us/news/167085",
             "https://zenless.hoyoverse.com/en-us/news/167086",
-            "https://zenless.hoyoverse.com/en-us/news/167087"
+            "https://zenless.hoyoverse.com/en-us/news/167087",
+            "https://zenless.hoyoverse.com/en-us/news/167088"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -632,7 +632,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 4
         },
-        "listingUnchangedSince": "2026-11-03"
+        "listingUnchangedSince": "2026-11-04"
       },
       "endfield": {
         "articlesRead": 11,
