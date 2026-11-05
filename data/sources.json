@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-1f31573a59e2b859",
-  "checkedOn": "2026-11-05",
+  "datasetId": "release-calendar-ab1276cc30bcd332",
+  "checkedOn": "2026-11-06",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -502,6 +502,11 @@
       "title": "\"Cosmic Aesthetics: Phantasia Showstage\" Outfit Draw Event Details",
       "url": "https://hsr.hoyoverse.com/en-us/news/167132",
       "kind": "official"
+    },
+    "official-3c7473317ab4b177": {
+      "title": "Zenless Zone Zero Compatibility Notice for iPhone Duo Models",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167249",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -517,7 +522,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-05",
+    "checkedOn": "2026-11-06",
     "scope": [
       "hsr",
       "zzz",
@@ -559,7 +564,7 @@
       },
       "zzz": {
         "articlesRead": 40,
-        "observations": 20,
+        "observations": 21,
         "datedObservations": 1,
         "missingPublicationDates": 40,
         "discovery": {
@@ -589,8 +594,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166761",
-            "https://zenless.hoyoverse.com/en-us/news/166906",
             "https://zenless.hoyoverse.com/en-us/news/166907",
             "https://zenless.hoyoverse.com/en-us/news/166908",
             "https://zenless.hoyoverse.com/en-us/news/166909",
@@ -621,7 +624,9 @@
             "https://zenless.hoyoverse.com/en-us/news/167086",
             "https://zenless.hoyoverse.com/en-us/news/167087",
             "https://zenless.hoyoverse.com/en-us/news/167088",
-            "https://zenless.hoyoverse.com/en-us/news/167156"
+            "https://zenless.hoyoverse.com/en-us/news/167156",
+            "https://zenless.hoyoverse.com/en-us/news/167157",
+            "https://zenless.hoyoverse.com/en-us/news/167249"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -632,7 +637,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 4
         },
-        "listingUnchangedSince": "2026-11-05"
+        "listingUnchangedSince": "2026-11-06"
       },
       "endfield": {
         "articlesRead": 12,
