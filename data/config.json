@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ab1276cc30bcd332",
+  "datasetId": "release-calendar-cbb0a87ad0febfba",
   "title": "Patch calendar",
   "timeZone": "Asia/Jakarta",
   "weekStartsOn": 1,
@@ -106,6 +106,19 @@
           "articlePattern": "/en-us/news/\\d+$",
           "titleStyle": "number",
           "requiredTitle": "Zenless Zone Zero",
+          "maxListPages": 2,
+          "maxArticlesPerGame": 12
+        },
+        "hsr": {
+          "enabled": true,
+          "url": "https://www.hoyoverse.com/en-us/news",
+          "hosts": [
+            "www.hoyoverse.com",
+            "hoyoverse.com"
+          ],
+          "articlePattern": "/en-us/news/\\d+$",
+          "titleStyle": "number",
+          "requiredTitle": "Honkai: Star Rail",
           "maxListPages": 2,
           "maxArticlesPerGame": 12
         }

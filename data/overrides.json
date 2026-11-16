@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ab1276cc30bcd332",
+  "datasetId": "release-calendar-cbb0a87ad0febfba",
   "games": {
     "hsr": [
       {
@@ -300,6 +300,16 @@
         ],
         "notes": "Monday release. Confirmed dates are not rounded. The 4.5 update notice independently specifies the September 28 transition.",
         "managedBy": "hunter"
+      },
+      {
+        "sequence": 31,
+        "date": "2026-11-11",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "official-7c7721afc083c42e"
+        ],
+        "managedBy": "hunter"
       }
     ],
     "zzz": [
@@ -509,7 +519,8 @@
           "official-26b7d386d88af457",
           "official-32d8ae67c8796343"
         ],
-        "managedBy": "hunter"
+        "managedBy": "hunter",
+        "announcedOn": "2026-10-09"
       }
     ],
     "endfield": [

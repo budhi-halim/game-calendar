@@ -1,13 +1,16 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ab1276cc30bcd332",
+  "datasetId": "release-calendar-cbb0a87ad0febfba",
   "games": {
     "hsr": {
       "0": {
         "sources": [
-          "hsr-history"
+          "hsr-history",
+          "official-7c7721afc083c42e"
         ],
-        "label": "1.0"
+        "label": "1.0",
+        "verification": "official",
+        "managedBy": "hunter"
       },
       "1": {
         "sources": [
@@ -143,9 +146,12 @@
       },
       "23": {
         "sources": [
-          "hsr-history"
+          "hsr-history",
+          "official-7c7721afc083c42e"
         ],
-        "label": "3.8"
+        "label": "3.8",
+        "verification": "official",
+        "managedBy": "hunter"
       },
       "24": {
         "sources": [
@@ -204,6 +210,8 @@
         "label": "4.7",
         "sources": [
           "official-15188727da4304bf",
+          "official-7c7721afc083c42e",
+          "official-9ea7f84777be970e",
           "official-b70748640c048a36"
         ],
         "verification": "official",
@@ -355,10 +363,12 @@
       "20": {
         "label": "3.3",
         "sources": [
+          "official-019bba2d8299f256",
           "official-0d46e72ca6544d44",
           "official-2629b3e0cead2b8a",
           "official-26b7d386d88af457",
           "official-28a40157747e9ee0",
+          "official-314665c9513e7443",
           "official-32d8ae67c8796343",
           "official-3c7473317ab4b177",
           "official-3e180d41727ad739",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-ab1276cc30bcd332",
-  "checkedOn": "2026-11-08",
+  "datasetId": "release-calendar-cbb0a87ad0febfba",
+  "checkedOn": "2026-11-16",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -405,10 +405,17 @@
         {
           "date": "2026-10-21",
           "kind": "explicit-release-statement",
+          "yearSource": "article-publication-date",
+          "publicationReference": "2026-10-09"
+        },
+        {
+          "date": "2026-10-21",
+          "kind": "explicit-release-statement",
           "yearSource": "explicit-date",
           "publicationReference": null
         }
-      ]
+      ],
+      "publishedOn": "2026-10-09"
     },
     "official-6372ebe7d54d5c6e": {
       "title": "Zenless Zone Zero Celebrates Its 2nd Anniversary: All-New Lumiflux Attribute Debuts, First-Generation Void Hunter Remielle Dan Makes a Dazzling Entrance as an S-Rank Agent",
@@ -507,6 +514,34 @@
       "title": "Zenless Zone Zero Compatibility Notice for iPhone Duo Models",
       "url": "https://zenless.hoyoverse.com/en-us/news/167249",
       "kind": "official"
+    },
+    "official-7c7721afc083c42e": {
+      "title": "Version 4.7 \"Now, Lay Laughter to All Stars\" Update Details",
+      "url": "https://hsr.hoyoverse.com/en-us/news/167246",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-11-11",
+          "kind": "update-date-block",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ]
+    },
+    "official-019bba2d8299f256": {
+      "title": "Version 3.3 New Stock in the Store",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167272",
+      "kind": "official"
+    },
+    "official-314665c9513e7443": {
+      "title": "Journey to the Sky | Version 3.3 Content Overview (Phase II)",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167304",
+      "kind": "official"
+    },
+    "official-9ea7f84777be970e": {
+      "title": "Animated Short: \"A Joyful Funeral Beneath the Moon\" | Honkai: Star Rail",
+      "url": "https://hsr.hoyoverse.com/en-us/news/167303",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -522,7 +557,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-08",
+    "checkedOn": "2026-11-16",
     "scope": [
       "hsr",
       "zzz",
@@ -531,10 +566,10 @@
     "pendingNames": 0,
     "games": {
       "hsr": {
-        "articlesRead": 7,
-        "observations": 7,
-        "datedObservations": 2,
-        "missingPublicationDates": 7,
+        "articlesRead": 8,
+        "observations": 10,
+        "datedObservations": 3,
+        "missingPublicationDates": 8,
         "discovery": {
           "pagesRead": 1,
           "recordsDiscovered": 5,
@@ -547,26 +582,26 @@
           ],
           "categories": [],
           "discoveredURLs": [
-            "https://hsr.hoyoverse.com/en-us/news/166189",
-            "https://hsr.hoyoverse.com/en-us/news/167053",
             "https://hsr.hoyoverse.com/en-us/news/167132",
-            "https://hsr.hoyoverse.com/en-us/news/167177",
-            "https://hsr.hoyoverse.com/en-us/news/167178"
+            "https://hsr.hoyoverse.com/en-us/news/167246",
+            "https://hsr.hoyoverse.com/en-us/news/167247",
+            "https://hsr.hoyoverse.com/en-us/news/167248",
+            "https://hsr.hoyoverse.com/en-us/news/167303"
           ],
           "anchorURLsSeen": [],
           "checkpointReached": false,
           "coverage": "bounded-unverified",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 2
+          "additionalKnownArticles": 3
         },
-        "listingUnchangedSince": "2026-11-05"
+        "listingUnchangedSince": "2026-11-16"
       },
       "zzz": {
-        "articlesRead": 40,
-        "observations": 21,
-        "datedObservations": 1,
-        "missingPublicationDates": 40,
+        "articlesRead": 38,
+        "observations": 18,
+        "datedObservations": 3,
+        "missingPublicationDates": 36,
         "discovery": {
           "pagesRead": 4,
           "recordsDiscovered": 36,
@@ -594,14 +629,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166907",
-            "https://zenless.hoyoverse.com/en-us/news/166908",
-            "https://zenless.hoyoverse.com/en-us/news/166909",
-            "https://zenless.hoyoverse.com/en-us/news/166924",
-            "https://zenless.hoyoverse.com/en-us/news/166925",
-            "https://zenless.hoyoverse.com/en-us/news/166926",
-            "https://zenless.hoyoverse.com/en-us/news/166927",
-            "https://zenless.hoyoverse.com/en-us/news/166928",
             "https://zenless.hoyoverse.com/en-us/news/166929",
             "https://zenless.hoyoverse.com/en-us/news/166944",
             "https://zenless.hoyoverse.com/en-us/news/166945",
@@ -626,7 +653,15 @@
             "https://zenless.hoyoverse.com/en-us/news/167088",
             "https://zenless.hoyoverse.com/en-us/news/167156",
             "https://zenless.hoyoverse.com/en-us/news/167157",
-            "https://zenless.hoyoverse.com/en-us/news/167249"
+            "https://zenless.hoyoverse.com/en-us/news/167249",
+            "https://zenless.hoyoverse.com/en-us/news/167268",
+            "https://zenless.hoyoverse.com/en-us/news/167269",
+            "https://zenless.hoyoverse.com/en-us/news/167270",
+            "https://zenless.hoyoverse.com/en-us/news/167271",
+            "https://zenless.hoyoverse.com/en-us/news/167272",
+            "https://zenless.hoyoverse.com/en-us/news/167283",
+            "https://zenless.hoyoverse.com/en-us/news/167304",
+            "https://zenless.hoyoverse.com/en-us/news/167305"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -635,9 +670,45 @@
           "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 4
+          "additionalKnownArticles": 0,
+          "pressFallback": {
+            "attempted": true,
+            "url": "https://www.hoyoverse.com/en-us/news",
+            "status": "collected",
+            "articlesRead": 2,
+            "datedObservations": 2,
+            "diagnostic": null,
+            "discovery": {
+              "pagesRead": 1,
+              "recordsDiscovered": 7,
+              "endReason": "no-more-control-or-scroll-results",
+              "passes": [
+                {
+                  "pass": 1,
+                  "distinctRecords": 7
+                }
+              ],
+              "categories": [],
+              "discoveredURLs": [
+                "https://www.hoyoverse.com/en-us/news/165826",
+                "https://www.hoyoverse.com/en-us/news/165951",
+                "https://www.hoyoverse.com/en-us/news/166386",
+                "https://www.hoyoverse.com/en-us/news/166390",
+                "https://www.hoyoverse.com/en-us/news/166759",
+                "https://www.hoyoverse.com/en-us/news/167180",
+                "https://www.hoyoverse.com/en-us/news/167259"
+              ],
+              "anchorURLsSeen": [],
+              "checkpointReached": false,
+              "coverage": "bounded-unverified",
+              "initialPageBudget": 2,
+              "maximumPageBudget": 2,
+              "additionalKnownArticles": 0,
+              "matchingTitleRecords": 2
+            }
+          }
         },
-        "listingUnchangedSince": "2026-11-06"
+        "listingUnchangedSince": "2026-11-16"
       },
       "endfield": {
         "articlesRead": 12,
