@@ -2,28 +2,55 @@
 
 import argparse
 import copy
+import re
 import sys
+import threading
 from contextlib import closing
 from datetime import datetime
 
 from common import JAKARTA, ROOT, digest, exclusive_lock, recover_data, get_game, load_data, parse_day, release, private_directory, read_json, save_data, today, validate, write_json
-from sources import BROADCAST, CollectedArticles, FeedReadError, canonical_article, collect_feed, normalize_name, parse_article
+from sources import DATE, BROADCAST, CollectedArticles, FeedReadError, published_day, canonical_article, collect_feed, normalize_name, parse_article
 from feed_pool import CollectionCancelled, collect_parallel
 from progress import Progress
 from run_history import archive_run, run_identity
 
 
 
-# One persistent publisher-owned news listing, not a version-specific search URL.
-# Only ZZZ uses this host, so the existing three game workers never concurrently
-# collect this supplementary hostname. Configuration remains in config.json.
+# Shared corporate source, filtered independently for each game. Never collect
+# this hostname concurrently when two game workers need the fallback together.
+_PRESS_LOCK = threading.Lock()
 DEFAULT_PRESS_FALLBACK = {
-    'zzz': {'enabled': True, 'url': 'https://www.hoyoverse.com/en-us/news',
-            'hosts': ['www.hoyoverse.com', 'hoyoverse.com'],
-            'articlePattern': r'/en-us/news/\d+$', 'titleStyle': 'number',
-            'requiredTitle': 'Zenless Zone Zero', 'maxListPages': 2,
-            'maxArticlesPerGame': 12}
+    game_id: {'enabled': True, 'url': 'https://www.hoyoverse.com/en-us/news',
+              'hosts': ['www.hoyoverse.com', 'hoyoverse.com'],
+              'articlePattern': r'/en-us/news/\d+$', 'titleStyle': 'number',
+              'requiredTitle': title, 'maxListPages': 2, 'maxArticlesPerGame': 12}
+    for game_id, title in (('hsr', 'Honkai: Star Rail'), ('zzz', 'Zenless Zone Zero'))
 }
+
+
+def configure_press_fallback(settings):
+    """Add missing game adapters without replacing existing user configuration."""
+    configured = settings.setdefault('pressFallback', {})
+    for game_id, defaults in DEFAULT_PRESS_FALLBACK.items():
+        configured.setdefault(game_id, copy.deepcopy(defaults))
+
+
+def press_publication(article):
+    """Use an explicit city/date press dateline only; never use crawl time."""
+    if article.get('publishedOn'):
+        return article
+    for line in str(article.get('text', '')).splitlines()[:4]:
+        city = re.match(r'^\s*(?:Singapore|Shanghai|Tokyo|Seoul|Los Angeles)\s*,\s*', line, re.I)
+        if not city:
+            continue
+        remaining = line[city.end():]
+        match = DATE.match(remaining)
+        if match and re.match(r'\s*[,，]?\s*[—–-]', remaining[match.end():]):
+            day = published_day(match[0])
+            if day:
+                return dict(article, publishedOn=day,
+                            publicationSource='publisher press-release city/date dateline')
+    return article
 
 
 def trusted_evidence(item, settings):
@@ -38,11 +65,9 @@ def trusted_evidence(item, settings):
 
 
 def press_needed(data, game_id, parsed):
-    """Try the text press feed after an unresolved upcoming broadcast/teaser notice."""
+    """Check the fixed press feed for an explicitly named, undated next release."""
     anchors = {row['sequence']: row for row in data['overrides']['games'][game_id]}
     for item in parsed:
-        if not (BROADCAST.search(item.get('sourceTitle', '')) or 'trailer' in item.get('sourceTitle', '').lower()):
-            continue
         sequence = locate_sequence(data, game_id, item)
         if sequence is None or sequence in anchors:
             continue
@@ -59,7 +84,19 @@ def add_press_evidence(data, game_id, parsed, articles, settings, executable, em
     source is rediscovered every run; no release date or article ID is hardcoded.
     """
     fallback = settings.get('pressFallback', {}).get(game_id)
-    if not fallback or not fallback.get('enabled') or not press_needed(data, game_id, parsed):
+    if not fallback or not fallback.get('enabled'):
+        return parsed, articles
+    unresolved_name = press_needed(data, game_id, parsed)
+    # A bounded primary listing must not silently hide its next announcement.
+    # Only a verified listing result can trigger this near-release recovery.
+    discovery = getattr(articles, 'discovery', {})
+    latest = max(data['overrides']['games'][game_id], key=lambda row: row['sequence'])
+    next_day = release(data, game_id, latest['sequence'] + 1)['day']
+    current_day = parse_day(today())
+    new_date_seen = any(item.get('date') and parse_day(item['date']) > parse_day(latest['date']) for item in parsed)
+    coverage_recovery = (discovery.get('coverage') == 'bounded-unverified' and not new_date_seen and
+                         next_day - current_day <= settings.get('preReleaseWarningDays', 14))
+    if not unresolved_name and not coverage_recovery:
         return parsed, articles
     if type(fallback.get('maxListPages')) is not int or not 1 <= fallback['maxListPages'] <= 4:
         raise ValueError('Press fallback maxListPages must be between 1 and 4.')
@@ -79,8 +116,15 @@ def add_press_evidence(data, game_id, parsed, articles, settings, executable, em
                 maxAdaptiveListPages=fallback['maxListPages'],
                 maxArticlesPerGame=fallback['maxArticlesPerGame'], seedArticles=[], coverageAnchors=[])
     try:
-        extra = collect_feed(game_id, fallback, opts, executable,
-                progress=lambda message: emit(f'[{game_id}/press] {message}'), headed=headed, cancel=cancel)
+        emit(f'[{game_id}/press] Waiting for the shared publisher-host slot.')
+        while not _PRESS_LOCK.acquire(timeout=0.2):
+            cancel()
+        try:
+            cancel()
+            extra = collect_feed(game_id, fallback, opts, executable,
+                    progress=lambda message: emit(f'[{game_id}/press] {message}'), headed=headed, cancel=cancel)
+        finally:
+            _PRESS_LOCK.release()
     except CollectionCancelled:
         raise
     except Exception as error:
@@ -90,8 +134,8 @@ def add_press_evidence(data, game_id, parsed, articles, settings, executable, em
         emit(f'NOTICE: {game_id}: official press fallback unavailable; a missing date remains projected. Details are in the report.')
         return parsed, articles
     # Verify the game association again after the article headline has been read.
-    # Other games on the same corporate domain cannot become ZZZ evidence.
-    matching = [article for article in extra if fallback['requiredTitle'].casefold() in article['title'].casefold()]
+    # Other games on the same corporate domain cannot become this game's evidence.
+    matching = [press_publication(article) for article in extra if fallback['requiredTitle'].casefold() in article['title'].casefold()]
     extra_parsed = [item for article in matching for item in parse_article(article, fallback['titleStyle'])]
     seen = {article['url'] for article in articles}
     articles.extend(article for article in matching if article['url'] not in seen)
@@ -213,12 +257,18 @@ def merge_observation(data, item, settings):
 
 
 def seed_articles(data, game_id, feed):
-    """Revisit recorded official anchor/name notices even after they leave the first page."""
+    """Revisit date anchors and names still awaiting a date, not old ancillary news.
+
+    A recorded name is not dependent on its draw-rate/event article remaining
+    online forever. Preserve that evidence in history, but once its release is
+    date-anchored only re-read the actual date sources. Upcoming undated names
+    still seed collection; newly listed articles are always inspected normally.
+    """
     anchors = data['overrides']['games'][game_id]
     latest = max(anchors, key=lambda row: row['sequence'])
     keys = set(latest.get('sources', []))
     for sequence, name in data['versions']['games'][game_id].items():
-        if int(sequence) >= latest['sequence']:
+        if int(sequence) > latest['sequence']:
             keys.update(name.get('sources', []))
     found = {}
     for key in sorted(keys):
@@ -351,7 +401,7 @@ def main():
         for key, default in {'maxAdaptiveListPages': max(12, settings['maxListPages']), 'publicationWaitSeconds': 1.0,
                              'unchangedListingWarningDays': 14, 'confirmationWarningDays': 3, 'preReleaseWarningDays': 14, 'feedWorkers': 3}.items():
             settings.setdefault(key, default)
-        settings.setdefault('pressFallback', copy.deepcopy(DEFAULT_PRESS_FALLBACK))
+        configure_press_fallback(settings)
         monitoring = data['config']['automation'].setdefault('monitoring', {})
         monitoring.setdefault('runRetentionDays', 180)
         monitoring.setdefault('stageTimeoutSeconds', 1200)
