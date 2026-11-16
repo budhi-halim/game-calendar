@@ -1,6 +1,12 @@
 name: Update game calendar
 
 on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/update-calendar.yml'
+      - 'automation/**/*.py'
+      - 'automation/requirements.txt'
   schedule:
     # 19:00 UTC is 02:00 the following day in Jakarta.
     - cron: '0 19 * * *'
@@ -23,11 +29,10 @@ concurrency:
 
 jobs:
   update:
-    # Uploading this YAML alone cannot activate scheduled runs.
+    # Code pushes check only; scheduled writes still require explicit activation.
     if: >-
       github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
-      (github.event_name == 'workflow_dispatch' || vars.PATCH_CALENDAR_AUTOMATION == 'true')
-    # Keep OS changes deliberate; ubuntu-latest previously migrated to an unsupported OS.
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || vars.PATCH_CALENDAR_AUTOMATION == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 35
     env:
@@ -55,7 +60,7 @@ jobs:
           echo "PATCH_CALENDAR_CHECKOUT_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
           mkdir -p .patch-calendar
           python - <<'PYINFO'
-          import json, os, platform, subprocess, sys
+          import json, os, platform, subprocess
           from pathlib import Path
           result = {
               'checkedOutRevision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
@@ -96,8 +101,8 @@ jobs:
         id: daily
         continue-on-error: true
         env:
-          MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode }}
-          PATCH_CALENDAR_GOOGLE_JSON: ${{ secrets.PATCH_CALENDAR_GOOGLE_JSON }}
+          MODE: ${{ github.event_name == 'schedule' && 'apply' || github.event_name == 'push' && 'check' || inputs.mode }}
+          PATCH_CALENDAR_GOOGLE_JSON: ${{ (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'apply')) && secrets.PATCH_CALENDAR_GOOGLE_JSON || '' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -125,7 +130,6 @@ jobs:
         run: |
           set -euo pipefail
           [[ "$HISTORY_FILE" =~ ^automation/history/[0-9]{4}-[0-9]{2}\.jsonl$ ]] || exit 1
-          # Stage by explicit path, never git add . or the private runtime directory.
           git add -- "$HISTORY_FILE"
           if [ "$HUNT_APPLIED" = 'true' ]; then
             python automation/hunt.py --validate
