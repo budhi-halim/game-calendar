@@ -27,7 +27,8 @@ jobs:
     if: >-
       github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
       (github.event_name == 'workflow_dispatch' || vars.PATCH_CALENDAR_AUTOMATION == 'true')
-    runs-on: ubuntu-latest
+    # Keep OS changes deliberate; ubuntu-latest previously migrated to an unsupported OS.
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     env:
       PATCH_CALENDAR_STATE_DIR: ${{ github.workspace }}/.patch-calendar
@@ -47,15 +48,39 @@ jobs:
           cache: pip
           cache-dependency-path: automation/requirements.txt
 
+      - name: Record the checked-out revision and runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "PATCH_CALENDAR_CHECKOUT_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+          mkdir -p .patch-calendar
+          python - <<'PYINFO'
+          import json, os, platform, subprocess, sys
+          from pathlib import Path
+          result = {
+              'checkedOutRevision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'triggerRevision': os.environ.get('GITHUB_SHA'),
+              'runnerImage': os.environ.get('ImageOS'),
+              'runnerImageVersion': os.environ.get('ImageVersion'),
+              'python': platform.python_version(),
+              'platform': platform.platform(),
+              'requirements': Path('automation/requirements.txt').read_text().splitlines(),
+          }
+          Path('.patch-calendar/runner-environment.json').write_text(json.dumps(result, indent=2) + '\n')
+          print(json.dumps(result, indent=2), flush=True)
+          PYINFO
+
       - name: Check project-local runtime isolation
         run: python -c "import sys; sys.path.insert(0, 'automation'); from common import private_directory; print('Runtime:', private_directory())"
 
       - name: Install the publisher-news browser
+        id: browser
         run: |
           python -m pip install --disable-pip-version-check -r automation/requirements.txt
           python -m playwright install --with-deps chromium
 
       - name: Validate and test without account secrets
+        id: tests
         run: |
           python automation/hunt.py --validate
           python -m unittest discover -s automation/tests -v
@@ -140,6 +165,31 @@ jobs:
           }
           gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
 
+      - name: Summarize infrastructure and pipeline outcomes
+        if: always()
+        env:
+          BROWSER_OUTCOME: ${{ steps.browser.outcome }}
+          TEST_OUTCOME: ${{ steps.tests.outcome }}
+          DAILY_OUTCOME: ${{ steps.daily.outcome }}
+        shell: bash
+        run: |
+          mkdir -p .patch-calendar
+          python - <<'PYSTATUS'
+          import json, os
+          from pathlib import Path
+          result = {
+              'browserSetup': os.environ.get('BROWSER_OUTCOME', 'not-run'),
+              'tests': os.environ.get('TEST_OUTCOME', 'not-run'),
+              'pipeline': os.environ.get('DAILY_OUTCOME', 'not-run'),
+              'pipelineReportPresent': Path('.patch-calendar/pipeline-report.json').is_file(),
+          }
+          Path('.patch-calendar/workflow-status.json').write_text(json.dumps(result, indent=2) + '\n')
+          print(json.dumps(result, indent=2), flush=True)
+          if not result['pipelineReportPresent']:
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                  summary.write('## Calendar pipeline did not start\n\nInspect browser setup and test outcomes; missing pipeline reports are not successful hunts.\n')
+          PYSTATUS
+
       - name: Retain reports without credentials or destination state
         if: always()
         uses: actions/upload-artifact@v4
@@ -152,6 +202,8 @@ jobs:
             .patch-calendar/calendar-sync.log
             .patch-calendar/pipeline-report.json
             .patch-calendar/pipeline-progress.log
+            .patch-calendar/runner-environment.json
+            .patch-calendar/workflow-status.json
           include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 90
