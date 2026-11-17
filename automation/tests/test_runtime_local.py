@@ -3,6 +3,7 @@
 import contextlib
 import copy
 import io
+import json
 import os
 import subprocess
 import sys
@@ -111,7 +112,9 @@ class LocalRuntimeTests(unittest.TestCase):
 
     def test_calendar_preview_uses_project_runtime(self):
         """The default calendar command remains offline and writes locally."""
-        with patch.object(sys, 'argv', ['calendar_sync.py', '--date', '2026-10-04']), \
+        fixture = json.loads(Path(__file__).with_name('fixture-data.json').read_text(encoding='utf-8'))
+        with patch.object(calendar_sync, 'load_data', return_value=fixture), \
+                patch.object(sys, 'argv', ['calendar_sync.py', '--date', '2026-10-04']), \
                 patch.object(calendar_sync, 'GoogleAPI', side_effect=AssertionError('No Google requests')), \
                 contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(calendar_sync.main(), 0)
@@ -130,26 +133,129 @@ class LocalRuntimeTests(unittest.TestCase):
 
 
 class ProposedChangeTests(unittest.TestCase):
-    """Reports must expose the data that would change, not only filenames."""
+    """Exercise release reporting against fixed inputs, never changing production data."""
+
+    def setUp(self):
+        """Keep unit tests independent of the bot's latest confirmed release."""
+        self.data = json.loads(Path(__file__).with_name('fixture-data.json').read_text(encoding='utf-8'))
+        common.validate(self.data)
+        guard = patch.object(common, 'load_data', side_effect=AssertionError(
+            'Release-report unit tests must use fixture-data.json, not the live dataset.'))
+        guard.start()
+        self.addCleanup(guard.stop)
+
+    @staticmethod
+    def anchor(data, sequence):
+        """Select the intended permanent release ID, not whichever row is last."""
+        return next(row for row in data['overrides']['games']['hsr'] if row['sequence'] == sequence)
+
+    def with_newer_releases(self, count=1):
+        """Model automatic data growth, including a major-version name transition."""
+        data = copy.deepcopy(self.data)
+        for sequence in range(31, 31 + count):
+            date = common.release(data, 'hsr', sequence)['date']
+            data['overrides']['games']['hsr'].append({
+                'sequence': sequence, 'date': date, 'status': 'confirmed',
+                'verification': 'official', 'sources': ['hsr-4-6']})
+            data['versions']['games']['hsr'][str(sequence)] = {
+                'label': '4.7' if sequence == 31 else f'5.{sequence - 32}',
+                'sources': ['hsr-4-6']}
+        common.validate(data)
+        return data
 
     def test_before_after_dates_and_names(self):
-        """Show changed dates beside permanent release IDs."""
-        before = common.load_data()
+        """Show changed dates and names for the same permanent release ID."""
+        before = self.data
         after = copy.deepcopy(before)
-        after['overrides']['games']['hsr'][-1]['date'] = '2026-10-01'
+        self.anchor(after, 30)['date'] = '2026-10-01'
         after['versions']['games']['hsr']['30']['title'] = 'A test title'
+        common.validate(after)
         changes = release_changes(before, after)
-        self.assertEqual(changes[0]['releaseId'], 'hsr-30')
-        self.assertNotEqual(changes[0]['before'], changes[0]['after'])
-        self.assertEqual(changes[0]['after']['override']['date'], '2026-10-01')
+        self.assertEqual([item['releaseId'] for item in changes], ['hsr-30'])
+        change = changes[0]
+        self.assertEqual(change['before']['override']['date'], '2026-09-28')
+        self.assertEqual(change['after']['override']['date'], '2026-10-01')
+        self.assertEqual(change['after']['name']['title'], 'A test title')
+        self.assertEqual(change['previousCalculatedDate'], '2026-09-28')
+        self.assertEqual(change['currentCalculatedDate'], '2026-10-01')
 
     def test_metadata_refresh_not_shown_as_release_change(self):
         """A checkedOn/dataset-ID refresh does not pretend to move a release."""
-        before = common.load_data()
+        before = self.data
         after = copy.deepcopy(before)
         after['sources']['checkedOn'] = '2026-10-05'
-        after['config']['datasetId'] = 'test'
+        for value in after.values():
+            value['datasetId'] = 'test-metadata-refresh'
+        common.validate(after)
         self.assertEqual(release_changes(before, after), [])
+
+    def test_date_only_correction_preserves_name(self):
+        """The date record and its calculated date change without a name edit."""
+        after = copy.deepcopy(self.data)
+        self.anchor(after, 30)['date'] = '2026-10-01'
+        changes = release_changes(self.data, after)
+        self.assertEqual([item['releaseId'] for item in changes], ['hsr-30'])
+        self.assertEqual(changes[0]['before']['name'], changes[0]['after']['name'])
+        self.assertEqual(changes[0]['currentCalculatedDate'], '2026-10-01')
+
+    def test_name_only_change_preserves_date(self):
+        """A naming change must not be misreported as rescheduling."""
+        after = copy.deepcopy(self.data)
+        after['versions']['games']['hsr']['30']['title'] = 'A test title'
+        changes = release_changes(self.data, after)
+        self.assertEqual([item['releaseId'] for item in changes], ['hsr-30'])
+        self.assertEqual(changes[0]['before']['override'], changes[0]['after']['override'])
+        self.assertEqual(changes[0]['previousCalculatedDate'], changes[0]['currentCalculatedDate'])
+
+    def test_historical_change_survives_newer_releases(self):
+        """Appending releases cannot redirect the historical correction to the last row."""
+        for count in (1, 5, 50):
+            with self.subTest(newer_releases=count):
+                before = self.with_newer_releases(count)
+                after = copy.deepcopy(before)
+                self.anchor(after, 30)['date'] = '2026-10-01'
+                after['versions']['games']['hsr']['30']['title'] = 'Historical correction'
+                common.validate(after)
+                changes = release_changes(before, after)
+                self.assertEqual([item['releaseId'] for item in changes], ['hsr-30'])
+                self.assertEqual(changes[0]['before']['override']['date'], '2026-09-28')
+                self.assertEqual(changes[0]['after']['override']['date'], '2026-10-01')
+                self.assertEqual(after['overrides']['games']['hsr'][31:],
+                                 before['overrides']['games']['hsr'][31:])
+
+    def test_different_release_edits_are_not_conflated(self):
+        """Reproduce Nov 17: editing 4.6's name and 4.7's date creates two changes."""
+        before = self.with_newer_releases()
+        after = copy.deepcopy(before)
+        after['versions']['games']['hsr']['30']['title'] = 'Historical correction'
+        self.anchor(after, 31)['date'] = '2026-11-12'
+        common.validate(after)
+        changes = {item['releaseId']: item for item in release_changes(before, after)}
+        self.assertEqual(set(changes), {'hsr-30', 'hsr-31'})
+        self.assertEqual(changes['hsr-30']['after']['override']['date'], '2026-09-28')
+        self.assertEqual(changes['hsr-31']['after']['override']['date'], '2026-11-12')
+        self.assertEqual(changes['hsr-31']['previousCalculatedDate'], '2026-11-11')
+        self.assertEqual(changes['hsr-31']['currentCalculatedDate'], '2026-11-12')
+
+    def test_new_confirmation_reports_previous_projection(self):
+        """A new confirmed anchor is recorded even when the prediction was correct."""
+        after = self.with_newer_releases()
+        changes = release_changes(self.data, after)
+        self.assertEqual([item['releaseId'] for item in changes], ['hsr-31'])
+        self.assertIsNone(changes[0]['before']['override'])
+        self.assertEqual(changes[0]['after']['override']['status'], 'confirmed')
+        self.assertEqual(changes[0]['previousCalculatedDate'], '2026-11-11')
+        self.assertEqual(changes[0]['currentCalculatedDate'], '2026-11-11')
+
+    def test_reporting_does_not_mutate_inputs(self):
+        """The diagnostic diff must leave both caller-owned datasets unchanged."""
+        before = self.with_newer_releases(5)
+        after = copy.deepcopy(before)
+        self.anchor(after, 30)['date'] = '2026-10-01'
+        saved_before, saved_after = copy.deepcopy(before), copy.deepcopy(after)
+        release_changes(before, after)
+        self.assertEqual(before, saved_before)
+        self.assertEqual(after, saved_after)
 
 
 if __name__ == '__main__':
