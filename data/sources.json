@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-cbb0a87ad0febfba",
-  "checkedOn": "2026-11-16",
+  "datasetId": "release-calendar-479f034857c278ff",
+  "checkedOn": "2026-11-17",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -542,6 +542,11 @@
       "title": "Animated Short: \"A Joyful Funeral Beneath the Moon\" | Honkai: Star Rail",
       "url": "https://hsr.hoyoverse.com/en-us/news/167303",
       "kind": "official"
+    },
+    "official-ecc6c326fa56282e": {
+      "title": "Zenless Zone Zero Version 3.4 \"The Finality of the Day\" Special Program Announcement",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167352",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -557,7 +562,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-16",
+    "checkedOn": "2026-11-17",
     "scope": [
       "hsr",
       "zzz",
@@ -566,10 +571,10 @@
     "pendingNames": 0,
     "games": {
       "hsr": {
-        "articlesRead": 8,
-        "observations": 10,
-        "datedObservations": 3,
-        "missingPublicationDates": 8,
+        "articlesRead": 5,
+        "observations": 5,
+        "datedObservations": 1,
+        "missingPublicationDates": 5,
         "discovery": {
           "pagesRead": 1,
           "recordsDiscovered": 5,
@@ -588,12 +593,14 @@
             "https://hsr.hoyoverse.com/en-us/news/167248",
             "https://hsr.hoyoverse.com/en-us/news/167303"
           ],
-          "anchorURLsSeen": [],
-          "checkpointReached": false,
-          "coverage": "bounded-unverified",
+          "anchorURLsSeen": [
+            "https://hsr.hoyoverse.com/en-us/news/167246"
+          ],
+          "checkpointReached": true,
+          "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 3
+          "additionalKnownArticles": 0
         },
         "listingUnchangedSince": "2026-11-16"
       },
@@ -629,7 +636,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166929",
             "https://zenless.hoyoverse.com/en-us/news/166944",
             "https://zenless.hoyoverse.com/en-us/news/166945",
             "https://zenless.hoyoverse.com/en-us/news/166946",
@@ -661,7 +667,8 @@
             "https://zenless.hoyoverse.com/en-us/news/167272",
             "https://zenless.hoyoverse.com/en-us/news/167283",
             "https://zenless.hoyoverse.com/en-us/news/167304",
-            "https://zenless.hoyoverse.com/en-us/news/167305"
+            "https://zenless.hoyoverse.com/en-us/news/167305",
+            "https://zenless.hoyoverse.com/en-us/news/167352"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -708,7 +715,7 @@
             }
           }
         },
-        "listingUnchangedSince": "2026-11-16"
+        "listingUnchangedSince": "2026-11-17"
       },
       "endfield": {
         "articlesRead": 12,
