@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-479f034857c278ff",
-  "checkedOn": "2026-11-18",
+  "datasetId": "release-calendar-3958149cc45a7b50",
+  "checkedOn": "2026-11-19",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -547,6 +547,11 @@
       "title": "Zenless Zone Zero Version 3.4 \"The Finality of the Day\" Special Program Announcement",
       "url": "https://zenless.hoyoverse.com/en-us/news/167352",
       "kind": "official"
+    },
+    "official-c439cfa405eefff1": {
+      "title": "Journey to the Sky | Video Archive Sharing",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167369",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -562,7 +567,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-18",
+    "checkedOn": "2026-11-19",
     "scope": [
       "hsr",
       "zzz",
@@ -606,7 +611,7 @@
       },
       "zzz": {
         "articlesRead": 38,
-        "observations": 18,
+        "observations": 17,
         "datedObservations": 3,
         "missingPublicationDates": 36,
         "discovery": {
@@ -636,9 +641,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166944",
-            "https://zenless.hoyoverse.com/en-us/news/166945",
-            "https://zenless.hoyoverse.com/en-us/news/166946",
             "https://zenless.hoyoverse.com/en-us/news/166947",
             "https://zenless.hoyoverse.com/en-us/news/166963",
             "https://zenless.hoyoverse.com/en-us/news/166964",
@@ -668,7 +670,10 @@
             "https://zenless.hoyoverse.com/en-us/news/167283",
             "https://zenless.hoyoverse.com/en-us/news/167304",
             "https://zenless.hoyoverse.com/en-us/news/167305",
-            "https://zenless.hoyoverse.com/en-us/news/167352"
+            "https://zenless.hoyoverse.com/en-us/news/167352",
+            "https://zenless.hoyoverse.com/en-us/news/167368",
+            "https://zenless.hoyoverse.com/en-us/news/167369",
+            "https://zenless.hoyoverse.com/en-us/news/167371"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -715,7 +720,7 @@
             }
           }
         },
-        "listingUnchangedSince": "2026-11-17"
+        "listingUnchangedSince": "2026-11-19"
       },
       "endfield": {
         "articlesRead": 12,
