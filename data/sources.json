@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-18fb93b71ea4b366",
-  "checkedOn": "2026-11-21",
+  "datasetId": "release-calendar-69d5c29f829194df",
+  "checkedOn": "2026-11-22",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -567,6 +567,11 @@
       "title": "Version 3.4 \"The Finality of the Day\" Benefits Express",
       "url": "https://zenless.hoyoverse.com/en-us/news/167400",
       "kind": "official"
+    },
+    "official-31a00ac5e187f61a": {
+      "title": "Season 3 Retrospective - The Eve of a New World | Zenless Zone Zero",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167409",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -582,7 +587,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-21",
+    "checkedOn": "2026-11-22",
     "scope": [
       "hsr",
       "zzz",
@@ -660,7 +665,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166928",
             "https://zenless.hoyoverse.com/en-us/news/166929",
             "https://zenless.hoyoverse.com/en-us/news/166944",
             "https://zenless.hoyoverse.com/en-us/news/166945",
@@ -701,7 +705,8 @@
             "https://zenless.hoyoverse.com/en-us/news/167389",
             "https://zenless.hoyoverse.com/en-us/news/167395",
             "https://zenless.hoyoverse.com/en-us/news/167399",
-            "https://zenless.hoyoverse.com/en-us/news/167400"
+            "https://zenless.hoyoverse.com/en-us/news/167400",
+            "https://zenless.hoyoverse.com/en-us/news/167409"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -748,7 +753,7 @@
             }
           }
         },
-        "listingUnchangedSince": "2026-11-21"
+        "listingUnchangedSince": "2026-11-22"
       },
       "endfield": {
         "articlesRead": 12,
@@ -768,7 +773,6 @@
           "categories": [],
           "discoveredURLs": [
             "https://endfield.gryphline.com/en-us/news/0743",
-            "https://endfield.gryphline.com/en-us/news/2652",
             "https://endfield.gryphline.com/en-us/news/3837",
             "https://endfield.gryphline.com/en-us/news/5205",
             "https://endfield.gryphline.com/en-us/news/5206",
@@ -776,7 +780,8 @@
             "https://endfield.gryphline.com/en-us/news/6179",
             "https://endfield.gryphline.com/en-us/news/7012",
             "https://endfield.gryphline.com/en-us/news/9560",
-            "https://endfield.gryphline.com/en-us/news/9568"
+            "https://endfield.gryphline.com/en-us/news/9568",
+            "https://endfield.gryphline.com/en-us/news/9569"
           ],
           "anchorURLsSeen": [
             "https://endfield.gryphline.com/en-us/news/9560"
@@ -787,7 +792,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 2
         },
-        "listingUnchangedSince": "2026-11-20"
+        "listingUnchangedSince": "2026-11-22"
       }
     }
   }
