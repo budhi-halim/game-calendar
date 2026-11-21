@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-3958149cc45a7b50",
-  "checkedOn": "2026-11-20",
+  "datasetId": "release-calendar-18fb93b71ea4b366",
+  "checkedOn": "2026-11-21",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -552,6 +552,21 @@
       "title": "Journey to the Sky | Video Archive Sharing",
       "url": "https://zenless.hoyoverse.com/en-us/news/167369",
       "kind": "official"
+    },
+    "official-dd7890f4d1eca72b": {
+      "title": "[Prize Event] The Final Battle Before Dawn",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167395",
+      "kind": "official"
+    },
+    "official-c8fba295646c9f1f": {
+      "title": "Zenless Zone Zero Version 3.4 \"The Finality of the Day\" Special Program | Intel Report",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167399",
+      "kind": "official"
+    },
+    "official-edb7622b71ae39c8": {
+      "title": "Version 3.4 \"The Finality of the Day\" Benefits Express",
+      "url": "https://zenless.hoyoverse.com/en-us/news/167400",
+      "kind": "official"
     }
   },
   "coverage": {
@@ -567,7 +582,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-20",
+    "checkedOn": "2026-11-21",
     "scope": [
       "hsr",
       "zzz",
@@ -610,13 +625,13 @@
         "listingUnchangedSince": "2026-11-16"
       },
       "zzz": {
-        "articlesRead": 38,
-        "observations": 17,
+        "articlesRead": 47,
+        "observations": 24,
         "datedObservations": 3,
-        "missingPublicationDates": 36,
+        "missingPublicationDates": 45,
         "discovery": {
-          "pagesRead": 4,
-          "recordsDiscovered": 36,
+          "pagesRead": 5,
+          "recordsDiscovered": 45,
           "endReason": "anchor-overlap",
           "passes": [
             {
@@ -634,6 +649,10 @@
             {
               "pass": 4,
               "distinctRecords": 36
+            },
+            {
+              "pass": 5,
+              "distinctRecords": 45
             }
           ],
           "categories": [],
@@ -641,6 +660,11 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
+            "https://zenless.hoyoverse.com/en-us/news/166928",
+            "https://zenless.hoyoverse.com/en-us/news/166929",
+            "https://zenless.hoyoverse.com/en-us/news/166944",
+            "https://zenless.hoyoverse.com/en-us/news/166945",
+            "https://zenless.hoyoverse.com/en-us/news/166946",
             "https://zenless.hoyoverse.com/en-us/news/166947",
             "https://zenless.hoyoverse.com/en-us/news/166963",
             "https://zenless.hoyoverse.com/en-us/news/166964",
@@ -673,7 +697,11 @@
             "https://zenless.hoyoverse.com/en-us/news/167352",
             "https://zenless.hoyoverse.com/en-us/news/167368",
             "https://zenless.hoyoverse.com/en-us/news/167369",
-            "https://zenless.hoyoverse.com/en-us/news/167371"
+            "https://zenless.hoyoverse.com/en-us/news/167371",
+            "https://zenless.hoyoverse.com/en-us/news/167389",
+            "https://zenless.hoyoverse.com/en-us/news/167395",
+            "https://zenless.hoyoverse.com/en-us/news/167399",
+            "https://zenless.hoyoverse.com/en-us/news/167400"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -720,7 +748,7 @@
             }
           }
         },
-        "listingUnchangedSince": "2026-11-19"
+        "listingUnchangedSince": "2026-11-21"
       },
       "endfield": {
         "articlesRead": 12,
