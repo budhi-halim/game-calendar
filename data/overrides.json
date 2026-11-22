@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-69d5c29f829194df",
+  "datasetId": "release-calendar-8063c9dcf897cd20",
   "games": {
     "hsr": [
       {
@@ -599,6 +599,17 @@
         ],
         "managedBy": "hunter",
         "announcedOn": "2026-10-15"
+      },
+      {
+        "sequence": 7,
+        "date": "2026-11-25",
+        "status": "confirmed",
+        "verification": "official",
+        "sources": [
+          "official-ac3e1fb98adfd839"
+        ],
+        "managedBy": "hunter",
+        "announcedOn": "2026-11-22"
       }
     ]
   }

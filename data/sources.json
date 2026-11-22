@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-69d5c29f829194df",
-  "checkedOn": "2026-11-22",
+  "datasetId": "release-calendar-8063c9dcf897cd20",
+  "checkedOn": "2026-11-23",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -572,6 +572,20 @@
       "title": "Season 3 Retrospective - The Eve of a New World | Zenless Zone Zero",
       "url": "https://zenless.hoyoverse.com/en-us/news/167409",
       "kind": "official"
+    },
+    "official-ac3e1fb98adfd839": {
+      "title": "Arknights: Endfield [Meeting You in the World o'Shrooms] Version DEV Comm",
+      "url": "https://endfield.gryphline.com/en-us/news/7011",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-11-25",
+          "kind": "explicit-release-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ],
+      "publishedOn": "2026-11-22"
     }
   },
   "coverage": {
@@ -587,7 +601,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-22",
+    "checkedOn": "2026-11-23",
     "scope": [
       "hsr",
       "zzz",
@@ -631,7 +645,7 @@
       },
       "zzz": {
         "articlesRead": 47,
-        "observations": 24,
+        "observations": 23,
         "datedObservations": 3,
         "missingPublicationDates": 45,
         "discovery": {
@@ -665,7 +679,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166929",
             "https://zenless.hoyoverse.com/en-us/news/166944",
             "https://zenless.hoyoverse.com/en-us/news/166945",
             "https://zenless.hoyoverse.com/en-us/news/166946",
@@ -706,7 +719,8 @@
             "https://zenless.hoyoverse.com/en-us/news/167395",
             "https://zenless.hoyoverse.com/en-us/news/167399",
             "https://zenless.hoyoverse.com/en-us/news/167400",
-            "https://zenless.hoyoverse.com/en-us/news/167409"
+            "https://zenless.hoyoverse.com/en-us/news/167409",
+            "https://zenless.hoyoverse.com/en-us/news/167412"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -753,12 +767,12 @@
             }
           }
         },
-        "listingUnchangedSince": "2026-11-22"
+        "listingUnchangedSince": "2026-11-23"
       },
       "endfield": {
         "articlesRead": 12,
-        "observations": 3,
-        "datedObservations": 3,
+        "observations": 4,
+        "datedObservations": 4,
         "missingPublicationDates": 0,
         "discovery": {
           "pagesRead": 1,
@@ -772,12 +786,12 @@
           ],
           "categories": [],
           "discoveredURLs": [
-            "https://endfield.gryphline.com/en-us/news/0743",
-            "https://endfield.gryphline.com/en-us/news/3837",
+            "https://endfield.gryphline.com/en-us/news/3836",
             "https://endfield.gryphline.com/en-us/news/5205",
             "https://endfield.gryphline.com/en-us/news/5206",
             "https://endfield.gryphline.com/en-us/news/6178",
             "https://endfield.gryphline.com/en-us/news/6179",
+            "https://endfield.gryphline.com/en-us/news/7011",
             "https://endfield.gryphline.com/en-us/news/7012",
             "https://endfield.gryphline.com/en-us/news/9560",
             "https://endfield.gryphline.com/en-us/news/9568",
@@ -792,7 +806,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 2
         },
-        "listingUnchangedSince": "2026-11-22"
+        "listingUnchangedSince": "2026-11-23"
       }
     }
   }
