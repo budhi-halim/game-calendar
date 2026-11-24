@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-8063c9dcf897cd20",
+  "datasetId": "release-calendar-a5a879fd18a95ee7",
   "games": {
     "hsr": {
       "0": {
@@ -462,6 +462,7 @@
       "7": {
         "title": "Meeting You in the World o'Shrooms",
         "sources": [
+          "official-3744e732fb50b547",
           "official-ac3e1fb98adfd839"
         ],
         "verification": "official",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-8063c9dcf897cd20",
-  "checkedOn": "2026-11-23",
+  "datasetId": "release-calendar-a5a879fd18a95ee7",
+  "checkedOn": "2026-11-24",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -586,6 +586,26 @@
         }
       ],
       "publishedOn": "2026-11-22"
+    },
+    "official-3744e732fb50b547": {
+      "title": "[Meeting You in the World o'Shrooms] Version Pre-Download & Update Notice",
+      "url": "https://endfield.gryphline.com/en-us/news/3835",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-11-25",
+          "kind": "maintenance-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        },
+        {
+          "date": "2026-11-25",
+          "kind": "maintenance-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ],
+      "publishedOn": "2026-11-23"
     }
   },
   "coverage": {
@@ -601,7 +621,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-23",
+    "checkedOn": "2026-11-24",
     "scope": [
       "hsr",
       "zzz",
@@ -645,7 +665,7 @@
       },
       "zzz": {
         "articlesRead": 47,
-        "observations": 23,
+        "observations": 22,
         "datedObservations": 3,
         "missingPublicationDates": 45,
         "discovery": {
@@ -679,7 +699,6 @@
             "https://zenless.hoyoverse.com/en-us/news/123483",
             "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166944",
             "https://zenless.hoyoverse.com/en-us/news/166945",
             "https://zenless.hoyoverse.com/en-us/news/166946",
             "https://zenless.hoyoverse.com/en-us/news/166947",
@@ -720,7 +739,8 @@
             "https://zenless.hoyoverse.com/en-us/news/167399",
             "https://zenless.hoyoverse.com/en-us/news/167400",
             "https://zenless.hoyoverse.com/en-us/news/167409",
-            "https://zenless.hoyoverse.com/en-us/news/167412"
+            "https://zenless.hoyoverse.com/en-us/news/167412",
+            "https://zenless.hoyoverse.com/en-us/news/167413"
           ],
           "anchorURLsSeen": [
             "https://zenless.hoyoverse.com/en-us/news/166963"
@@ -767,12 +787,12 @@
             }
           }
         },
-        "listingUnchangedSince": "2026-11-23"
+        "listingUnchangedSince": "2026-11-24"
       },
       "endfield": {
-        "articlesRead": 12,
-        "observations": 4,
-        "datedObservations": 4,
+        "articlesRead": 10,
+        "observations": 2,
+        "datedObservations": 2,
         "missingPublicationDates": 0,
         "discovery": {
           "pagesRead": 1,
@@ -786,27 +806,27 @@
           ],
           "categories": [],
           "discoveredURLs": [
+            "https://endfield.gryphline.com/en-us/news/3835",
             "https://endfield.gryphline.com/en-us/news/3836",
+            "https://endfield.gryphline.com/en-us/news/5204",
             "https://endfield.gryphline.com/en-us/news/5205",
-            "https://endfield.gryphline.com/en-us/news/5206",
+            "https://endfield.gryphline.com/en-us/news/6177",
             "https://endfield.gryphline.com/en-us/news/6178",
-            "https://endfield.gryphline.com/en-us/news/6179",
             "https://endfield.gryphline.com/en-us/news/7011",
             "https://endfield.gryphline.com/en-us/news/7012",
-            "https://endfield.gryphline.com/en-us/news/9560",
             "https://endfield.gryphline.com/en-us/news/9568",
             "https://endfield.gryphline.com/en-us/news/9569"
           ],
           "anchorURLsSeen": [
-            "https://endfield.gryphline.com/en-us/news/9560"
+            "https://endfield.gryphline.com/en-us/news/7011"
           ],
           "checkpointReached": true,
           "coverage": "current-anchor-overlap",
           "initialPageBudget": 4,
           "maximumPageBudget": 12,
-          "additionalKnownArticles": 2
+          "additionalKnownArticles": 0
         },
-        "listingUnchangedSince": "2026-11-23"
+        "listingUnchangedSince": "2026-11-24"
       }
     }
   }
