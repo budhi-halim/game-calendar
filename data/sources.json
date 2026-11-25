@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "datasetId": "release-calendar-a5a879fd18a95ee7",
-  "checkedOn": "2026-11-24",
+  "datasetId": "release-calendar-30e97090b8a1fe61",
+  "checkedOn": "2026-11-25",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -606,6 +606,46 @@
         }
       ],
       "publishedOn": "2026-11-23"
+    },
+    "official-67154f9792eb1c79": {
+      "title": "[Meeting You in the World o'Shrooms] Version Update Notes",
+      "url": "https://endfield.gryphline.com/en-us/news/0740",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-11-25",
+          "kind": "maintenance-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ],
+      "publishedOn": "2026-11-25"
+    },
+    "official-060c9b83a5a3b782": {
+      "title": "Zenless Zone Zero Version 3.4 \"The Finality of the Day\" Launches December 2, Alongside the Honkai: Star Rail Crossover",
+      "url": "https://www.hoyoverse.com/en-us/news/167445",
+      "kind": "official",
+      "releaseDateEvidence": [
+        {
+          "date": "2026-12-02",
+          "kind": "explicit-release-statement",
+          "yearSource": "article-publication-date",
+          "publicationReference": "2026-11-20"
+        },
+        {
+          "date": "2026-12-02",
+          "kind": "explicit-release-statement",
+          "yearSource": "article-publication-date",
+          "publicationReference": "2026-11-20"
+        },
+        {
+          "date": "2026-12-02",
+          "kind": "explicit-release-statement",
+          "yearSource": "explicit-date",
+          "publicationReference": null
+        }
+      ],
+      "publishedOn": "2026-11-20"
     }
   },
   "coverage": {
@@ -621,7 +661,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-24",
+    "checkedOn": "2026-11-25",
     "scope": [
       "hsr",
       "zzz",
@@ -664,9 +704,9 @@
         "listingUnchangedSince": "2026-11-16"
       },
       "zzz": {
-        "articlesRead": 47,
-        "observations": 22,
-        "datedObservations": 3,
+        "articlesRead": 48,
+        "observations": 23,
+        "datedObservations": 4,
         "missingPublicationDates": 45,
         "discovery": {
           "pagesRead": 5,
@@ -754,8 +794,8 @@
             "attempted": true,
             "url": "https://www.hoyoverse.com/en-us/news",
             "status": "collected",
-            "articlesRead": 2,
-            "datedObservations": 2,
+            "articlesRead": 3,
+            "datedObservations": 3,
             "diagnostic": null,
             "discovery": {
               "pagesRead": 1,
@@ -769,13 +809,13 @@
               ],
               "categories": [],
               "discoveredURLs": [
-                "https://www.hoyoverse.com/en-us/news/165826",
                 "https://www.hoyoverse.com/en-us/news/165951",
                 "https://www.hoyoverse.com/en-us/news/166386",
                 "https://www.hoyoverse.com/en-us/news/166390",
                 "https://www.hoyoverse.com/en-us/news/166759",
                 "https://www.hoyoverse.com/en-us/news/167180",
-                "https://www.hoyoverse.com/en-us/news/167259"
+                "https://www.hoyoverse.com/en-us/news/167259",
+                "https://www.hoyoverse.com/en-us/news/167445"
               ],
               "anchorURLsSeen": [],
               "checkpointReached": false,
@@ -783,7 +823,7 @@
               "initialPageBudget": 2,
               "maximumPageBudget": 2,
               "additionalKnownArticles": 0,
-              "matchingTitleRecords": 2
+              "matchingTitleRecords": 3
             }
           }
         },
@@ -791,8 +831,8 @@
       },
       "endfield": {
         "articlesRead": 10,
-        "observations": 2,
-        "datedObservations": 2,
+        "observations": 3,
+        "datedObservations": 3,
         "missingPublicationDates": 0,
         "discovery": {
           "pagesRead": 1,
@@ -806,18 +846,19 @@
           ],
           "categories": [],
           "discoveredURLs": [
+            "https://endfield.gryphline.com/en-us/news/0740",
+            "https://endfield.gryphline.com/en-us/news/2659",
             "https://endfield.gryphline.com/en-us/news/3835",
             "https://endfield.gryphline.com/en-us/news/3836",
             "https://endfield.gryphline.com/en-us/news/5204",
             "https://endfield.gryphline.com/en-us/news/5205",
             "https://endfield.gryphline.com/en-us/news/6177",
-            "https://endfield.gryphline.com/en-us/news/6178",
             "https://endfield.gryphline.com/en-us/news/7011",
-            "https://endfield.gryphline.com/en-us/news/7012",
-            "https://endfield.gryphline.com/en-us/news/9568",
+            "https://endfield.gryphline.com/en-us/news/8992",
             "https://endfield.gryphline.com/en-us/news/9569"
           ],
           "anchorURLsSeen": [
+            "https://endfield.gryphline.com/en-us/news/3835",
             "https://endfield.gryphline.com/en-us/news/7011"
           ],
           "checkpointReached": true,
@@ -826,7 +867,7 @@
           "maximumPageBudget": 12,
           "additionalKnownArticles": 0
         },
-        "listingUnchangedSince": "2026-11-24"
+        "listingUnchangedSince": "2026-11-25"
       }
     }
   }
