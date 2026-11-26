@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetId": "release-calendar-30e97090b8a1fe61",
-  "checkedOn": "2026-11-25",
+  "checkedOn": "2026-11-26",
   "sources": {
     "hsr-history": {
       "title": "PC Gamer — Star Rail historical banner archive",
@@ -574,7 +574,7 @@
       "kind": "official"
     },
     "official-ac3e1fb98adfd839": {
-      "title": "Arknights: Endfield [Meeting You in the World o'Shrooms] Version DEV Comm",
+      "title": "[Meeting You in the World o'Shrooms] Version DEV Comm",
       "url": "https://endfield.gryphline.com/en-us/news/7011",
       "kind": "official",
       "releaseDateEvidence": [
@@ -661,7 +661,7 @@
   ],
   "collectionMethod": "official-feeds",
   "lastHunt": {
-    "checkedOn": "2026-11-25",
+    "checkedOn": "2026-11-26",
     "scope": [
       "hsr",
       "zzz",
@@ -704,14 +704,14 @@
         "listingUnchangedSince": "2026-11-16"
       },
       "zzz": {
-        "articlesRead": 48,
-        "observations": 23,
-        "datedObservations": 4,
-        "missingPublicationDates": 45,
+        "articlesRead": 36,
+        "observations": 9,
+        "datedObservations": 0,
+        "missingPublicationDates": 36,
         "discovery": {
-          "pagesRead": 5,
-          "recordsDiscovered": 45,
-          "endReason": "anchor-overlap",
+          "pagesRead": 4,
+          "recordsDiscovered": 36,
+          "endReason": "configured-page-limit",
           "passes": [
             {
               "pass": 1,
@@ -728,28 +728,12 @@
             {
               "pass": 4,
               "distinctRecords": 36
-            },
-            {
-              "pass": 5,
-              "distinctRecords": 45
             }
           ],
           "categories": [],
           "discoveredURLs": [
             "https://zenless.hoyoverse.com/en-us/news/123483",
-            "https://zenless.hoyoverse.com/en-us/news/166645",
             "https://zenless.hoyoverse.com/en-us/news/166646",
-            "https://zenless.hoyoverse.com/en-us/news/166945",
-            "https://zenless.hoyoverse.com/en-us/news/166946",
-            "https://zenless.hoyoverse.com/en-us/news/166947",
-            "https://zenless.hoyoverse.com/en-us/news/166963",
-            "https://zenless.hoyoverse.com/en-us/news/166964",
-            "https://zenless.hoyoverse.com/en-us/news/166966",
-            "https://zenless.hoyoverse.com/en-us/news/166967",
-            "https://zenless.hoyoverse.com/en-us/news/166968",
-            "https://zenless.hoyoverse.com/en-us/news/166985",
-            "https://zenless.hoyoverse.com/en-us/news/166997",
-            "https://zenless.hoyoverse.com/en-us/news/166998",
             "https://zenless.hoyoverse.com/en-us/news/167015",
             "https://zenless.hoyoverse.com/en-us/news/167038",
             "https://zenless.hoyoverse.com/en-us/news/167082",
@@ -780,54 +764,19 @@
             "https://zenless.hoyoverse.com/en-us/news/167400",
             "https://zenless.hoyoverse.com/en-us/news/167409",
             "https://zenless.hoyoverse.com/en-us/news/167412",
-            "https://zenless.hoyoverse.com/en-us/news/167413"
+            "https://zenless.hoyoverse.com/en-us/news/167413",
+            "https://zenless.hoyoverse.com/en-us/news/167429",
+            "https://zenless.hoyoverse.com/en-us/news/167430",
+            "https://zenless.hoyoverse.com/en-us/news/167431"
           ],
-          "anchorURLsSeen": [
-            "https://zenless.hoyoverse.com/en-us/news/166963"
-          ],
-          "checkpointReached": true,
-          "coverage": "current-anchor-overlap",
+          "anchorURLsSeen": [],
+          "checkpointReached": false,
+          "coverage": "bounded-unverified",
           "initialPageBudget": 4,
-          "maximumPageBudget": 12,
-          "additionalKnownArticles": 0,
-          "pressFallback": {
-            "attempted": true,
-            "url": "https://www.hoyoverse.com/en-us/news",
-            "status": "collected",
-            "articlesRead": 3,
-            "datedObservations": 3,
-            "diagnostic": null,
-            "discovery": {
-              "pagesRead": 1,
-              "recordsDiscovered": 7,
-              "endReason": "no-more-control-or-scroll-results",
-              "passes": [
-                {
-                  "pass": 1,
-                  "distinctRecords": 7
-                }
-              ],
-              "categories": [],
-              "discoveredURLs": [
-                "https://www.hoyoverse.com/en-us/news/165951",
-                "https://www.hoyoverse.com/en-us/news/166386",
-                "https://www.hoyoverse.com/en-us/news/166390",
-                "https://www.hoyoverse.com/en-us/news/166759",
-                "https://www.hoyoverse.com/en-us/news/167180",
-                "https://www.hoyoverse.com/en-us/news/167259",
-                "https://www.hoyoverse.com/en-us/news/167445"
-              ],
-              "anchorURLsSeen": [],
-              "checkpointReached": false,
-              "coverage": "bounded-unverified",
-              "initialPageBudget": 2,
-              "maximumPageBudget": 2,
-              "additionalKnownArticles": 0,
-              "matchingTitleRecords": 3
-            }
-          }
+          "maximumPageBudget": 4,
+          "additionalKnownArticles": 0
         },
-        "listingUnchangedSince": "2026-11-24"
+        "listingUnchangedSince": "2026-11-26"
       },
       "endfield": {
         "articlesRead": 10,
@@ -858,6 +807,7 @@
             "https://endfield.gryphline.com/en-us/news/9569"
           ],
           "anchorURLsSeen": [
+            "https://endfield.gryphline.com/en-us/news/0740",
             "https://endfield.gryphline.com/en-us/news/3835",
             "https://endfield.gryphline.com/en-us/news/7011"
           ],
